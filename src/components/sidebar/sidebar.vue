@@ -12,7 +12,7 @@
         item.icon?'menu-item-icon':'']"
         @click="_handleClick(item, index)"
       >
-      <i class="icon iconfont" :class="[item.icon?'icon-'+item.icon:'']"></i>
+      <i v-if="item.icon" class="icon iconfont" :class="[item.icon?'icon-'+item.icon:'']"></i>
         <span>{{item.title}}</span></li>
     </ul>
   </div>
@@ -55,7 +55,7 @@ export default {
     },
     //手工触发点击事件
     triggerClick (alias){
- 
+
       if(typeof alias == 'string'){
         for(let key in this.surfaceData){
           if(this.surfaceData[key].alias == alias){

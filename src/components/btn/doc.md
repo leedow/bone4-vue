@@ -1,0 +1,29 @@
+## 组件属性
+
+| 属性名      | 说 明         | 类 型 |默认值  |
+| ------------- |-----------|------| -----|
+| name |  按钮文字  | `String` | `''` |
+| theme | 主题样式( `blank` `primary` `primary-blank` `warm` `warm-blank` `comfort` `comfort-blank` ) | `String` | `default` |
+| size | 按钮尺寸（ `lg` `sm` `tiny` ） |   `String` | `default` |
+| icon | 按钮图标  | `String` | `''` |
+| block |  | `Boolean` | `false` |
+| enable | | `Boolean` | `false` |
+
+## 组件方法
+
+| 方法名 | 说 明 |
+|-------|-------|
+
+## 组件事件
+
+| 事件名 | 说 明 | 传入参数 |
+|-------|----------|---|
+| btn-click | 点击按钮 | `''` |
+
+
+
+## 初始化
+
+```
+<btn theme="primary" size="lg" icon="scan" name="Primary" @btn-click="handleClick"/>
+```

@@ -4,13 +4,17 @@
     <div id="left" class="left-scroll">
       <h1 id="logo">Bone4</h1>
       <h2 id="logo-tiny">Vue 2.0 version</h2>
-      <sidebar-menu :surface="[
+      <sidebar-menu ref="mains" :surface="[
         {
           alias: 'grid',
           title: '栅格系统',
           link: '/component/grid'
         },{
-          alias: 'sidebar',
+          alias: 'form',
+          title: '表 单',
+          sub: 'form'
+        },{
+          alias: 'menu',
           title: '菜单导航',
           sub: 'menu'
         }
@@ -46,12 +50,16 @@
 <script>
 import SidebarMenu from './components/sidebar/sidebar.vue'
 import Sidebar from './components/sidebar/demo.vue'
+import Btn from './components/btn/demo.vue'
+import FormInput from './components/form-input/demo.vue'
 import marked from 'marked'
 
 export default {
   components: {
     SidebarMenu,
-    Sidebar
+    Sidebar,
+    Btn,
+    FormInput
   },
   name: 'app',
   data () {
@@ -68,10 +76,25 @@ export default {
           link: '/component/sidebar'
         }, {
           alias: 'tabs',
-          title: '选项卡',
+          title: '横向菜单',
           link: '/component/tabs'
-        }
-      ]}
+        }, {
+          alias: 'tabs',
+          title: '垂直菜单',
+          link: '/component/tabs'
+        }],
+        form: [
+          {
+            alias: 'btn',
+            title: '按 钮',
+            link: '/component/btn'
+          },{
+            alias: 'input',
+            title: '输入框',
+            link: '/component/input'
+          }
+        ]
+      }
     }
   },
   methods: {
@@ -108,6 +131,10 @@ export default {
         }
       })
     }
+  },
+  ready (){
+    alert('fsdf')
+    this.$refs.mains.triggerClick(this.$route.params.name)
   },
   created (){
     this.loadingMarkdown();
