@@ -1,8 +1,11 @@
 <template>
-  <button class="btn" @click="handleClick" :class="[
-    'btn-' + theme,
-    'btn-' + size
-  ]"><i v-if="icon!=''" class="icon iconfont" :class="[icon?'icon-'+icon:'']"></i> {{name}}</button>
+  <button class="btn"
+          @click="handleClick"
+          :class="[
+            'btn-' + theme,
+            'btn-' + size
+          ]"
+  ><i v-if="icon!=''" class="icon iconfont" :class="[icon?'icon-'+icon:'']"></i> {{name}}</button>
 </template>
 
 <script>

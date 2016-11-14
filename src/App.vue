@@ -89,9 +89,9 @@ export default {
             title: '按 钮',
             link: '/component/btn'
           },{
-            alias: 'input',
+            alias: 'form-input',
             title: '输入框',
-            link: '/component/input'
+            link: '/component/form-input'
           }
         ]
       }

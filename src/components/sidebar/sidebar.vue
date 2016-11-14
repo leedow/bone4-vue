@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="sidebar-menu"
-        :style=css
+        :style="css"
         :class="[size=='sm'?'sidebar-menu-sm':'',
                 theme!='default'?'sidebar-menu-' + theme:'',
                 curl&&size=='sm'?'sidebar-menu-sm-curl':'',
