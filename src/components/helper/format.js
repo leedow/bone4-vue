@@ -30,7 +30,11 @@ var Format = {
     try{
 			var value = value.replace(/\s/, '');
 		} catch (e) {
-			console.log('format repalce wrong')
+			//console.log('format repalce wrong')
+			return {
+				state: false,
+				msg: '验证发生错误'
+			}
 		}
 
 

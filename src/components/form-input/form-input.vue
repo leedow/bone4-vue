@@ -1,5 +1,25 @@
 <template>
-  <div :class="[
+  <div v-if="label!=''"  class="form-item" :class="[
+    'form-item-' + this.theme
+  ]">
+    <label :for="name" :class="['label-' + this.size]">{{label}}</label>
+    <div :class="[
+        'be-' + state_
+    ]">
+      <input  class="input form-control"
+              type="text"
+              :name="name"
+              :class="[
+                'input-' + this.size,
+                'input-' + this.theme
+              ]"
+              v-model="value_"
+              :placeholder="holder"
+            />
+    </div>
+  </div>
+
+  <div v-else class="form-item" :class="[
       'be-' + state_
   ]">
     <input  class="input form-control"
@@ -7,16 +27,18 @@
             :name="name"
             :class="[
               'input-' + this.size,
-              'input-' + this.theme
+              this.theme=='underline'?'input-' + this.theme:''
             ]"
             v-model="value_"
             :placeholder="holder"
           />
   </div>
+
 </template>
 
 <script>
 import format from '../helper/format'
+import eventbus from '../helper/eventbus'
 
 export default {
   name: 'formInput',
@@ -64,6 +86,14 @@ export default {
     format: {
       type: String,
       default: ''
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    for: {
+      type: String,
+      default: ''
     }
   },
   methods: {
@@ -92,7 +122,25 @@ export default {
         this.setState('wrong');
       }
       return check;
+    },
+    formVerify (formid){
+      if(this.for == formid){
+        eventbus.$emit('input-verify', {
+          formid: formid,
+          result: this.verify(),
+          data: {
+            name: this.name,
+            value: this.value_
+          }
+        })
+      }
     }
+  },
+  created (){
+    eventbus.$on('form-verify', this.formVerify)
+  },
+  beforeDestroy () {
+    eventbus.$off('form-verify', this.formVerify)
   },
   data () {
     return {

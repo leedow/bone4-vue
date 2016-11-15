@@ -82,6 +82,42 @@
       </div>
     </div>
 
+
+    <div class="divi"></div>
+    <div class="row">
+      <form-input
+        holder="请输入内容"
+        label="账 号"
+        theme="blank"
+        size="lg"
+      />
+      <form-input
+        holder="请输入内容"
+        label="密 码"
+        theme="blank"
+        size="lg"
+      />
+
+    </div>
+
+    <div class="divi"></div>
+    <div class="row">
+      <form-input
+        holder="请输入内容"
+        label="账 号"
+        theme="head"
+        size=""
+      />
+      <form-input
+        holder="请输入内容"
+        label="密 码"
+        theme="head"
+        size=""
+      />
+
+    </div>
+
+   
     <div class="divi">
       <form-input
         ref="test"
@@ -97,6 +133,9 @@
         <button @click="verify"  class="btn btn-tiny btn-primary-blank">验证</button>
       </div>
     </div>
+
+
+
   </div>
 </template>
 

@@ -47,6 +47,7 @@
 
     <div class="row p000 tl">
       <btn size="lg" theme="primary-blank" @btn-click="alert('You click me')" name="Click Me"/>
+      <btn size="lg" theme="primary-blank" name="Submit" submit="form"/>
 
     </div>
 
@@ -55,11 +56,17 @@
 
 <script>
 import Btn from './btn.vue'
+import eventbus from '../helper/eventbus'
 
 export default {
   name: 'buttonDemo',
   components: {
     Btn
+  },
+  created (){
+     eventbus.$on('btn-submit' , (msg)=>{
+       //alert('触发表单' + msg)
+     })
   },
   data () {
     return {

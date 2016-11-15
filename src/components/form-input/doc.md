@@ -4,12 +4,14 @@
 | ------------- |-----------|------| -----|
 | name | 输入框name属性 | `String` | `''` |
 | value | 输入框默认值 | `String` | `''` |
-| theme | 主题样式 `default` `underline` | `String` | `'default'` |
+| theme | 主题样式 `default` `underline` `head` `blank` , 其中 `head` `blank` 定义了Label的样式，仅在显示Label时发挥作用 | `String` | `'default'` |
 | size | 尺寸 `lg` `default` `sm` `tiny` | `String` | `'default'` |
 | state | 默认显示状态 `normal` `wrong` `pass` | `String` | `'normal'` |
 | holder | placeholder文字      | `String`  | `''`  |
 | required | 是否为必填项  | `Boolean`  | `false` |
-| format | 格式要求  | `String` | `''` |
+| format | 格式要求 `email` `phone` `float` `int`  | `String` | `''` |
+| label | 如果需要显示label | `String` | `''` |
+| for | 所属表单id，用于自动触发验证机制 | `String`  | `''`  |
 ## 组件方法
 
 | 方法名 | 说 明 |

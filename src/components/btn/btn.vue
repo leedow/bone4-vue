@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import eventbus from '../helper/eventbus'
+
 export default {
   name: 'btn',
   props: {
@@ -34,11 +36,18 @@ export default {
     },
     enable: {
       type: Boolean,
-      type: true
+      default: true
+    },
+    submit: {
+      type: String,
+      default: ''
     }
   },
   methods: {
     handleClick (){
+      if(this.submit != ''){
+        eventbus.$emit('btn-submit', this.submit);
+      }
       this.$emit('btn-click', '');
     }
   },

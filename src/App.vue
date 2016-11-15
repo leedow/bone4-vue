@@ -52,6 +52,7 @@ import SidebarMenu from './components/sidebar/sidebar.vue'
 import Sidebar from './components/sidebar/demo.vue'
 import Btn from './components/btn/demo.vue'
 import FormInput from './components/form-input/demo.vue'
+import FormGroup from './components/form-group/demo.vue'
 import marked from 'marked'
 
 export default {
@@ -59,7 +60,8 @@ export default {
     SidebarMenu,
     Sidebar,
     Btn,
-    FormInput
+    FormInput,
+    FormGroup
   },
   name: 'app',
   data () {
@@ -92,6 +94,10 @@ export default {
             alias: 'form-input',
             title: '输入框',
             link: '/component/form-input'
+          },{
+            alias: 'form-group',
+            title: '表 单',
+            link: '/component/form-group'
           }
         ]
       }
