@@ -1,5 +1,8 @@
 <template>
-  <div class="form">
+  <div class="form" :class="[
+    'form-' + theme,
+    'form-' + size
+  ]">
     <slot></slot>
   </div>
 </template>
@@ -10,17 +13,25 @@ import eventbus from '../helper/eventbus'
 export default {
   name: 'formGroup',
   props: {
-    id: {
+    name: {
       type: String,
       default: ''
+    },
+    theme: {
+      type: String,
+      default: 'default'
+    },
+    size: {
+      type: String,
+      default: 'default'
     }
   },
   methods: {
     /**
      * 处理来自submit btn的事件
      */
-    btnSubmit (formid){
-      if(formid == this.id){
+    _btnSubmit (formid){
+      if(formid == this.name){
         this.pass = true
         eventbus.$emit('form-verify', formid)
         if(this.pass)
@@ -30,9 +41,9 @@ export default {
     /**
      * 处理来自输入组件的验证数据
      */
-    receiveInputData (data){
+    _receiveInputData (data){
       if(data.data.name == '' || data.data.name == undefined) return
-      if(data.formid == this.id){
+      if(data.formid == this.name){
         //如果验证通过
         if(data.result.state){
           this.data[data.data.name] = data.data.value
@@ -43,16 +54,13 @@ export default {
       }
     }
   },
-  mounted (){
-
-  },
   created (){
-    eventbus.$on('btn-submit', this.btnSubmit)
-    eventbus.$on('input-verify', this.receiveInputData)
+    eventbus.$on('btn-submit', this._btnSubmit)
+    eventbus.$on('input-verify', this._receiveInputData)
   },
-  beforeDestroy () {
-    eventbus.$off('btn-submit', this.btnSubmit)
-    eventbus.$off('input-verify', this.receiveInputData)
+  beforeDestroy (){
+    eventbus.$off('btn-submit', this._btnSubmit)
+    eventbus.$off('input-verify', this._receiveInputData)
   },
   data () {
     return {

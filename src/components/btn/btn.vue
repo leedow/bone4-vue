@@ -3,7 +3,8 @@
           @click="handleClick"
           :class="[
             'btn-' + theme,
-            'btn-' + size
+            'btn-' + size,
+            block?'btn-block':''
           ]"
   ><i v-if="icon!=''" class="icon iconfont" :class="[icon?'icon-'+icon:'']"></i> {{name}}</button>
 </template>

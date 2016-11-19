@@ -6,9 +6,9 @@
       <h2 id="logo-tiny">Vue 2.0 version</h2>
       <sidebar-menu ref="mains" :surface="[
         {
-          alias: 'grid',
-          title: '栅格系统',
-          link: '/component/grid'
+          alias: 'common',
+          title: '公共',
+          sub: 'common'
         },{
           alias: 'form',
           title: '表 单',
@@ -53,6 +53,7 @@ import Sidebar from './components/sidebar/demo.vue'
 import Btn from './components/btn/demo.vue'
 import FormInput from './components/form-input/demo.vue'
 import FormGroup from './components/form-group/demo.vue'
+import Modal from './components/modal/demo.vue'
 import marked from 'marked'
 
 export default {
@@ -61,7 +62,8 @@ export default {
     Sidebar,
     Btn,
     FormInput,
-    FormGroup
+    FormGroup,
+    Modal
   },
   name: 'app',
   data () {
@@ -71,6 +73,11 @@ export default {
       showSub: false,
       subSurface: [],
       subMenus: {
+        common: [{
+          alias: 'dialog',
+          title: '模态对话框',
+          link: '/component/dialog'
+        }],
         menu: [
         {
           alias: 'sidebar',

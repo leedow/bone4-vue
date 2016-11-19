@@ -11,7 +11,7 @@
 | required | 是否为必填项  | `Boolean`  | `false` |
 | format | 格式要求 `email` `phone` `float` `int`  | `String` | `''` |
 | label | 如果需要显示label | `String` | `''` |
-| for | 所属表单id，用于自动触发验证机制 | `String`  | `''`  |
+| for | 所属表单id，用于自动触发验证机制，详情见表单的例子 | `String`  | `''`  |
 ## 组件方法
 
 | 方法名 | 说 明 |
