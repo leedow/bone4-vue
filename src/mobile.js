@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './mobileApp.vue'
 import VueRouter from 'vue-router'
 
 
@@ -9,6 +9,7 @@ Vue.use(VueRouter)
 window.log = function(msg){
   console.log(msg)
 }
+
 
 const router = new VueRouter({
   routes: [

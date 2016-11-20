@@ -54,6 +54,7 @@ import Btn from './components/btn/demo.vue'
 import FormInput from './components/form-input/demo.vue'
 import FormGroup from './components/form-group/demo.vue'
 import Modal from './components/modal/demo.vue'
+import List from './components/list/demo.vue'
 import marked from 'marked'
 
 export default {
@@ -63,7 +64,8 @@ export default {
     Btn,
     FormInput,
     FormGroup,
-    Modal
+    Modal,
+    List
   },
   name: 'app',
   data () {
