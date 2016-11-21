@@ -2,8 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
-
-
 Vue.use(VueRouter)
 
 window.log = function(msg){
@@ -15,7 +13,5 @@ const router = new VueRouter({
     { path: '/component/:name', component: App}
   ]
 })
-
-
 
 const app = new Vue({ router }).$mount('#app')

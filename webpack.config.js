@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: {main:'./src/main.js', mobile: './src/mobile.js'},
+  entry: {main:'./src/main.js', mobile: './src/mobile.js', bone: './src/bone.js'},
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {

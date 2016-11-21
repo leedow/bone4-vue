@@ -46,7 +46,7 @@
     <div class="divi">  </div>
 
     <div class="row p000 tl">
-      <btn size="lg" theme="primary-blank" @btn-click="alert('You click me')" name="Click Me"/>
+      <btn size="lg" theme="primary-blank" @on-click="alert('You click me')" name="Click Me"/>
       <btn size="lg" theme="primary-blank" name="Submit" submit="form"/>
 
     </div>
@@ -64,7 +64,7 @@ export default {
     Btn
   },
   created (){
-     eventbus.$on('btn-submit' , (msg)=>{
+     eventbus.$on('on-submit' , (msg)=>{
        //alert('触发表单' + msg)
      })
   },

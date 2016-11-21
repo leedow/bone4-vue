@@ -49,7 +49,7 @@ export default {
       if(this.submit != ''){
         eventbus.$emit('btn-submit', this.submit);
       }
-      this.$emit('btn-click', '');
+      this.$emit('on-click', '');
     }
   },
   data () {

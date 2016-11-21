@@ -17,8 +17,8 @@
 
 | 事件名 | 说 明 | 传入参数 |
 |-------|----------|----|
-| modal-confirm | 点击确认事件 |  this.name |
-| modal-cancel | 点击取消事件 | this.name |
+| on-confirm | 点击确认事件 |  this.name |
+| on-cancel | 点击取消事件 | this.name |
 
 
 

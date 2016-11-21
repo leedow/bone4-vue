@@ -8,15 +8,16 @@
       <span>{{notice[pullState]}}</span>
     </p>
  </li>
+ <li class="up-fresh" v-show="pullState>0&&mode=='swipeUp'">
+   <p>
+     <i class="icon iconfont icon-loading" :class="[
+      isloading?'loading':''
+     ]"></i>
+     <span>{{notice[pullState]}}</span>
+   </p>
+ </li>
   <slot></slot>
-  <li class="up-fresh" v-show="pullState>0&&mode=='swipeUp'">
-    <p>
-      <i class="icon iconfont icon-loading" :class="[
-       isloading?'loading':''
-      ]"></i>
-      <span>{{notice[pullState]}}</span>
-    </p>
-  </li>
+
 </ul>
 </template>
 
@@ -29,27 +30,9 @@ export default {
 
   },
   props: {
-    name: {
-      type: String,
-      default: ''
-    },
-    show: {
-      type: Boolean,
-      default: false
-    },
-    type: {
-      type: String,
-      default: 'confirm'
-    },
     mode: {
       type: String,
       default: 'swipeDown' //swipeUp
-    },
-    buttons: {
-      type: Array,
-      default (){
-        return ['确 定' , '取 消']
-      }
     }
   },
   created (){
@@ -76,7 +59,7 @@ export default {
     },
     _loading (e){
       console.log('loading' + e.distance.y)
-      this.$emit('list-loading', this)
+      this.$emit('on-loading', this)
       this.isloading = true
       this.pullState = 4 //loading
       this.distance = 0;

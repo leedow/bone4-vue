@@ -35,7 +35,7 @@ export default {
         this.pass = true
         eventbus.$emit('form-verify', formid)
         if(this.pass)
-          this.$emit('form-submit', this.data)
+          this.$emit('on-submit', this.data)
       }
     },
     /**

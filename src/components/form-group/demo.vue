@@ -1,9 +1,8 @@
 <template>
   <div class="">
 
-    <div class="mobile" style="width: 300px;height: 540px;margin:0 auto;">
-      <div class="screen" style="background:#f2f2f2;">
-        <form-group :theme="theme" size="lg" name="testform" @form-submit="submit">
+
+        <form-group :theme="theme" size="lg" name="testform" @on-submit="submit">
 
           <form-input
             label="手机号"
@@ -44,17 +43,10 @@
               <btn theme="primary" :block=true size="lg" submit="testform" name="确 认"/>
           </div>
           <div class="p0222">
-              <btn theme="" :block=true size="lg" @btn-click="changeTheme" name="切换风格"/>
+              <btn theme="" :block=true size="lg" @on-click="changeTheme" name="切换风格"/>
           </div>
 
         </form-group>
-
-
-
-
-
-      </div>
-    </div>
 
     <div class="divi">
 

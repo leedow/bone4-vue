@@ -1,7 +1,6 @@
 <template>
-  <div class="">
-    <div class="mobile" style="width: 300px;height: 540px;margin:0 auto;">
-      <div class="screen p2222" style="background:#f2f2f2;"  >
+  <div class="p2222">
+
         <button class="btn btn-lg btn-primary form-control" @click="alert">Alert</button>
         <div class="m2000">
           <button class="btn btn-lg btn-primary form-control m2000" @click="confirm">Confirm</button>
@@ -11,13 +10,12 @@
           <button class="btn btn-lg btn-primary form-control m2000" @click="show2=true">Has child components</button>
         </div>
 
-        <modal :show="show" @modal-confirm="show=false" @modal-cancel="show=false" :type="type" >Hello world!</modal>
-        <modal :show="show2" @modal-confirm="show2=false" @modal-cancel="show2=false" :type="type" >
+        <modal :show="show" @on-confirm="show=false" @on-cancel="show=false" :type="type" >Hello world!</modal>
+        <modal :show="show2" @on-confirm="show2=false" @on-cancel="show2=false" :type="type" >
           <input type="text" name="name"  class="input form-control" placeholder="请输入">
         </modal>
       </div>
-    </div>
-  </div>
+
 
   </div>
 </template>

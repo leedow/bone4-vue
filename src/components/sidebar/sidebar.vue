@@ -28,7 +28,7 @@ export default {
     },
     current: {
       type: String,
-      default: 'b'
+      default: ''
     },
     size: {
       type: String,

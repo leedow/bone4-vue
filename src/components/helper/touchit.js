@@ -1,7 +1,7 @@
 /**
  * @params eventType swipe|swipeDown|swipeUp
  */
-var touch = function(config){
+module.exports = function(config){
   this.distanceX = 0
   this.distanceY = 0
   this.startPos = [0,0]
@@ -106,4 +106,4 @@ var touch = function(config){
   this.init();
 }
 
-export default touch
+ 

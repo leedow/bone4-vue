@@ -7,27 +7,39 @@
       <sidebar-menu ref="mains" :surface="[
         {
           alias: 'common',
-          title: '公共',
+          title: '公 共',
           sub: 'common'
         },{
-          alias: 'form',
-          title: '表 单',
-          sub: 'form'
+          alias: 'mobile',
+          title: '移动端',
+          sub: 'mobile'
         },{
-          alias: 'menu',
-          title: '菜单导航',
-          sub: 'menu'
+          alias: 'pc',
+          title: 'PC端',
+          sub: 'pc'
+        },{
+          alias: 'about',
+          title: '关 于'
         }
       ]" size="sm" current="grid" @sidebar-click="_handleSidebar"></sidebar-menu>
 
     </div>
 
     <div class="sub-menu" v-show="showSub">
-      <sidebar-menu ref="sub" :surface="subSurface" size="sm" theme="white" current="grid"></sidebar-menu>
+      <sidebar-menu ref="sub" :surface="subSurface" size="sm" theme="white" current="grid" @sidebar-click="_handleSubbar"></sidebar-menu>
     </div>
 
-    <div id="mid" class="thin-scroll" :class="[showSub?'mid-sub':'']">
+    <div id="mid" class="thin-scroll" :class="[showSub?'mid-sub':'']" v-if="!isMobile">
       <component v-bind:is="currentComponent"></component>
+    </div>
+
+
+    <div id="mid" class="thin-scroll" :class="[showSub?'mid-sub':'']" v-if="isMobile">
+      <div class="mobile" style="width: 300px;height: 540px;margin:0 auto;">
+        <div class="screen" style="background:#f2f2f2;">
+            <component v-bind:is="currentComponent"></component>
+        </div>
+      </div>
     </div>
 
     <div id="right" class="thin-scroll">
@@ -55,6 +67,8 @@ import FormInput from './components/form-input/demo.vue'
 import FormGroup from './components/form-group/demo.vue'
 import Modal from './components/modal/demo.vue'
 import List from './components/list/demo.vue'
+import MenuVertical from './components/menu-vertical/demo.vue'
+import MenusHorizon from './components/menus-horizon/demo.vue'
 import marked from 'marked'
 
 export default {
@@ -65,22 +79,56 @@ export default {
     FormInput,
     FormGroup,
     Modal,
-    List
+    List,
+    MenuVertical,
+    MenusHorizon
   },
   name: 'app',
   data () {
     return {
+      isMobile: false,
       doc: '',
       currentComponent: '',
       showSub: false,
       subSurface: [],
       subMenus: {
-        common: [{
-          alias: 'dialog',
+        common: [
+          {
+            alias: 'btn',
+            title: '按 钮',
+            link: '/component/btn'
+          },{
+            alias: 'form-input',
+            title: '输入框',
+            link: '/component/form-input'
+          },{
+            alias: 'form-group',
+            title: '表 单',
+            link: '/component/form-group',
+            mobile: true
+          }
+        ],
+        mobile: [{
+          alias: 'modal',
           title: '模态对话框',
-          link: '/component/dialog'
+          link: '/component/modal',
+          mobile: true
+        },{
+          alias: 'list',
+          title: '列表刷新',
+          link: '/component/list'
+        },{
+          alias: 'menu-vertical',
+          title: '列表菜单',
+          link: '/component/menu-vertical',
+          mobile: true
+        },{
+          alias: 'menus-horizon',
+          title: '水平菜单',
+          link: '/component/menus-horizon',
+          mobile: true
         }],
-        menu: [
+        pc: [
         {
           alias: 'sidebar',
           title: '侧栏菜单',
@@ -93,22 +141,7 @@ export default {
           alias: 'tabs',
           title: '垂直菜单',
           link: '/component/tabs'
-        }],
-        form: [
-          {
-            alias: 'btn',
-            title: '按 钮',
-            link: '/component/btn'
-          },{
-            alias: 'form-input',
-            title: '输入框',
-            link: '/component/form-input'
-          },{
-            alias: 'form-group',
-            title: '表 单',
-            link: '/component/form-group'
-          }
-        ]
+        }]
       }
     }
   },
@@ -126,6 +159,13 @@ export default {
         this.showSub = false;
       }
 
+    },
+    _handleSubbar (item){
+      if(item.mobile){
+        this.isMobile = true
+      } else {
+        this.isMobile = false
+      }
     },
     //读取markdown文档
     loadingMarkdown (){

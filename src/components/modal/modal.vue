@@ -48,10 +48,10 @@ export default {
   },
   methods: {
     confirm (){
-      this.$emit('modal-confirm', this.name)
+      this.$emit('on-confirm', this.name)
     },
     cancel (){
-      this.$emit('modal-cancel', this.name)
+      this.$emit('on-cancel', this.name)
     }
   },
   data () {
