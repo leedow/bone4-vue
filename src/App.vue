@@ -30,14 +30,14 @@
     </div>
 
     <div id="mid" class="thin-scroll" :class="[showSub?'mid-sub':'']" v-if="!isMobile">
-      <component v-bind:is="currentComponent"></component>
+      <router-view></router-view>
     </div>
 
 
     <div id="mid" class="thin-scroll" :class="[showSub?'mid-sub':'']" v-if="isMobile">
       <div class="mobile" style="width: 300px;height: 540px;margin:0 auto;">
         <div class="screen" style="background:#f2f2f2;">
-            <component v-bind:is="currentComponent"></component>
+            <router-view></router-view>
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@ export default {
           {
             alias: 'btn',
             title: '按 钮',
-            link: '/component/btn'
+            link: '/component/buttons'
           },{
             alias: 'form-input',
             title: '输入框',
@@ -106,7 +106,7 @@ export default {
           },{
             alias: 'form-group',
             title: '表 单',
-            link: '/component/form-group',
+            link: '/component/form',
             mobile: true
           }
         ],
@@ -118,7 +118,7 @@ export default {
         },{
           alias: 'list',
           title: '列表刷新',
-          link: '/component/list'
+          link: '/component/listup'
         },{
           alias: 'menu-vertical',
           title: '列表菜单',
@@ -133,6 +133,11 @@ export default {
           alias: 'tabs',
           title: '选项卡',
           link: '/component/tabs',
+          mobile: true
+        },{
+          alias: 'toast',
+          title: '轻提示',
+          link: '/component/toast',
           mobile: true
         }],
         pc: [
@@ -177,7 +182,7 @@ export default {
     //读取markdown文档
     loadingMarkdown (){
       let _this = this;
-      _this.currentComponent = this.$route.params.name;
+      _this.currentComponent = this.$route.path.split('/').pop();
 
       $.ajax({
         url: '/src/components/' + _this.currentComponent + '/doc.md',
@@ -195,7 +200,7 @@ export default {
     }
   },
   ready (){
-    alert('fsdf')
+
     this.$refs.mains.triggerClick(this.$route.params.name)
   },
   created (){
