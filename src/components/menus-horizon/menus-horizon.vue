@@ -46,11 +46,13 @@ export default {
   },
   methods: {
     setCurrent (alias){
+
       this.current_ = alias;
+
     },
     _handleClick (item, index){
-      if(item.link){
-        this.$router.push(item.link);
+      if(item.path){
+        this.$router.push(item.path);
       }
       this.$emit('on-click', item);
       this.setCurrent(item.alias);

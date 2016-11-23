@@ -2,19 +2,22 @@
 
 | 属性名      | 说 明         | 类 型 |默认值  |
 | ------------- |-----------|------| -----|
-| surface    | 菜单列表数据，格式为 ``[{alias, title, icon, link}]`` ,  `alias` 为 `title` 的别名, `icon` `link` 可以省略 | Array | `[ ]` |
+| surface    | 菜单列表数据，格式为 ``[{alias, title, icon, link}]`` ,  `alias` 为 `title` 的别名, `icon` `path` 可以省略 | Array | `[ ]` |
 
 ## 组件方法
 
 | 方法名 | 说 明 |
 |-------|-------|
-| - | - |
+| setCurrent(alias) | 设置当前选中项 |
+
 
 ## 组件事件
 
+
 | 事件名 | 说 明 | 传入参数 |
 |-------|----------|----|
-| - | -|-|
+| on-click | 点击选项卡事件 | alias  |
+
 
 
 

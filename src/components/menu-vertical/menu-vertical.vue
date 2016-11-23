@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-vertical-item">
+  <div class="menu-vertical-item" @click="handleClick">
     <div class="menu-icon" v-if="icon!=''">
       <i class="icon iconfont" :class="[
         icon!=''?'icon-'+icon:''
@@ -28,6 +28,17 @@ export default {
     iconColor: {
       type: String,
       default: ''
+    },
+    path: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    handleClick (){
+      if(this.path != ''){
+        this.$router.push(this.path)
+      }
     }
   },
   data () {

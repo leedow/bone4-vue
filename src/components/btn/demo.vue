@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="background:#fff" class="mp">
     <div class="row p000 tl">
       <btn name="Default"/>
       <btn theme="primary" name="Primary"/>

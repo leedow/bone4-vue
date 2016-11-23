@@ -69,6 +69,7 @@ import Modal from './components/modal/demo.vue'
 import List from './components/list/demo.vue'
 import MenuVertical from './components/menu-vertical/demo.vue'
 import MenusHorizon from './components/menus-horizon/demo.vue'
+import Tabs from './components/tabs/demo.vue'
 import marked from 'marked'
 
 export default {
@@ -81,7 +82,8 @@ export default {
     Modal,
     List,
     MenuVertical,
-    MenusHorizon
+    MenusHorizon,
+    Tabs
   },
   name: 'app',
   data () {
@@ -126,6 +128,11 @@ export default {
           alias: 'menus-horizon',
           title: '水平菜单',
           link: '/component/menus-horizon',
+          mobile: true
+        },{
+          alias: 'tabs',
+          title: '选项卡',
+          link: '/component/tabs',
           mobile: true
         }],
         pc: [

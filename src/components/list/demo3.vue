@@ -2,7 +2,7 @@
   <page>
 
 
-      <list @on-loading="loading" mode="swipeDown">
+      <list @on-loading="loading" mode="swipeUp">
         <li class="list-item list-item-arrow m1111" v-for="item in datas">
           <div class="card p2222">
             <div class="card-content">

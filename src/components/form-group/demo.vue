@@ -6,7 +6,7 @@
 
           <form-input
             label="手机号"
-            holder="输入手机号"
+            holder="Phone"
             format="phone"
             :required="true"
             for="testform"

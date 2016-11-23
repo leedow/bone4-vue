@@ -17,7 +17,6 @@
    </p>
  </li>
   <slot></slot>
-
 </ul>
 </template>
 
@@ -37,7 +36,7 @@ export default {
   },
   created (){
     let list = this.$refs.list;
-    console.log('initer')
+
 
     this.touchit = new touchit({
       dom: document.body,
@@ -64,9 +63,9 @@ export default {
       this.pullState = 4 //loading
       this.distance = 0;
       if(this.mode == 'swipeUp')
-      this._move(-50)
+      this._move(-60)
       if(this.mode == 'swipeDown')
-      this._move(50)
+      this._move(60)
     },
     _handleTouch (eventType, data){
       switch (eventType){
