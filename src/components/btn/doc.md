@@ -7,7 +7,8 @@
 | size | 按钮尺寸（ `lg` `sm` `tiny` ） |   `String` | `default` |
 | icon | 按钮图标  | `String` | `''` |
 | block | - | `Boolean` | `false` |
-| enable |- | `Boolean` | `false` |
+| disable | 按钮是否可用 | `Boolean` | `false` |
+| loading | 读取状态 | `Boolean` | `false` |
 | submit | 如果指定该属性，按钮点击时将触发对应id的表单自检，检查通过后表单将产生一个 `form-submit` 事件 | `String` | `''` |
 
 ## 组件方法

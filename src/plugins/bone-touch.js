@@ -2,7 +2,7 @@
  * @params eventType swipeDown|swipeUp
  */
 var touch = function(dom, callback){
-  alert('fsdsd')
+
   this.distanceX = 0
   this.distanceY = 0
   this.startPos = [0,0]
@@ -14,7 +14,7 @@ var touch = function(dom, callback){
   var _this = this
 
   this.handleTouchStart = function(e){
-    console.log('start')
+
     this.state = 'START'
     var touch = e.targetTouches[0]
     this.startPos = [touch.pageX, touch.pageY]
@@ -53,7 +53,6 @@ var touch = function(dom, callback){
   }
 
   this.init = function(){
-    console.log('init')
     this.dom.addEventListener('touchstart', this.handleTouchStart)
     this.dom.addEventListener('touchmove', this.handleTouchMove)
     this.dom.addEventListener('touchend', this.handleTouchEnd)

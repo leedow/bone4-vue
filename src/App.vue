@@ -18,6 +18,10 @@
           title: 'PC端',
           sub: 'pc'
         },{
+          alias: 'other',
+          title: '其 他',
+          sub: 'other'
+        },{
           alias: 'about',
           title: '关 于'
         }
@@ -98,7 +102,7 @@ export default {
           {
             alias: 'btn',
             title: '按 钮',
-            link: '/component/buttons'
+            link: '/component/btn'
           },{
             alias: 'form-input',
             title: '输入框',
@@ -106,7 +110,7 @@ export default {
           },{
             alias: 'form-group',
             title: '表 单',
-            link: '/component/form',
+            link: '/component/form-group',
             mobile: true
           }
         ],
@@ -118,7 +122,9 @@ export default {
         },{
           alias: 'list',
           title: '列表刷新',
-          link: '/component/listup'
+          link: '/component/list',
+          mobile: true
+
         },{
           alias: 'menu-vertical',
           title: '列表菜单',
@@ -153,6 +159,11 @@ export default {
           alias: 'tabs',
           title: '垂直菜单',
           link: '/component/tabs'
+        }],
+        other: [{
+          alias: 'login',
+          title: 'APP登录',
+          link: '/component/login'
         }]
       }
     }

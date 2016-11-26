@@ -6,7 +6,10 @@
             'btn-' + size,
             block?'btn-block':''
           ]"
-  ><i v-if="icon!=''" class="icon iconfont" :class="[icon?'icon-'+icon:'']"></i> {{name}}</button>
+  ><i v-if="icon!=''&&!loading" class="icon iconfont" :class="[icon?'icon-'+icon:'']"></i>
+
+  <i v-if="loading" class="icon iconfont icon-loading loading"></i>
+   {{name}}</button>
 </template>
 
 <script>
@@ -35,9 +38,13 @@ export default {
       type: String,
       default: ''
     },
-    enable: {
+    disable: {
       type: Boolean,
       default: true
+    },
+    loading: {
+      type: Boolean,
+      default: false
     },
     submit: {
       type: String,
@@ -49,7 +56,9 @@ export default {
       if(this.submit != ''){
         eventbus.$emit('btn-submit', this.submit);
       }
-      this.$emit('on-click', '');
+      if(this.disable && !this.loading){
+        this.$emit('on-click', '');
+      }
     }
   },
   data () {

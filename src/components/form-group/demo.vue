@@ -48,10 +48,7 @@
 
         </form-group>
 
-    <div class="divi">
-
-    </div>
-
+ 
 
 
 

@@ -37,7 +37,6 @@ export default {
   created (){
     let list = this.$refs.list;
 
-
     this.touchit = new touchit({
       dom: document.body,
       type: this.mode,
@@ -79,7 +78,7 @@ export default {
             this.distance = data.distance.y
             this._move(this.distance)
           }
-console.log(data.position)
+          console.log(data.position)
           switch (this.mode){
 
             case 'swipeUp': {

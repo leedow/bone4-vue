@@ -1,32 +1,27 @@
 <template>
-  <div class="p2222">
-
-        <button class="btn btn-lg btn-primary form-control" @click="alert">Alert</button>
-        <div class="m2000">
-          <button class="btn btn-lg btn-primary form-control m2000" @click="confirm">Confirm</button>
-        </div>
-
-        <div class="m2000">
-          <button class="btn btn-lg btn-primary form-control m2000" @click="show2=true">Has child components</button>
-        </div>
-
+  <div >
+        <ul class="list list-box p0002">
+          <dmenu @on-click="alert"  name="Alert"/>
+          <dmenu @on-click="confirm"  name="Confirm" />
+          <dmenu @on-click="show2=true"  name="Has child components" />
+        </ul>
         <modal :show="show" @on-confirm="show=false" @on-cancel="show=false" :type="type" >Hello world!</modal>
         <modal :show="show2" @on-confirm="show2=false" @on-cancel="show2=false" :type="type" >
           <input type="text" name="name"  class="input form-control" placeholder="请输入">
         </modal>
       </div>
-
-
   </div>
 </template>
 
 <script>
 import Modal from './modaldemo.vue'
+import Dmenu from '../demohelper/demomenu.vue'
 
 export default {
   name: 'DialogDemo',
   components: {
-    Modal
+    Modal,
+    Dmenu
   },
   methods: {
     alert (){

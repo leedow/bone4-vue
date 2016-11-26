@@ -20,7 +20,7 @@
 
     <div class="row p000 tl">
 
-      <btn theme="primary" icon="scan" name="Primary"/>
+      <btn theme="primary" loading icon="scan" name="Primary"/>
       <btn theme="warm" icon="favor" name="Warm"/>
       <btn theme="comfort" icon="warn" name="Comfort"/>
     </div>
@@ -29,7 +29,7 @@
 
     <div class="row p000 tl">
 
-      <btn theme="primary-blank" icon="scan" name="Primary"/>
+      <btn theme="primary-blank" loading icon="scan" name="Primary"/>
       <btn theme="warm-blank" icon="favor" name="Warm"/>
       <btn theme="comfort-blank" icon="warn" name="Comfort"/>
     </div>

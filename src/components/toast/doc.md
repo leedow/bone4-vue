@@ -42,7 +42,6 @@
 </template>
 <script>
 import {Toast} from 'bone4'
-import Dmenu from '../demohelper/demomenu.vue'
 
 export default {
   name: 'toastdemo',

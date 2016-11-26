@@ -52,7 +52,7 @@ export default {
         text: '',
         success: 'check',
         failed: 'close',
-        warm: 'infofill',
+        warm: 'info',
         loading: 'loading'
       }
     }

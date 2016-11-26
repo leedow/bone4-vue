@@ -2,8 +2,8 @@
 <div class="">
   <div class="list-title">基 础</div>
   <ul class="list list-box p0002">
-    <dmenu path="/demo/buttons" name="按 钮"  />
-    <dmenu path="/demo/form" name="表 单" />
+    <dmenu path="/demo/btn" name="按 钮"  />
+    <dmenu path="/demo/form-group" name="表 单" />
   </ul>
   <div class="list-title">列表&菜单</div>
   <ul class="list list-box p0002">
