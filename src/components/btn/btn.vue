@@ -9,7 +9,7 @@
   ><i v-if="icon!=''&&!loading" class="icon iconfont" :class="[icon?'icon-'+icon:'']"></i>
 
   <i v-if="loading" class="icon iconfont icon-loading loading"></i>
-   {{name}}</button>
+   <span>{{name}}</span></button>
 </template>
 
 <script>

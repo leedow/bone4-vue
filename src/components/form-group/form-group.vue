@@ -34,6 +34,7 @@ export default {
       if(formid == this.name){
         this.pass = true
         eventbus.$emit('form-verify', formid)
+
         if(this.pass)
           this.$emit('on-submit', this.data)
       }
@@ -42,8 +43,13 @@ export default {
      * 处理来自输入组件的验证数据
      */
     _receiveInputData (data){
-      if(data.data.name == '' || data.data.name == undefined) return
+      if(data.data.name == '' || data.data.name == undefined) {
+        this.pass = false
+        return
+      }
+
       if(data.formid == this.name){
+
         //如果验证通过
         if(data.result.state){
           this.data[data.data.name] = data.data.value

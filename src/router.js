@@ -23,6 +23,16 @@ const menusHorizon = resolve => { require.ensure(['./components/menus-horizon/de
     resolve(require('./components/menus-horizon/demo.vue'))})}
 const input = resolve => { require.ensure(['./components/form-input/demo.vue'], () => {
     resolve(require('./components/form-input/demo.vue'))})}
+
+
+
+
+
+const login = resolve => { require.ensure(['./other/login/demo.vue'], () => {
+    resolve(require('./other/login/demo.vue'))})}
+
+
+
 export default [{
   path: 'form-input',
   component: input
@@ -56,4 +66,7 @@ export default [{
 },{
   path: 'menus-horizon',
   component: menusHorizon
+},{
+  path: 'login',
+  component: login
 }]
