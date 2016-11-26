@@ -4,7 +4,8 @@
   ]">
     <label :for="name" :class="['label-' + this.size]">{{label}}</label>
     <div :class="[
-        'be-' + state_
+        'be-' + state_,
+        icon!=''?'has-icon':''
     ]">
       <input  class="input form-control"
               type="text"
@@ -16,11 +17,13 @@
               v-model="value_"
               :placeholder="holder"
             />
+        <i v-if="icon!=''" class="icon iconfont" :class="['icon-'+icon]"></i>
     </div>
   </div>
 
   <div v-else class="form-item" :class="[
-      'be-' + state_
+      'be-' + state_,
+      icon!=''?'has-icon':''
   ]">
     <input  class="input form-control"
             type="text"
@@ -32,6 +35,7 @@
             v-model="value_"
             :placeholder="holder"
           />
+        <i v-if="icon!=''" class="icon iconfont" :class="['icon-'+icon]"></i>
   </div>
 
 </template>

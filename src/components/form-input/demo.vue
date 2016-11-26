@@ -5,6 +5,7 @@
         <form-input
           holder="Large Size"
           size="lg"
+          icon="scan"
         />
         <form-input
           holder="Default Size"
@@ -117,7 +118,7 @@
 
     </div>
 
-   
+
     <div class="divi">
       <form-input
         ref="test"
