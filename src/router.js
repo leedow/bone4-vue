@@ -25,6 +25,8 @@ const input = resolve => { require.ensure(['./components/form-input/demo.vue'], 
     resolve(require('./components/form-input/demo.vue'))})}
 
 
+const drawer = resolve => { require.ensure(['./components/drawer/demo.vue'], () => {
+    resolve(require('./components/drawer/demo.vue'))})}
 
 
 
@@ -66,6 +68,9 @@ export default [{
 },{
   path: 'menus-horizon',
   component: menusHorizon
+},{
+  path: 'drawer',
+  component: drawer
 },{
   path: 'login',
   component: login

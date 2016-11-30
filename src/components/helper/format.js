@@ -71,4 +71,5 @@ var Format = {
 	}
 }
 
-export default Format
+//export default Format
+module.exports = Format

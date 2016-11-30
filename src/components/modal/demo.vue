@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
         <ul class="list list-box p0002">
           <dmenu @on-click="alert"  name="Alert"/>
           <dmenu @on-click="confirm"  name="Confirm" />

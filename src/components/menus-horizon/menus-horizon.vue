@@ -3,6 +3,7 @@
   'menu-horizon-' + size,
   border?'menu-horizon-border':''
 ]">
+
   <button v-for="(item, index) in surface" class="menu-horizon-item" :class="[
     item.alias==current_?'menu-current':''
   ]"
@@ -44,6 +45,9 @@ export default {
       default: ''
     }
   },
+  created (){
+    //alert(this.path_)
+  },
   methods: {
     setCurrent (alias){
 
@@ -60,7 +64,8 @@ export default {
   },
   data () {
     return {
-      current_: this.current
+      current_: this.current,
+      path_: this.$route.path
     }
   }
 }

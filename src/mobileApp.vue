@@ -13,22 +13,24 @@
   <section class="layout-bottom bor-top" style="background:#fff">
     <menus-horizon
       size="sm"
-      current="like"
+      :current="this.$route.path"
       :surface="[{
           icon: 'like',
           currentIcon: 'likefill',
-          alias: 'like',
+          alias: '/home',
           title: '首 页'
         },{
           icon: 'time',
           currentIcon: 'timefill',
-          alias: 'time',
-          title: '组 件'
+          alias: '/demos',
+          title: '组 件',
+          path: '/demos'
         },{
           icon: 'shop',
           currentIcon: 'shopfill',
-          alias: 'shop',
-          title: '关 于'
+          alias: '/about',
+          title: '关 于',
+          path: '/about'
         }]"
     ></menus-horizon>
   </section>
