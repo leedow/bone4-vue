@@ -5,6 +5,7 @@
     <dmenu path="/demo/btn" name="按 钮"  />
     <dmenu path="/demo/form-group" name="表 单" />
     <dmenu path="/demo/drawer" name="动效抽屉" />
+    <dmenu path="/demo/slider" name="内容滚动" />
   </ul>
   <div class="list-title">列表&菜单</div>
   <ul class="list list-box p0002">
@@ -23,6 +24,7 @@
   <div class="list-title">其 他</div>
   <ul class="list list-box p0002">
     <dmenu path="/demo/login" name="APP登录" />
+    <dmenu path="/demo/car" name="商品列表" />
   </ul>
 </div>
 </template>

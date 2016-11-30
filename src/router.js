@@ -28,7 +28,8 @@ const input = resolve => { require.ensure(['./components/form-input/demo.vue'], 
 const drawer = resolve => { require.ensure(['./components/drawer/demo.vue'], () => {
     resolve(require('./components/drawer/demo.vue'))})}
 
-
+const slider = resolve => { require.ensure(['./components/slider/demo.vue'], () => {
+    resolve(require('./components/slider/demo.vue'))})}
 
 const login = resolve => { require.ensure(['./other/login/demo.vue'], () => {
     resolve(require('./other/login/demo.vue'))})}
@@ -71,6 +72,9 @@ export default [{
 },{
   path: 'drawer',
   component: drawer
+},{
+  path: 'slider',
+  component: slider
 },{
   path: 'login',
   component: login
