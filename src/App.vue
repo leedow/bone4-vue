@@ -145,6 +145,11 @@ export default {
           title: '轻提示',
           link: '/component/toast',
           mobile: true
+        },{
+          alias: 'drawer',
+          title: '动效抽屉',
+          link: '/component/drawer',
+          mobile: true
         }],
         pc: [
         {

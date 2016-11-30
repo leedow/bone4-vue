@@ -8,7 +8,7 @@
 
    <drawer :show="show" :position="pos">
      <div style="display:flex;padding: 40px">
-       <button type="button" class="btn btn-primary btn-block" @click="close">关闭</button>
+       <button type="button" class="btn btn-primary btn-block" @click="close">关 闭</button>
      </div>
    </drawer>
   </div>
