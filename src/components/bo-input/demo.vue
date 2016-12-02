@@ -2,45 +2,45 @@
   <div class="">
     <div class="row p0010">
       <div class="col-md-6 p0100">
-        <form-input
+        <bo-input
           holder="Large Size"
           size="lg"
           icon="scan"
         />
-        <form-input
+        <bo-input
           holder="Default Size"
           :style="{marginTop:'10px'}"
         />
-        <form-input
+        <bo-input
           holder="Small Size"
           size="sm"
           :style="{marginTop:'10px'}"
         />
-        <form-input
+        <bo-input
           holder="Tiny Size"
           size="tiny"
           :style="{marginTop:'10px'}"
         />
       </div>
       <div class="col-md-6 p0001">
-        <form-input
+        <bo-input
           holder="请输入内容"
           size="lg"
           state="wrong"
           value="一段内容"
         />
-        <form-input
+        <bo-input
           holder="请输入内容"
           :style="{marginTop:'10px'}"
           state="wrong"
         />
-        <form-input
+        <bo-input
           holder="请输入内容"
           size="sm"
           :style="{marginTop:'10px'}"
           state="pass"
         />
-        <form-input
+        <bo-input
           holder="请输入内容"
           size="tiny"
           :style="{marginTop:'10px'}"
@@ -52,25 +52,25 @@
     <!--第二行-->
     <div class="row p1010">
       <div class="col-md-6 p0100">
-        <form-input
+        <bo-input
           holder="请输入内容"
           size="lg"
           theme="underline"
         />
-        <form-input
+        <bo-input
           holder="请输入内容"
           :style="{marginTop:'10px'}"
           state="wrong"
           theme="underline"
         />
-        <form-input
+        <bo-input
           holder="请输入内容"
           size="sm"
           :style="{marginTop:'10px'}"
           state="pass"
           theme="underline"
         />
-        <form-input
+        <bo-input
           holder="请输入内容"
           size="tiny"
           :style="{marginTop:'10px'}"
@@ -86,13 +86,13 @@
 
     <div class="divi"></div>
     <div class="row">
-      <form-input
+      <bo-input
         holder="请输入内容"
         label="账 号"
         theme="blank"
         size="lg"
       />
-      <form-input
+      <bo-input
         holder="请输入内容"
         label="密 码"
         theme="blank"
@@ -103,13 +103,13 @@
 
     <div class="divi"></div>
     <div class="row">
-      <form-input
+      <bo-input
         holder="请输入内容"
         label="账 号"
         theme="head"
         size=""
       />
-      <form-input
+      <bo-input
         holder="请输入内容"
         label="密 码"
         theme="head"
@@ -120,7 +120,7 @@
 
 
     <div class="divi">
-      <form-input
+      <bo-input
         ref="test"
         holder="只能输入非空手机号"
         :style="{marginTop:'20px'}"
@@ -141,12 +141,12 @@
 </template>
 
 <script>
-import FormInput from './form-input.vue'
+import BoInput from './bo-input.vue'
 
 export default {
   name: '',
   components: {
-    FormInput
+    BoInput
   },
   methods: {
     getValue (){

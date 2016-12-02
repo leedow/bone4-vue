@@ -48,7 +48,7 @@
 
         </form-group>
 
- 
+
 
 
 
@@ -57,7 +57,7 @@
 
 <script>
 import FormGroup from './form-group.vue'
-import FormInput from '../form-input/form-input.vue'
+import FormInput from '../bo-input/bo-input.vue'
 import Btn from '../btn/btn.vue'
 
 export default {

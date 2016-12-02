@@ -34,7 +34,7 @@
 
 <script>
 import FormGroup from '../../components/form-group/form-group.vue'
-import FormInput from '../../components/form-input/form-input.vue'
+import FormInput from '../../components/bo-input/bo-input.vue'
 import Btn from '../../components/btn/btn.vue'
 import Toast from '../../components/toast/toast.vue'
 

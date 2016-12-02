@@ -13,16 +13,16 @@ const form = resolve => { require.ensure(['./components/form-group/demo.vue'], (
     resolve(require('./components/form-group/demo.vue'))})}
 const tabs = resolve => { require.ensure(['./components/tabs/demo.vue'], () => {
     resolve(require('./components/tabs/demo.vue'))})}
-const inputs = resolve => { require.ensure(['./components/form-input/demo.vue'], () => {
-    resolve(require('./components/form-input/demo.vue'))})}
+const inputs = resolve => { require.ensure(['./components/bo-input/demo.vue'], () => {
+    resolve(require('./components/bo-input/demo.vue'))})}
 const toast = resolve => { require.ensure(['./components/toast/demo.vue'], () => {
     resolve(require('./components/toast/demo.vue'))})}
 const menuVertical = resolve => { require.ensure(['./components/menu-vertical/demo.vue'], () => {
     resolve(require('./components/menu-vertical/demo.vue'))})}
 const menusHorizon = resolve => { require.ensure(['./components/menus-horizon/demo.vue'], () => {
     resolve(require('./components/menus-horizon/demo.vue'))})}
-const input = resolve => { require.ensure(['./components/form-input/demo.vue'], () => {
-    resolve(require('./components/form-input/demo.vue'))})}
+const input = resolve => { require.ensure(['./components/bo-input/demo.vue'], () => {
+    resolve(require('./components/bo-input/demo.vue'))})}
 
 
 const drawer = resolve => { require.ensure(['./components/drawer/demo.vue'], () => {
@@ -30,6 +30,9 @@ const drawer = resolve => { require.ensure(['./components/drawer/demo.vue'], () 
 
 const slider = resolve => { require.ensure(['./components/slider/demo.vue'], () => {
     resolve(require('./components/slider/demo.vue'))})}
+
+const Switch = resolve => { require.ensure(['./components/bo-switch/demo.vue'], () => {
+    resolve(require('./components/bo-switch/demo.vue'))})}
 
 const login = resolve => { require.ensure(['./other/login/demo.vue'], () => {
     resolve(require('./other/login/demo.vue'))})}
@@ -75,6 +78,9 @@ export default [{
 },{
   path: 'slider',
   component: slider
+},{
+  path: 'bo-switch',
+  component: Switch
 },{
   path: 'login',
   component: login

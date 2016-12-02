@@ -7,6 +7,13 @@
     <dmenu path="/demo/drawer" name="动效抽屉" />
     <dmenu path="/demo/slider" name="内容滚动" />
   </ul>
+  <div class="list-title">输 入</div>
+  <ul class="list list-box p0002">
+
+    <dmenu path="/demo/form-group" name="表 单" />
+   <dmenu path="/demo/bo-switch" name="滑动开关" />
+  </ul>
+
   <div class="list-title">列表&菜单</div>
   <ul class="list list-box p0002">
     <dmenu path="/demo/listdown" name="上拉刷新" />

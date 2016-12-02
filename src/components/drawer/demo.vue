@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <ul class="list list-box p0002">
-      <dmenu @on-click="play('center')"  name="Center"/>
-      <dmenu @on-click="play('bottom')"  name="Bootom"/>
-      <dmenu @on-click="play('left')"  name="Left"/>
+      <dmenu @on-switch="play"   alias="center"  name="Center"/>
+      <dmenu @on-switch="play"  alias="bottom" name="Bootom"/>
+      <dmenu @on-switch="play" alias="left"  name="Left"/>
     </ul>
 
    <drawer :show="show" :position="pos">
@@ -16,7 +16,7 @@
 
 <script>
 import Drawer from './drawer.vue'
-import Dmenu from '../demohelper/demomenu.vue'
+import Dmenu from '../demohelper/demoswitch.vue'
 
 export default {
   name: 'drawerdemo',
@@ -25,18 +25,22 @@ export default {
     Dmenu
   },
   methods: {
-    play (position){
+    play (data){
+
       this.show = true
-      this.pos = position
+      this.pos = data.obj.alias
+
     },
     close (){
       this.show = false
+      this.clickObj.off()
     }
   },
   data () {
     return {
       show: false,
-      pos: 'center'
+      pos: 'center',
+      state: false
     }
   }
 }

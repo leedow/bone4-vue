@@ -67,7 +67,7 @@
 import SidebarMenu from './components/sidebar/sidebar.vue'
 import Sidebar from './components/sidebar/demo.vue'
 import Btn from './components/btn/demo.vue'
-import FormInput from './components/form-input/demo.vue'
+
 import FormGroup from './components/form-group/demo.vue'
 import Modal from './components/modal/demo.vue'
 import List from './components/list/demo.vue'
@@ -81,7 +81,6 @@ export default {
     SidebarMenu,
     Sidebar,
     Btn,
-    FormInput,
     FormGroup,
     Modal,
     List,
@@ -149,6 +148,11 @@ export default {
           alias: 'drawer',
           title: '动效抽屉',
           link: '/component/drawer',
+          mobile: true
+        },{
+          alias: 'bo-switch',
+          title: '滑动开关',
+          link: '/component/bo-switch',
           mobile: true
         }],
         pc: [

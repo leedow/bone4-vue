@@ -1,9 +1,9 @@
 <template>
   <div>
         <ul class="list list-box p0002">
-          <dmenu @on-click="alert"  name="Alert"/>
-          <dmenu @on-click="confirm"  name="Confirm" />
-          <dmenu @on-click="show2=true"  name="Has child components" />
+          <dmenu @on-switch="alert"  name="Alert"/>
+          <dmenu @on-switch="confirm"  name="Confirm" />
+          <dmenu @on-switch="show2=true"  name="Has child components" />
         </ul>
         <modal :show="show" @on-confirm="show=false" @on-cancel="show=false" :type="type" >Hello world!</modal>
         <modal :show="show2" @on-confirm="show2=false" @on-cancel="show2=false" :type="type" >
@@ -15,7 +15,7 @@
 
 <script>
 import Modal from './modaldemo.vue'
-import Dmenu from '../demohelper/demomenu.vue'
+import Dmenu from '../demohelper/demoswitch.vue'
 
 export default {
   name: 'DialogDemo',

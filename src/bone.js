@@ -1,7 +1,7 @@
 import List from './components/list/list.vue'
 import Btn from './components/btn/btn.vue'
 import FormGroup from './components/form-group/form-group.vue'
-import FormInput from './components/form-input/form-input.vue'
+import BoInput from './components/bo-input/bo-input.vue'
 import MenuVertical from './components/menu-vertical/menu-vertical.vue'
 import MenusHorizon from './components/menus-horizon/menus-horizon.vue'
 import Modal from './components/modal/modal.vue'
@@ -14,7 +14,7 @@ export {
   List,
   Btn,
   FormGroup,
-  FormInput,
+  BoInput,
   MenuVertical,
   menusHorizon,
   Modal,

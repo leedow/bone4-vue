@@ -28,6 +28,7 @@ export default {
     },
     _putRight (){
       if(this._reachTop()){
+        this.distanceBackup = 0
         this._moveY(-this.distanceBackup)
         clearInterval(this.timer)
         return true
