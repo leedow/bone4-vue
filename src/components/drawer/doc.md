@@ -3,7 +3,7 @@
 | 属性名      | 说 明         | 类 型 |默认值  |
 | ------------- |-----------|------| -----|
 | show | 是否显示抽屉 | Boolean  | false |
-| position | 显示的位置， `center` `bottom` `left` | String | 'center' |
+| position | 显示的位置， `center` `bottom` `left` `top`| String | 'center' |
 
 ## 组件方法
 

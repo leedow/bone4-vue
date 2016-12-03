@@ -28,6 +28,7 @@ var Format = {
 		var _this = this;
     var pass = {state: true,msg:''}
     try{
+			if(typeof value == 'string')
 			var value = value.replace(/\s/, '');
 		} catch (e) {
 			//console.log('format repalce wrong')

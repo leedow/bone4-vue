@@ -8,6 +8,8 @@ import Modal from './components/modal/modal.vue'
 import Tabs from './components/tabs/tabs.vue'
 import Toast from './components/toast/toast.vue'
 import Login from './other/login/login.vue'
+import BoSWitch from './components/bo-switch/bo-switch.vue'
+import Drawer from './components/drawer/drawer.vue'
 
 
 export {
@@ -15,10 +17,12 @@ export {
   Btn,
   FormGroup,
   BoInput,
+  BoSWitch,
   MenuVertical,
   menusHorizon,
   Modal,
   Tabs,
   Toast,
+  Drawer,
   Login
 }

@@ -4,6 +4,7 @@
       <dmenu @on-switch="play"   alias="center"  name="Center"/>
       <dmenu @on-switch="play"  alias="bottom" name="Bootom"/>
       <dmenu @on-switch="play" alias="left"  name="Left"/>
+      <dmenu @on-switch="play" alias="top"  name="Top"/>
     </ul>
 
    <drawer :show="show" :position="pos">
@@ -33,7 +34,7 @@ export default {
     },
     close (){
       this.show = false
-      this.clickObj.off()
+
     }
   },
   data () {

@@ -39,6 +39,22 @@
             for="testform"
             name="int"
           />
+
+
+          <bo-select
+            label="选 择"
+            for="testform"
+            name="select"
+            :required=true
+            :options="[{
+              text: 'One',
+              value: 1
+            },{
+              text: 'Two',
+              value: 2
+            }]"
+          />
+
           <div class="p2222">
               <btn theme="primary" :block=true size="lg" submit="testform" name="确 认"/>
           </div>
@@ -58,6 +74,7 @@
 <script>
 import FormGroup from './form-group.vue'
 import FormInput from '../bo-input/bo-input.vue'
+import BoSelect from '../bo-select/bo-select.vue'
 import Btn from '../btn/btn.vue'
 
 export default {
@@ -65,6 +82,7 @@ export default {
   components: {
     FormGroup,
     FormInput,
+    BoSelect,
     Btn
   },
   methods: {

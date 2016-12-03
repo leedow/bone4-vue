@@ -68,7 +68,7 @@ export default {
       let jump = parseInt(1000/100)
 
 
-      data.speed.y += 200
+      //data.speed.y += 200
       let step = data.speed.y*jump/1000
       let length = this.distance-this.distanceBackup
       let everystep = step/100

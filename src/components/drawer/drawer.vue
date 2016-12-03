@@ -23,16 +23,16 @@ export default {
     },
     position: {
       type: String,
-      default: 'center' //center|bottom|left
+      default: 'center' //center|bottom|left|top
     }
   },
-
   data () {
     return {
       animate: {
         center: 'modal',
         bottom: 'bt',
-        left: 'lr'
+        left: 'lr',
+        top: 'tb'
       }
     }
   }

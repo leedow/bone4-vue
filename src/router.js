@@ -15,6 +15,10 @@ const tabs = resolve => { require.ensure(['./components/tabs/demo.vue'], () => {
     resolve(require('./components/tabs/demo.vue'))})}
 const inputs = resolve => { require.ensure(['./components/bo-input/demo.vue'], () => {
     resolve(require('./components/bo-input/demo.vue'))})}
+
+const select = resolve => { require.ensure(['./components/bo-select/demo.vue'], () => {
+    resolve(require('./components/bo-select/demo.vue'))})}
+
 const toast = resolve => { require.ensure(['./components/toast/demo.vue'], () => {
     resolve(require('./components/toast/demo.vue'))})}
 const menuVertical = resolve => { require.ensure(['./components/menu-vertical/demo.vue'], () => {
@@ -42,6 +46,9 @@ const login = resolve => { require.ensure(['./other/login/demo.vue'], () => {
 export default [{
   path: 'form-input',
   component: input
+},{
+  path: 'bo-select',
+  component: select
 },{
   path: 'list',
   component: List

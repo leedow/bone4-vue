@@ -21,7 +21,7 @@
         <menu-vertical>
           <span slot="body">带文字</span>
           <span slot="dock" style="padding-right: 20px;">
-            <bo-switch :state="false" show-tag=true/>
+            <bo-switch :state="false" :show-tag="true" />
           </span>
         </menu-vertical>
       </li>
@@ -29,7 +29,7 @@
         <menu-vertical>
           <span slot="body">自定义文字</span>
           <span slot="dock" style="padding-right: 20px;">
-            <bo-switch show-tag=true :tag="['ON', 'OFF']"/>
+            <bo-switch :show-tag="true" :tag="['ON', 'OFF']"/>
           </span>
         </menu-vertical>
       </li>
