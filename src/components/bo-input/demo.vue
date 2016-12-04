@@ -10,6 +10,7 @@
         <bo-input
           holder="Default Size"
           :style="{marginTop:'10px'}"
+          focus
         />
         <bo-input
           holder="Small Size"

@@ -7,7 +7,7 @@
         'be-' + state_,
         icon!=''?'has-icon':''
     ]">
-      <input  class="input form-control"
+      <input ref="input"  class="input form-control"
               type="text"
               :name="name"
               :class="[
@@ -25,7 +25,7 @@
       'be-' + state_,
       icon!=''?'has-icon':''
   ]">
-    <input  class="input form-control"
+    <input ref="input" class="input form-control"
             type="text"
             :name="name"
             :class="[
@@ -98,6 +98,10 @@ export default {
     for: {
       type: String,
       default: ''
+    },
+    focus: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -145,6 +149,10 @@ export default {
   },
   beforeDestroy () {
     eventbus.$off('form-verify', this.formVerify)
+  },
+  mounted (){
+    if(this.focus)
+    this.$refs.input.focus()
   },
   data () {
     return {

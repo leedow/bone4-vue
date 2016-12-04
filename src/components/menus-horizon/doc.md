@@ -23,36 +23,57 @@
 
 ## 初始化
 ```
-<list class="list-box p0002">
-  <li class="list-item">
-    <menu-vertical icon="scan">
-      <span slot="body">带图标</span>
-    </menu-vertical>
-  </li>
-  <li class="list-item list-item-arrow">
-    <menu-vertical icon="cascades">
-      <p slot="body">带图标箭头</p>
-    </menu-vertical>
-  </li>
-</list>
+<template>
+  <div class="">
+    <div style="font-size: 34px;padding-top:150px;color:#999">
+      {{content}}
+    </div>
+    <div class="layout-bottom bor-top" style="background:#fff">
+      <menus-horizon
+        size="sm"
+        current="like"
+        @on-click="handleclick"
+        :surface="[{
+            icon: 'like',
+            currentIcon: 'likefill',
+            alias: 'like',
+            title: '收 藏'
+          },{
+            icon: 'time',
+            currentIcon: 'timefill',
+            alias: 'time',
+            title: '时光机'
+          },{
+            icon: 'shop',
+            currentIcon: 'shopfill',
+            alias: 'shop',
+            title: '小 摊'
+          }]"
+      ></menus-horizon>
+    </div>
 
-<list class="list-box p0002 m2000">
-  <li class="list-item">
-    <menu-vertical>
-      <p slot="body">右侧停靠</p>
-      <btn slot="dock" theme="blank" blank="true" name="Anything">
-    </menu-vertical>
-  </li>
-  <li class="list-item">
-    <menu-vertical>
-      <p slot="body">右侧停靠</p>
-      <i slot="dock" class="icon iconfont icon-roundcheckfill" style="font-size:24px;color:#3492e6"></i>
-    </menu-vertical>
-  </li>
-  <li class="list-item list-item-arrow">
-    <menu-vertical>
-      <p slot="body">自定义内容 <span style="display:block;font-size:13px;color:#999">随便怎么加</span>  </p>
-    </menu-vertical>
-  </li>
-</list>
+  </div>
+</template>
+
+<script>
+import {MenusHorizon, Btn} from 'bone4'
+
+export default {
+  name: 'menudemo',
+  components: {
+    MenusHorizon,
+    Btn
+  },
+  methods: {
+    handleclick (item){
+      this.content = item.alias
+    }
+  },
+  data () {
+    return {
+      content: 'like'
+    }
+  }
+}
+</script>
 ```

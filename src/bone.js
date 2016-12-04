@@ -2,6 +2,7 @@ import List from './components/list/list.vue'
 import Btn from './components/btn/btn.vue'
 import FormGroup from './components/form-group/form-group.vue'
 import BoInput from './components/bo-input/bo-input.vue'
+import BoSelect from './components/bo-select/bo-select.vue'
 import MenuVertical from './components/menu-vertical/menu-vertical.vue'
 import MenusHorizon from './components/menus-horizon/menus-horizon.vue'
 import Modal from './components/modal/modal.vue'
@@ -17,9 +18,10 @@ export {
   Btn,
   FormGroup,
   BoInput,
+  BoSelect,
   BoSWitch,
   MenuVertical,
-  menusHorizon,
+  MenusHorizon,
   Modal,
   Tabs,
   Toast,

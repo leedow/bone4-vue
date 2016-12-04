@@ -14,12 +14,14 @@
           />
 
           <form-input
+            focus
             label="邮 箱"
             holder="输入邮箱"
             format="email"
             :required="true"
             for="testform"
             name="email"
+
           />
 
           <form-input
