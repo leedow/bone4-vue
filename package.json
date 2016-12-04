@@ -2,7 +2,7 @@
   "name": "bone4",
   "description": "UI Framework based on Bone4 and Vue2.0",
   "author": "leedow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --port 8082 --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"

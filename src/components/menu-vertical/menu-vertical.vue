@@ -32,6 +32,10 @@ export default {
     path: {
       type: String,
       default: ''
+    },
+    alias: {
+      type: String,
+      default: ''
     }
   },
   methods: {
@@ -39,6 +43,7 @@ export default {
       if(this.path != ''){
         this.$router.push(this.path)
       }
+      this.$emit('on-click', this.alias)
     }
   },
   data () {
