@@ -8,7 +8,9 @@
     </header>
   </section>
   <section class="layout-has-top layout-main">
-    <router-view></router-view>
+
+      <router-view></router-view>
+
   </section>
   <section class="layout-bottom bor-top" style="background:#fff">
     <menus-horizon

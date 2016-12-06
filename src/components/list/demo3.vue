@@ -1,5 +1,4 @@
 <template>
-  <page>
 
 
       <list @on-loading="loading" mode="swipeUp">
@@ -14,7 +13,7 @@
         </li>
       </list>
 
-  </page>
+ 
 </template>
 
 <script>

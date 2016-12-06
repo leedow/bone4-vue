@@ -1,5 +1,8 @@
 <template>
-  <div class="">
+
+      <div class="">
+
+
     <section class="layout-top">
       <header class="header">
         <div class="header-dock al">
@@ -12,9 +15,13 @@
       </header>
     </section>
     <section class="layout-has-top">
-    <router-view></router-view>
+
+      <router-view></router-view>
+
+
     </section>
-  </div>
+    </div>
+
 </template>
 
 <script>
@@ -22,7 +29,7 @@
 export default {
   name: 'menudemo',
   components: {
- 
+
   },
   created (){
     this.currentComponent = this.$route.params.name;

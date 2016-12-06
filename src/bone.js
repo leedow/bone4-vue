@@ -9,8 +9,9 @@ import Modal from './components/modal/modal.vue'
 import Tabs from './components/tabs/tabs.vue'
 import Toast from './components/toast/toast.vue'
 import Login from './other/login/login.vue'
-import BoSWitch from './components/bo-switch/bo-switch.vue'
+import BoSwitch from './components/bo-switch/bo-switch.vue'
 import Drawer from './components/drawer/drawer.vue'
+import Device from './components/helper/device'
 
 
 export {
@@ -19,12 +20,13 @@ export {
   FormGroup,
   BoInput,
   BoSelect,
-  BoSWitch,
+  BoSwitch,
   MenuVertical,
   MenusHorizon,
   Modal,
   Tabs,
   Toast,
   Drawer,
-  Login
+  Login,
+  Device
 }

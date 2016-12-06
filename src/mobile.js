@@ -5,11 +5,13 @@ import Demo from './demo.vue'
 import VueRouter from 'vue-router'
 import RouterConfig from './router'
 import dmenu from './components/demohelper/demomenu.vue'
+import Device from './components/helper/device'
 
 
 //demos
 //const Listdown = resolve => require(['./components/list/demo2.vue'], resolve)
 
+Device.initScale()
 
 Vue.use(VueRouter)
 //Vue.use(dmenu)
