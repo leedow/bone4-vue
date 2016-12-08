@@ -1,7 +1,7 @@
 <template>
 <div>
   <transition name="layout">
-    <div class="layout-opacity" v-if="show"></div>
+    <div class="layout-opacity" :class="[position=='top-header'?'layout-header':'']" v-if="show"></div>
   </transition>
   <transition :name="animate[position]">
     <div class="drawer" :class="['drawer-'+position ]" v-if="show">
@@ -23,7 +23,7 @@ export default {
     },
     position: {
       type: String,
-      default: 'center' //center|bottom|left|top
+      default: 'center' //center|bottom|left|top|top-header
     }
   },
   data () {
@@ -32,7 +32,8 @@ export default {
         center: 'modal',
         bottom: 'bt',
         left: 'lr',
-        top: 'tb'
+        top: 'tb',
+        'top-header': 'tb'
       }
     }
   }

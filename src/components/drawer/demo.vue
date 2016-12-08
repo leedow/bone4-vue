@@ -5,6 +5,7 @@
       <dmenu @on-switch="play"  alias="bottom" name="Bootom"/>
       <dmenu @on-switch="play" alias="left"  name="Left"/>
       <dmenu @on-switch="play" alias="top"  name="Top"/>
+      <dmenu @on-switch="play" alias="top-header"  name="Top with header"/>
     </ul>
 
    <drawer :show="show" :position="pos">
