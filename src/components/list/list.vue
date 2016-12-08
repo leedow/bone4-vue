@@ -37,6 +37,12 @@ export default {
   created (){
     let list = this.$refs.list;
 
+    try{
+      this.pullDistance *= window.r||1
+    } catch(e){
+      this.pullDistance *= 1
+    }
+
     this.touchit = new touchit({
       dom: document.body,
       type: this.mode,
@@ -62,9 +68,9 @@ export default {
       this.pullState = 4 //loading
       this.distance = 0;
       if(this.mode == 'swipeUp')
-      this._move(-60)
+      this._move(-this.pullDistance)
       if(this.mode == 'swipeDown')
-      this._move(60)
+      this._move(this.pullDistance)
     },
     _handleTouch (eventType, data){
       switch (eventType){
@@ -74,7 +80,7 @@ export default {
         case 'touchmove': {
           let isRight = true
 
-          if(Math.abs(this.distance) < 100){
+          if(Math.abs(this.distance) < this.pullDistance+50){
             this.distance = data.distance.y
             this._move(this.distance)
           }
@@ -108,7 +114,7 @@ export default {
             }
           }
 
-          if(Math.abs(data.distance.y) > 60 && isRight){
+          if(Math.abs(data.distance.y) > this.pullDistance && isRight){
             this.pullState = 3 //松开刷新
           }
 
@@ -129,7 +135,8 @@ export default {
       isloading: false,
       notice: ['', '下拉刷新列表', '上拉刷新列表', '松开刷新', '加载中'],
       pullState: 0,
-      distance:0
+      distance:0,
+      pullDistance: 60
     }
   },
   beforeDestroy (){

@@ -30,6 +30,7 @@
 
   <div class="list-title">其 他</div>
   <ul class="list list-box p0002">
+    <dmenu path="/demo/slide" name="幻灯片" />
     <dmenu path="/demo/login" name="APP登录" />
     <dmenu path="/demo/car" name="商品列表" />
   </ul>

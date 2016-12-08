@@ -11,7 +11,7 @@ import Device from './components/helper/device'
 //demos
 //const Listdown = resolve => require(['./components/list/demo2.vue'], resolve)
 
-Device.initScale()
+//Device.initScale()
 
 Vue.use(VueRouter)
 //Vue.use(dmenu)

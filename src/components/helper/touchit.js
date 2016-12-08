@@ -1,5 +1,5 @@
 /**
- * @params config.type swipe|swipeDown|swipeUp
+ * @params config.type swipe|swipeDown|swipeUp|swipeLeft|swipeRight|swipeX
  * @params config.dom object
  * @params config.done function
  * @params config.doing function
@@ -18,7 +18,15 @@ module.exports = function(config){
   this.dom = config.dom
   this.eventType = config.type||'swipeDown'
   this.callback = config.doing||function(){}
-  this.donecallback = config.done
+  this.donecallback = config.done||function(){}
+
+  /**
+   * strict or unstrict
+   * "touchend" event function will be invoked
+   * no matter if event happend
+   * when this.mode is setted as 'unstrict'
+   */
+  this.mode = config.mode||'strict'
 
   //console.log(this.dom)
 
@@ -70,6 +78,18 @@ module.exports = function(config){
         state: t.state
       })
     } else {
+
+
+      if(t.mode == 'unstrict'){
+       
+        t.callback('touchend', {
+          distance: {x:t.distanceX, y:t.distanceY},
+          speed: {x:t.speedX, y:t.speedY},
+          position: t.currentPos,
+          state: t.state
+        })
+      }
+
       t.donecallback({
         distance: {x:t.distanceX, y:t.distanceY},
         speed: {x:t.speedX, y:t.speedY},
@@ -92,7 +112,6 @@ module.exports = function(config){
 
   this.actions = {
     swipe: function(){
-
       return true
     },
     //swipeDown
@@ -109,10 +128,32 @@ module.exports = function(config){
         return true
       }
       return false
+    },
+    swipeLeft: function(){
+      if(t.distanceX < - 60){
+        return true
+      }
+      return false
+    },
+    swipeRight: function(){
+      if(t.distanceX > 60){
+        return true
+      }
+      return false
+    },
+    swipeX: function(){
+      if(Math.abs(t.distanceX) > 60){
+        return true
+      }
+      return false
+    },
+    swipeY: function(){
+      if(Math.abs(t.distanceY) > 60){
+        return true
+      }
+      return false
     }
   }
-
-
 
   this.init = function(){
     this.dom.addEventListener('touchstart', this.handleTouchStart)

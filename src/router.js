@@ -38,6 +38,10 @@ const slider = resolve => { require.ensure(['./components/slider/demo.vue'], () 
 const Switch = resolve => { require.ensure(['./components/bo-switch/demo.vue'], () => {
     resolve(require('./components/bo-switch/demo.vue'))})}
 
+
+const Slide = resolve => { require.ensure(['./components/slide/demo.vue'], () => {
+    resolve(require('./components/slide/demo.vue'))})}
+
 const login = resolve => { require.ensure(['./other/login/demo.vue'], () => {
     resolve(require('./other/login/demo.vue'))})}
 
@@ -88,6 +92,9 @@ export default [{
 },{
   path: 'bo-switch',
   component: Switch
+},{
+  path: 'slide',
+  component: Slide
 },{
   path: 'login',
   component: login

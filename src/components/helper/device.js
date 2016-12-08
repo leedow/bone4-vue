@@ -12,7 +12,13 @@ module.exports = {
         scale *= 0.5;
         ratio *= 2;
     }
-    meta.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+    meta.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+    document.documentElement.style.fontSize = 14*ratio + "px";
+    try{
+        window.r = ratio
+    } catch(e){
+      console.warm('Missing window')
+    }
   },
   dpr: function(){
     return window.devicePixelRatio
