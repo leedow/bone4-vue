@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="slide-btns">
-    <button class="slide-btn" v-for="item in surface"></button>
+    <button class="slide-btn" v-for="(item ,key, index ) in surface"  :class="[key==currentIndex?'slide-btn-current':'']"></button>
   </div>
 </div>
 </template>

@@ -154,6 +154,11 @@ export default {
           title: '滑动开关',
           link: '/component/bo-switch',
           mobile: true
+        },{
+          alias: 'slide',
+          title: '幻灯片',
+          link: '/component/slide',
+          mobile: true
         }],
         pc: [
         {

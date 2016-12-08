@@ -12,7 +12,7 @@
       <router-view></router-view>
 
   </section>
-  <section class="layout-bottom bor-top" style="background:#fff">
+  <section class="layout-bottom bor-top" style="background-color:#fff">
     <menus-horizon
       size="sm"
       :current="this.$route.path"
