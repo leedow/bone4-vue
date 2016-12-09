@@ -37,6 +37,7 @@ module.exports = function(config){
     t.state = 'START'
     var touch = e.targetTouches[0]
     t.startPos = [touch.pageX, touch.pageY]
+    console.log('startpost' + t.startPos)
     t.callback('touchstart', {
       distance: {x:t.distanceX, y:t.distanceY},
       position: t.startPos,
@@ -62,8 +63,14 @@ module.exports = function(config){
     t.endTime = new Date().getTime()
     var time = Math.floor((t.endTime - t.startTime)/1000)
 
+    if(t.currentPos[0]==0 || t.currentPos[1]==0){
+      t.currentPos = t.startPos
+    }
+
     t.distanceX = t.currentPos[0] - t.startPos[0]
     t.distanceY = t.currentPos[1] - t.startPos[1]
+
+    //console.log('endpos' + t.currentPos)
 
     if(time == 0) time = 1
     t.speedX = Math.abs(t.distanceX/time)
@@ -81,7 +88,7 @@ module.exports = function(config){
 
 
       if(t.mode == 'unstrict'){
-       
+
         t.callback('touchend', {
           distance: {x:t.distanceX, y:t.distanceY},
           speed: {x:t.speedX, y:t.speedY},
@@ -123,6 +130,7 @@ module.exports = function(config){
       return false
     },
     swipeUp : function(){
+
       if(t.distanceY < -60){
 
         return true

@@ -33,6 +33,7 @@
     <dmenu path="/demo/slide" name="幻灯片" />
     <dmenu path="/demo/login" name="APP登录" />
     <dmenu path="/demo/car" name="商品列表" />
+    <dmenu path="/demo/seller" name="电商首页" />
   </ul>
 </div>
 </template>

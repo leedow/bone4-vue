@@ -1,8 +1,8 @@
 <template>
-<div class="slide" ref="slide" :style="{height:height,width:width}">
+<div class="slide" ref="slide" :style="{height:height_ + 'px',width:width}">
   <div class="slide-content" ref="slidecontent" :style="{width:fullWidth+'px'}">
-    <div class="slide-item" v-for="item in surface" :style="{width:itemWidth+'px', height: itemHeight+'px'}">
-      {{item.imgUrl}}
+    <div class="slide-item" v-for="item in surface" :style="{width:itemWidth+'px'}">
+      <img :src="item.imgUrl" @load="imgload" alt="" />
     </div>
   </div>
   <div class="slide-btns">
@@ -91,10 +91,16 @@ export default {
     fixPosition (){
       this.move(-this.currentIndex*this.itemWidth, false)
       this.preDistance = this.distance
+    },
+    imgload (){
+      //alert(this.$refs.slidecontent.clientHeight)
+      this.height_ = this.$refs.slidecontent.clientHeight
+      this.itemHeight = this.height_
     }
   },
   data () {
     return {
+      height_: 0,
       distance: 0,
       itemWidth: 0,
       itemHeight: 0,

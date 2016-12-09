@@ -46,6 +46,8 @@ const login = resolve => { require.ensure(['./other/login/demo.vue'], () => {
     resolve(require('./other/login/demo.vue'))})}
 
 
+const seller = resolve => { require.ensure(['./other/seller/demo.vue'], () => {
+    resolve(require('./other/seller/demo.vue'))})}
 
 export default [{
   path: 'form-input',
@@ -98,4 +100,7 @@ export default [{
 },{
   path: 'login',
   component: login
+},{
+  path: 'seller',
+  component: seller
 }]
