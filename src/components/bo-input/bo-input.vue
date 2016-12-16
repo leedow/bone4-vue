@@ -154,6 +154,11 @@ export default {
     if(this.focus)
     this.$refs.input.focus()
   },
+  watch: {
+    value (newval , oldval){
+      this.value_ = newval
+    }
+  },
   data () {
     return {
       value_: this.value,

@@ -1,5 +1,5 @@
 <template>
-  <nav class="tabs-horizon tabs-horizon-flex">
+  <nav class="tabs-horizon tabs-horizon-flex" :class="['tabs-horizon-' + theme]">
     <button v-for="(item, index) in surface" class="tabs-item" :class="[
       item.alias==current_?'tabs-item-current':''
     ]"
@@ -19,6 +19,10 @@ export default {
       default (){
         return []
       }
+    },
+    theme: {
+      type: String,
+      default: 'default' //or dark
     },
     current: {
       type: String,

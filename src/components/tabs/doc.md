@@ -3,6 +3,7 @@
 | 属性名      | 说 明         | 类 型 |默认值  |
 | ------------- |-----------|------| -----|
 | surface    | 菜单列表数据，格式为 ``[{alias, title, path}]`` ,  `alias` 为 `title` 的别名,  `path`可省略，若存在则自动跳转到对应路径 | Array | `[ ]` |
+| theme | 主题颜色 `default` `dark` | String | default |
 
 ## 组件方法
 

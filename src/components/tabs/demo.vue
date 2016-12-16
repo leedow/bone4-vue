@@ -2,6 +2,7 @@
   <div class="">
     <tabs
       current="like"
+
       @on-click="handleclick"
      :surface="[{
         alias: 'like',

@@ -22,7 +22,7 @@ export default {
     },
     delay: {
       type: Number,
-      default: 2000
+      default: 1500
     },
     content: {
       type: String,

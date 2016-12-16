@@ -1,8 +1,9 @@
 /**
- * @params config.type swipe|swipeDown|swipeUp|swipeLeft|swipeRight|swipeX
+ * @params config.type swipe|swipeDown|swipeUp|swipeLeft|swipeRight|swipeX|swipeY
  * @params config.dom object
  * @params config.done function
  * @params config.doing function
+ * @params config.alias
  */
 module.exports = function(config){
   this.distanceX = 0
@@ -15,8 +16,9 @@ module.exports = function(config){
   this.speedY = 0
   //this.endPos = [0,0]
   this.state = 'FREE' //START|MOVING|END|FREE
+  this.alias = config.alias||''
   this.dom = config.dom
-  this.eventType = config.type||'swipeDown'
+  this.eventType = config.type||'swipe'
   this.callback = config.doing||function(){}
   this.donecallback = config.done||function(){}
 
@@ -41,7 +43,8 @@ module.exports = function(config){
     t.callback('touchstart', {
       distance: {x:t.distanceX, y:t.distanceY},
       position: t.startPos,
-      state: t.state
+      state: t.state,
+      alias: t.alias
     })
   }
 
@@ -54,7 +57,8 @@ module.exports = function(config){
     t.callback('touchmove', {
       distance: {x:t.distanceX, y:t.distanceY},
       position: t.currentPos,
-      state: t.state
+      state: t.state,
+      alias: t.alias
     })
   }
 
@@ -82,7 +86,8 @@ module.exports = function(config){
         distance: {x:t.distanceX, y:t.distanceY},
         speed: {x:t.speedX, y:t.speedY},
         position: t.currentPos,
-        state: t.state
+        state: t.state,
+        alias: t.alias
       })
     } else {
 
@@ -93,7 +98,8 @@ module.exports = function(config){
           distance: {x:t.distanceX, y:t.distanceY},
           speed: {x:t.speedX, y:t.speedY},
           position: t.currentPos,
-          state: t.state
+          state: t.state,
+          alias: t.alias
         })
       }
 
@@ -101,7 +107,8 @@ module.exports = function(config){
         distance: {x:t.distanceX, y:t.distanceY},
         speed: {x:t.speedX, y:t.speedY},
         position: t.currentPos,
-        state: t.state
+        state: t.state,
+        alias: t.alias
       })
     }
 
