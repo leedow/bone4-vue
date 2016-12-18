@@ -1,6 +1,6 @@
 <template>
 <div class="slide" ref="slide" :style="{height:height_ + 'px',width:width}">
-  <div class="slide-content" ref="slidecontent" :style="{width:fullWidth+'px'}">
+  <div class="slide-content animate-hack" ref="slidecontent" :style="{width:fullWidth+'px'}">
     <div class="slide-item" v-for="item in surface" :style="{width:itemWidth+'px'}">
       <img :src="item.imgUrl" @load="imgload" alt="" />
     </div>

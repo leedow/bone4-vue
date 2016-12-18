@@ -63,7 +63,7 @@ export default {
     },
     _loading (e){
       console.log('loading' + e.distance.y)
-      this.$emit('on-loading', this)
+
       this.isloading = true
       this.pullState = 4 //loading
       this.distance = 0;
@@ -71,6 +71,7 @@ export default {
       this._move(-this.pullDistance)
       if(this.mode == 'swipeDown')
       this._move(this.pullDistance)
+      this.$emit('on-loading', this)
     },
     _handleTouch (eventType, data){
       switch (eventType){
