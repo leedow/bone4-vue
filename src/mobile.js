@@ -7,13 +7,17 @@ import RouterConfig from './router'
 import dmenu from './components/demohelper/demomenu.vue'
 import Device from './components/helper/device'
 
-
+import Toast from './components/toast/toast'
 //demos
 //const Listdown = resolve => require(['./components/list/demo2.vue'], resolve)
 
 //Device.initScale()
 
 Vue.use(VueRouter)
+
+
+Vue.prototype.$toast = Toast
+
 //Vue.use(dmenu)
 const router = new VueRouter({
   routes: [

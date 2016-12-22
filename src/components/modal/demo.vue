@@ -5,7 +5,7 @@
           <dmenu @on-switch="confirm"  name="Confirm" />
           <dmenu @on-switch="show2=true"  name="Has child components" />
         </ul>
-        <modal :show="show" @on-confirm="show=false" @on-cancel="show=false" :type="type" >Hello world!</modal>
+        <modal v-model="show" @on-confirm="show=false" @on-cancel="show=false" :type="type">Hello world!</modal>
         <modal :show="show2" @on-confirm="show2=false" @on-cancel="show2=false" :type="type" >
           <input type="text" name="name"  class="input form-control" placeholder="请输入">
         </modal>

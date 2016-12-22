@@ -54,7 +54,10 @@ export default {
   methods: {
     //完成读取后调用重置
     reset (){
-      this.pullState = 0
+      setTimeout(()=>{
+        this.pullState = 0;
+      }, 300)
+      //this.pullState = 0
       this._move(0)
       this.isloading = false
     },
@@ -123,7 +126,10 @@ export default {
         }
         case 'touchend': {
           this.distance = 0;
-          this.pullState = 0;
+          //this.pullState = 0;
+          setTimeout(()=>{
+            this.pullState = 0;
+          }, 300)
           console.log('pulldown touchend' + data.distance.y)
           this._move(0)
         }

@@ -5,10 +5,13 @@
     <ul class="list list-box p0002">
 
       <dmenu @on-switch="showtoast('loading')"  name="读取中" dock="Loading" />
+
       <dmenu @on-switch="showtoast('failed')"  name="操作失败" dock="Failed" />
       <dmenu @on-switch="showtoast('warm')"  name="警告" dock="Warm" />
       <dmenu @on-switch="showtoast('success')"  name="操作成功" dock="Success" />
       <dmenu @on-switch="showtoast('text')"  name="纯文本" dock="Text" />
+
+      <dmenu @on-switch="showtoast('reg')"  name="注册调用" dock="Success" />
     </ul>
 
 
@@ -46,6 +49,9 @@ export default {
         case 'failed': this.$refs.failed.open();break;
         case 'warm': this.$refs.warm.open();break;
         case 'text': this.$refs.text.open();break;
+        case 'reg': {
+          this.$toast.open()
+        }
       }
     }
   },

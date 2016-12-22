@@ -1,5 +1,5 @@
 <template>
-  <div>
+<div>
   <transition name="layout">
     <div class="layout-opacity" v-if="show"></div>
   </transition>

@@ -3,10 +3,10 @@
   <div class="layout-none" v-if="show_">
     <div class="toast">
       <i v-if="icon!=''" class="icon iconfont" :class="[
-        'icon-' + icon[type],
-        type=='loading'?'loading':''
+        'icon-' + icon[type_],
+        type_=='loading'?'loading':''
       ]"></i>
-      {{content}}
+      {{content_}}
     </div>
   </div>
   </transition>
@@ -29,6 +29,9 @@ export default {
       default: ''
     }
   },
+  mounted: function(){
+    //alert(this.type_)
+  },
   methods: {
     open (){
       this.show_ = true
@@ -42,11 +45,14 @@ export default {
     _clock (){
       setTimeout(()=>{
         this.close()
-      }, this.delay)
+      }, this.delay_)
     }
   },
   data () {
     return {
+      type_: this.type,
+      delay_: this.delay,
+      content_: this.content,
       show_ : false,
       icon : {
         text: '',

@@ -25,5 +25,5 @@
 
 ## 初始化
 ```
-<modal :show="show" @modal-confirm="show=false" @modal-cancel="show=false" :type="type" >Hello world!</modal>
+<modal :show="show" @on-confirm="show=false" @on-cancel="show=false" :type="type" >Hello world!</modal>
 ```
