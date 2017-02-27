@@ -132,7 +132,7 @@
 </template>
 
 <script>
-import Slider from './slider.vue'
+import Slider from './slider'
 
 
 export default {
@@ -140,10 +140,10 @@ export default {
   components: {
     Slider
   },
-  created (){
+  created() {
 
   },
-  data () {
+  data() {
     return {
 
     }

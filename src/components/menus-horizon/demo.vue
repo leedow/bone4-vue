@@ -31,9 +31,8 @@
 </template>
 
 <script>
-import menusHorizon from './menus-horizon.vue'
-import list from '../list/list.vue'
-import btn from '../btn/btn.vue'
+import menusHorizon from './menus-horizon'
+import btn from '../btn/btn'
 
 export default {
   name: 'menudemo',
@@ -42,11 +41,11 @@ export default {
     btn
   },
   methods: {
-    handleclick (item){
+    handleclick(item) {
       this.content = item.alias
     }
   },
-  data () {
+  data() {
     return {
       content: 'like'
     }

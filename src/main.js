@@ -1,14 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
 import VueRouter from 'vue-router'
+
+import App from './App'
 import RouterConfig from './router'
 
-
 Vue.use(VueRouter)
-
-window.log = function(msg){
-  console.log(msg)
-}
 
 const router = new VueRouter({
   routes: [
@@ -20,4 +16,8 @@ const router = new VueRouter({
   ]
 })
 
-const app = new Vue({ router }).$mount('#app')
+/* eslint-disable */
+const app = new Vue({
+  router,
+  template: '<router-view/>'
+}).$mount('#app')

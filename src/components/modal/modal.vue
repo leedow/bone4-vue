@@ -41,20 +41,20 @@ export default {
     },
     buttons: {
       type: Array,
-      default (){
-        return ['确 定' , '取 消']
+      default() {
+        return ['确 定', '取 消']
       }
     }
   },
   methods: {
-    confirm (){
+    confirm() {
       this.$emit('on-confirm', this.name)
     },
-    cancel (){
+    cancel() {
       this.$emit('on-cancel', this.name)
     }
   },
-  data () {
+  data() {
     return {
 
     }

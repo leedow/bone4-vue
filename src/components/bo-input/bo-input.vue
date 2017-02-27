@@ -4,7 +4,7 @@
   ]">
     <label :for="name" :class="['label-' + this.size]">{{label}}</label>
     <div :class="[
-        'be-' + state_,
+        'be-' + stateSelf,
         icon!=''?'has-icon':''
     ]">
       <input ref="input"  class="input form-control"
@@ -14,7 +14,7 @@
                 'input-' + this.size,
                 'input-' + this.theme
               ]"
-              v-model="value_"
+              v-model="valueSelf"
               :placeholder="holder"
             />
         <i v-if="icon!=''" class="icon iconfont" :class="['icon-'+icon]"></i>
@@ -22,7 +22,7 @@
   </div>
 
   <div v-else class="form-item" :class="[
-      'be-' + state_,
+      'be-' + stateSelf,
       icon!=''?'has-icon':''
   ]">
     <input ref="input" class="input form-control"
@@ -32,7 +32,7 @@
               'input-' + this.size,
               this.theme=='underline'?'input-' + this.theme:''
             ]"
-            v-model="value_"
+            v-model="valueSelf"
             :placeholder="holder"
           />
         <i v-if="icon!=''" class="icon iconfont" :class="['icon-'+icon]"></i>
@@ -61,7 +61,7 @@ export default {
     },
     theme: {
       type: String,
-      default: 'default' //default|underline
+      default: 'default' // default|underline
     },
     size: {
       type: String,
@@ -73,7 +73,7 @@ export default {
     },
     state: {
       type: String,
-      default: 'normal' //normal|warm|pass|loading
+      default: 'normal' // normal|warm|pass|loading
     },
     enable: {
       type: Boolean,
@@ -108,61 +108,62 @@ export default {
     /**
      * 获取输入值
      */
-    getValue (){
-      return this.value_;
+    getValue() {
+      return this.valueSelf
     },
     /**
      * 设置显示状态
      * @param state 'wrong'|'pass'|'loading'
      */
-    setState (state){
-      this.state_ = state;
+    setState(state) {
+      this.stateSelf = state
     },
     /**
      * 出发验证，验证后将切换state状态
      * @return {state: boolean, msg: string}
      */
-    verify (){
-      let check = format.do(this.required, this.format, this.value_);
-      if(check.state){
-        this.setState('');
+    verify() {
+      const check = format.do(this.required, this.format, this.valueSelf)
+      if (check.state) {
+        this.setState('')
       } else {
-        this.setState('wrong');
+        this.setState('wrong')
       }
-      return check;
+      return check
     },
-    formVerify (formid){
-      if(this.for == formid){
+    formVerify(formid) {
+      if (this.for === formid) {
         eventbus.$emit('input-verify', {
-          formid: formid,
+          formid,
           result: this.verify(),
           data: {
             name: this.name,
-            value: this.value_
+            value: this.valueSelf
           }
         })
       }
     }
   },
-  created (){
+  created() {
     eventbus.$on('form-verify', this.formVerify)
   },
-  beforeDestroy () {
+  beforeDestroy() {
     eventbus.$off('form-verify', this.formVerify)
   },
-  mounted (){
-    if(this.focus)
-    this.$refs.input.focus()
-  },
-  watch: {
-    value (newval , oldval){
-      this.value_ = newval
+  mounted() {
+    if (this.focus) {
+      this.$refs.input.focus()
     }
   },
-  data () {
+  watch: {
+    value(newval) {
+      this.valueSelf = newval
+    }
+  },
+  data() {
     return {
-      value_: this.value,
-      state_: this.state,
+      valueSelf: this.value,
+      stateSelf: this.state
     }
   }
 }

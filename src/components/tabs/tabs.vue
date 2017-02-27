@@ -1,9 +1,9 @@
 <template>
   <nav class="tabs-horizon tabs-horizon-flex" :class="['tabs-horizon-' + theme]">
     <button v-for="(item, index) in surface" class="tabs-item" :class="[
-      item.alias==current_?'tabs-item-current':''
+      item.alias==current?'tabs-item-current':''
     ]"
-      @click="_handleClick(item, index)"
+      @click="handleClick(item, index)"
     >
        {{item.title}}
     </button>
@@ -16,13 +16,13 @@ export default {
   props: {
     surface: {
       type: Array,
-      default (){
+      default() {
         return []
       }
     },
     theme: {
       type: String,
-      default: 'default' //or dark
+      default: 'default' // or dark
     },
     current: {
       type: String,
@@ -30,20 +30,20 @@ export default {
     }
   },
   methods: {
-    setCurrent (alias){
-      this.current_ = alias;
+    setCurrent(alias) {
+      this.current = alias
     },
-    _handleClick (item, index){
-      if(item.path){
-        this.$router.push(item.path);
+    handleClick(item) {
+      if (item.path) {
+        this.$router.push(item.path)
       }
-      this.$emit('on-click', item);
-      this.setCurrent(item.alias);
+      this.$emit('on-click', item)
+      this.setCurrent(item.alias)
     }
   },
-  data () {
+  data() {
     return {
-      current_: this.current
+      current: this.current
     }
   }
 }

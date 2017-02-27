@@ -31,10 +31,10 @@ export default {
   components: {
 
   },
-  created (){
-    this.currentComponent = this.$route.params.name;
+  created() {
+    this.currentComponent = this.$route.params.name
   },
-  data () {
+  data() {
     return {
       currentComponent: ''
     }

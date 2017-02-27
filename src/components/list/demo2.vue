@@ -14,12 +14,12 @@
         </li>
       </list>
 
- 
+
 </template>
 
 <script>
-import List from './list.vue'
-import Page from '../page/page.vue'
+import List from './list'
+import Page from '../page/page'
 
 export default {
   name: 'listdemo',
@@ -27,7 +27,7 @@ export default {
     List,
     Page
   },
-  data () {
+  data() {
     return {
       datas: [
         {
@@ -38,17 +38,15 @@ export default {
     }
   },
   methods: {
-    loading (obj){
-
-      setTimeout(()=>{
+    loading(obj) {
+      setTimeout(() => {
         this.datas.push({
           id: 2,
-          content: '标题' + (this.datas.length+1)
+          content: `标题${this.datas.length + 1}`
         })
-        obj.reset();
-      },1000)
-
+        obj.reset()
+      }, 1000)
     }
-  },
+  }
 }
 </script>

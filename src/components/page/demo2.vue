@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import Page from './page.vue'
+import Page from './page'
 
 export default {
   name: 'test1',
   components: {
     Page
   },
-  data () {
+  data() {
     return {
 
     }

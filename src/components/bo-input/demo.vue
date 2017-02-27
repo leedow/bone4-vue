@@ -142,7 +142,7 @@
 </template>
 
 <script>
-import BoInput from './bo-input.vue'
+import BoInput from './bo-input'
 
 export default {
   name: '',
@@ -150,17 +150,17 @@ export default {
     BoInput
   },
   methods: {
-    getValue (){
-      alert(this.$refs.test.getValue())
+    getValue() {
+      alert(this.$refs.test.getValue());// eslint-disable-line
     },
-    setState (state){
-      this.$refs.test.setState(state)
+    setState(state) {
+      this.$refs.test.setState(state);// eslint-disable-line
     },
-    verify (){
-      alert(this.$refs.test.verify().msg);
+    verify() {
+      alert(this.$refs.test.verify().msg);// eslint-disable-line
     }
   },
-  data () {
+  data() {
     return {
 
     }

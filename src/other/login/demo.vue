@@ -5,27 +5,27 @@
 </template>
 
 <script>
-import login from './login.vue'
+import login from './login'
 
 export default {
   name: 'test1',
   components: {
     login
   },
-  created (){
+  created() {
 
   },
   methods: {
-    login (data){
-      console.log(data)
+    login(data) {
+      // console.log(data)
       this.$refs.login.toast(JSON.stringify(data))
-      setTimeout(()=>{
+      setTimeout(() => {
         this.$refs.login.reset()
-        //this.content = ''
+        // this.content = ''
       }, 2000)
     }
   },
-  data () {
+  data() {
     return {
 
     }

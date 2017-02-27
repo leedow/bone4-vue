@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import menuVertical from './menu-vertical.vue'
-import list from '../list/list.vue'
-import btn from '../btn/btn.vue'
+import menuVertical from './menu-vertical'
+import list from '../list/list'
+import btn from '../btn/btn'
 
 export default {
   name: 'menudemo',
@@ -47,7 +47,7 @@ export default {
     list,
     btn
   },
-  data () {
+  data() {
     return {
 
     }

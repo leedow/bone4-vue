@@ -19,7 +19,16 @@
 |-------|----------|----|
 | -   | - | - |
 
+## 全局使用
 
+全局Toast组件同时仅存在一个
+
+```
+this.$toast.open('全局调用', 'loading')
+this.$toast.open('全局调用', 'success')
+this.$toast.close()
+//...
+```
 
 
 ## DEMO

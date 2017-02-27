@@ -1,18 +1,24 @@
-import List from './components/list/list.vue'
-import Btn from './components/btn/btn.vue'
-import FormGroup from './components/form-group/form-group.vue'
-import BoInput from './components/bo-input/bo-input.vue'
-import BoSelect from './components/bo-select/bo-select.vue'
-import MenuVertical from './components/menu-vertical/menu-vertical.vue'
-import MenusHorizon from './components/menus-horizon/menus-horizon.vue'
-import Modal from './components/modal/modal.vue'
-import Tabs from './components/tabs/tabs.vue'
-import Toast from './components/toast/toast.vue'
-import Login from './other/login/login.vue'
-import BoSwitch from './components/bo-switch/bo-switch.vue'
-import Drawer from './components/drawer/drawer.vue'
-import Device from './components/helper/device'
+import Vue from 'vue'
 
+import List from './components/list/list'
+import Btn from './components/btn/btn'
+import FormGroup from './components/form-group/form-group'
+import BoInput from './components/bo-input/bo-input'
+import BoSelect from './components/bo-select/bo-select'
+import MenuVertical from './components/menu-vertical/menu-vertical'
+import MenusHorizon from './components/menus-horizon/menus-horizon'
+import Modal from './components/modal/modal'
+import Tabs from './components/tabs/tabs'
+import Toast from './components/toast/toast'
+
+import Login from './other/login/login'
+import BoSwitch from './components/bo-switch/bo-switch'
+import Drawer from './components/drawer/drawer'
+import Device from './components/helper/device'
+import Toast_ from './components/toast'
+
+
+Vue.prototype.$toast = Toast_
 
 export {
   List,

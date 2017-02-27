@@ -57,54 +57,50 @@
   }
 </style>
 <script>
-import touchit from '../../components/helper/touchit'
-import Toast from '../../components/toast/toast.vue'
+import Touchit from '../../components/helper/touchit'
+import Toast from '../../components/toast/toast'
 
 export default {
   name: 'touchdemo',
   components: {
     Toast
   },
-  mounted (){
-
-
-    for(let key in this.touchit){
-      let type = this.touchType[key]
-      this.touchit[key] = new touchit({
+  mounted() {
+    this.touchit.forEach((type, key) => {
+      this.touchit[key] = new Touchit({
         alias: type,
         dom: this.$refs[type],
-        type: type,
+        type,
         done: this.done,
         doing: this.doing
-      });
-    }
+      })
+    })
   },
   methods: {
-    done (e){
-      this.content = 'You ' + e.alias
+    done(e) {
+      this.content = `You ${e.alias}`
       this.$refs.success.open()
     },
-    doing (et, e){
+    doing(et, e) {
       console.log(e)
       this.position = e.position
       this.distance = e.distance
-
     }
   },
-  data () {
+  data() {
     return {
       content: '',
-      position: [0,0],
-      speed: {x:0,y:0},
-      distance: {x:0,y:0},
+      position: [0, 0],
+      speed: { x: 0, y: 0 },
+      distance: { x: 0, y: 0 },
       touchit: [null, null, null, null, null, null, null],
       touchType: ['swipe', 'swipeDown', 'swipeUp', 'swipeLeft', 'swipeRight', 'swipeX', 'swipeY']
     }
   },
-  beforeDestroy (){
-    for(let key in this.touchit){
-      this.touchit[key].destory()
-    }
+  beforeDestroy() {
+    this.touchit.forEach((item) => {
+      item.destory()
+    })
   }
 }
 </script>

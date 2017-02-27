@@ -39,14 +39,14 @@ export default {
     }
   },
   methods: {
-    handleClick (){
-      if(this.path != ''){
+    handleClick() {
+      if (this.path !== '') {
         this.$router.push(this.path)
       }
       this.$emit('on-click', this.alias)
     }
   },
-  data () {
+  data() {
     return {
 
     }

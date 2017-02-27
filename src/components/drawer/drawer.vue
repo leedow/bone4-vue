@@ -23,10 +23,10 @@ export default {
     },
     position: {
       type: String,
-      default: 'center' //center|bottom|left|top|top-header
+      default: 'center' // center|bottom|left|top|top-header
     }
   },
-  data () {
+  data() {
     return {
       animate: {
         center: 'modal',

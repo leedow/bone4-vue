@@ -52,16 +52,16 @@ export default {
     }
   },
   methods: {
-    handleClick (){
-      if(this.submit != ''){
-        eventbus.$emit('btn-submit', this.submit);
+    handleClick() {
+      if (this.submit !== '') {
+        eventbus.$emit('btn-submit', this.submit)
       }
-      if(this.disable && !this.loading){
-        this.$emit('on-click', '');
+      if (this.disable && !this.loading) {
+        this.$emit('on-click', '')
       }
     }
   },
-  data () {
+  data() {
     return {
 
     }

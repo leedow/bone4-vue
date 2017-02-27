@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import List from './list.vue'
+import List from './list'
 
 export default {
   name: 'listdemo',
   components: {
     List
   },
-  data () {
+  data() {
     return {
 
     }

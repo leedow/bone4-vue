@@ -1,14 +1,12 @@
 <template>
   <transition name="layout">
-  <div class="layout-none" v-if="show_">
-    <div class="toast">
-      <i v-if="icon!=''" class="icon iconfont" :class="[
-        'icon-' + icon[type_],
-        type_=='loading'?'loading':''
+     <div class="toast" v-if="showSelf">
+      <i v-if="icon!==''" class="icon iconfont" :class="[
+        'icon-' + icon[typeSelf],
+        typeSelf==='loading'?'loading':''
       ]"></i>
-      {{content_}}
+      {{contentSelf}}
     </div>
-  </div>
   </transition>
 </template>
 
@@ -17,7 +15,7 @@ export default {
   name: 'toast',
   props: {
     type: {
-      type: String,//text|success|failed|warm|loading
+      type: String, // text|success|failed|warm|loading
       default: 'text'
     },
     delay: {
@@ -29,32 +27,32 @@ export default {
       default: ''
     }
   },
-  mounted: function(){
-    //alert(this.type_)
+  mounted() {
+    // alert(this.typeSelf)
   },
   methods: {
-    open (){
-      this.show_ = true
-      if(this.type != 'loading'){
-        this._clock()
+    open() {
+      this.showSelf = true
+      if (this.typeSelf !== 'loading') {
+        this.clock()
       }
     },
-    close (){
-      this.show_ = false
+    close() {
+      this.showSelf = false
     },
-    _clock (){
-      setTimeout(()=>{
+    clock() {
+      setTimeout(() => {
         this.close()
-      }, this.delay_)
+      }, this.delaySelf)
     }
   },
-  data () {
+  data() {
     return {
-      type_: this.type,
-      delay_: this.delay,
-      content_: this.content,
-      show_ : false,
-      icon : {
+      typeSelf: this.type,
+      delaySelf: this.delay,
+      contentSelf: this.content,
+      showSelf: false,
+      icon: {
         text: '',
         success: 'check',
         failed: 'close',

@@ -22,34 +22,36 @@ export default {
     },
     tag: {
       type: Array,
-      default (){
+      default() {
         return ['开', '关']
       }
     }
   },
   methods: {
-    _handleClick (){
-      this.state_ = !this.state_
-      this.$emit('on-click', this.state_)
+    _handleClick() {
+      this.stateSelf = !this.stateSelf
+      this.$emit('on-click', this.stateSelf)
     },
-    setState (state){
-      this.state_ = state
+    setState(state) {
+      this.stateSelf = state
     }
   },
   computed: {
-    cssState (){
-      if(this.showTag && !this.state_){
-        return 'switch-tag-off'
-      } else if(!this.showTag && !this.state_){
-        return 'switch-off'
+    cssState() {
+      let state = ''
+      if (this.showTag && !this.stateSelf) {
+        state = 'switch-tag-off'
+      } else if (!this.showTag && !this.stateSelf) {
+        state = 'switch-off'
       } else {
-        return 'switch-on'
+        state = 'switch-on'
       }
+      return state
     }
   },
-  data () {
+  data() {
     return {
-      state_: this.state
+      stateSelf: this.state
     }
   }
 }

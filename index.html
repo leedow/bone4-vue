@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Bone Vue</title>
-    <link rel="stylesheet" href="http://localhost/bone4/build/bone-all.css" media="screen" title="no title">
-    <link rel="stylesheet" href="dist/demo.css" media="screen" title="no title">
-    <link rel="stylesheet" href="font/iconfont.css" media="screen" title="no title">
-    <link rel="stylesheet" href="plugins/prism.css" media="screen" title="no title">
+   
+    <link rel="stylesheet" href="static/demo.css" media="screen" title="no title">
+    <link rel="stylesheet" href="static/font/iconfont.css" media="screen" title="no title">
+    <link rel="stylesheet" href="static/prism.css" media="screen" title="no title">
     <style media="screen">
     .layout-top, .layout-bottom, .layout-none, .layout-opacity{
     position: absolute;
@@ -18,15 +18,17 @@
   z-index: 999;
 }
     </style>
+    <script type="text/javascript" src="static/zepto.min.js"></script>
+    <script type="text/javascript" src="static/prism.js">
+
+    </script>
   </head>
   <body>
     <div id="app">
-       <router-view></router-view>
-    </div>
-    <script type="text/javascript" src="plugins/zepto.min.js"></script>
-    <script type="text/javascript" src="plugins/prism.js">
 
-    </script>
-    <script src="/dist/main.build.js"></script>
+    </div>
+
+
+    <!-- built files will be auto injected -->
   </body>
 </html>

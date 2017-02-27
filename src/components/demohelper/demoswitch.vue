@@ -10,11 +10,12 @@
 </template>
 
 <script>
-import menuVertical from '../menu-vertical/menu-vertical.vue'
-import BoSwitch from '../bo-switch/bo-switch.vue'
+import menuVertical from '../menu-vertical/menu-vertical'
+import BoSwitch from '../bo-switch/bo-switch'
+
 export default {
   name: 'test1',
-  components:{
+  components: {
     menuVertical,
     BoSwitch
   },
@@ -41,25 +42,24 @@ export default {
     }
   },
   methods: {
-    onclick (){
+    onclick() {
       this.$emit('on-click', '')
     },
-    _handleSwitch (data){
+    _handleSwitch(data) {
       this.$emit('on-switch', {
         obj: this,
         state: data
       })
 
-      setTimeout(()=>{
+      setTimeout(() => {
         this.$refs.sw.setState(false)
       }, 1000)
-
     },
-    off (){
+    off() {
       this.$refs.sw.setState(false)
     }
   },
-  data () {
+  data() {
     return {
 
     }

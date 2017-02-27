@@ -54,7 +54,7 @@
 
   </div>
 </template>
-<style media="screen">
+<style lang="less">
   #mainapp{
     position: absolute;
     left:0;
@@ -62,20 +62,27 @@
     width: 100%;
     height: 100%;
   }
+  .test{
+    border:1px solid;
+  }
 </style>
 <script>
-import SidebarMenu from './components/sidebar/sidebar.vue'
-import Sidebar from './components/sidebar/demo.vue'
-import Btn from './components/btn/demo.vue'
 
-import FormGroup from './components/form-group/demo.vue'
-import Modal from './components/modal/demo.vue'
-import List from './components/list/demo.vue'
-import MenuVertical from './components/menu-vertical/demo.vue'
-import MenusHorizon from './components/menus-horizon/demo.vue'
-import Tabs from './components/tabs/demo.vue'
 import marked from 'marked'
 
+import SidebarMenu from './components/sidebar/sidebar'
+import Sidebar from './components/sidebar/demo'
+import Btn from './components/btn/demo'
+
+import FormGroup from './components/form-group/demo'
+import Modal from './components/modal/demo'
+import List from './components/list/demo'
+import MenuVertical from './components/menu-vertical/demo'
+import MenusHorizon from './components/menus-horizon/demo'
+import Tabs from './components/tabs/demo'
+
+
+/*eslint-disable */
 export default {
   components: {
     SidebarMenu,
@@ -86,10 +93,10 @@ export default {
     List,
     MenuVertical,
     MenusHorizon,
-    Tabs
+    Tabs,
   },
   name: 'app',
-  data () {
+  data() {
     return {
       isMobile: false,
       doc: '',
@@ -101,138 +108,137 @@ export default {
           {
             alias: 'btn',
             title: '按 钮',
-            link: '/component/btn'
-          },{
+            link: '/component/btn',
+          }, {
             alias: 'form-input',
             title: '输入框',
-            link: '/component/form-input'
-          },{
+            link: '/component/form-input',
+          }, {
             alias: 'form-group',
             title: '表 单',
             link: '/component/form-group',
-            mobile: true
-          }
+            mobile: true,
+          },
         ],
         mobile: [{
           alias: 'modal',
           title: '模态对话框',
           link: '/component/modal',
-          mobile: true
-        },{
+          mobile: true,
+        }, {
           alias: 'list',
           title: '列表刷新',
           link: '/component/list',
-          mobile: true
+          mobile: true,
 
-        },{
+        }, {
           alias: 'menu-vertical',
           title: '列表菜单',
           link: '/component/menu-vertical',
-          mobile: true
-        },{
+          mobile: true,
+        }, {
           alias: 'menus-horizon',
           title: '水平菜单',
           link: '/component/menus-horizon',
-          mobile: true
-        },{
+          mobile: true,
+        }, {
           alias: 'tabs',
           title: '选项卡',
           link: '/component/tabs',
-          mobile: true
-        },{
+          mobile: true,
+        }, {
           alias: 'toast',
           title: '轻提示',
           link: '/component/toast',
-          mobile: true
-        },{
+          mobile: true,
+        }, {
           alias: 'drawer',
           title: '动效抽屉',
           link: '/component/drawer',
-          mobile: true
-        },{
+          mobile: true,
+        }, {
           alias: 'bo-switch',
           title: '滑动开关',
           link: '/component/bo-switch',
-          mobile: true
-        },{
+          mobile: true,
+        }, {
           alias: 'slide',
           title: '幻灯片',
           link: '/component/slide',
-          mobile: true
+          mobile: true,
         }],
         pc: [
-        {
-          alias: 'sidebar',
-          title: '侧栏菜单',
-          link: '/component/sidebar'
-        }, {
-          alias: 'tabs',
-          title: '横向菜单',
-          link: '/component/tabs'
-        }, {
-          alias: 'tabs',
-          title: '垂直菜单',
-          link: '/component/tabs'
-        }],
+          {
+            alias: 'sidebar',
+            title: '侧栏菜单',
+            link: '/component/sidebar',
+          }, {
+            alias: 'tabs',
+            title: '横向菜单',
+            link: '/component/tabs',
+          }, {
+            alias: 'tabs',
+            title: '垂直菜单',
+            link: '/component/tabs',
+          }],
         other: [{
           alias: 'login',
           title: 'APP登录',
-          link: '/component/login'
-        }]
-      }
-    }
+          link: '/component/login',
+        }],
+      },
+    };
   },
   methods: {
-    //切换二级菜单
-    _handleSidebar(item){
-      if(item.sub){
+    // 切换二级菜单
+    _handleSidebar(item) {
+      if (item.sub) {
         this.showSub = true;
-        this.subSurface.splice(0)
-        for(let key in this.subMenus[item.sub]){
-          this.subSurface.push(this.subMenus[item.sub][key])
+        this.subSurface.splice(0);
+        for (const key in this.subMenus[item.sub]) {
+          this.subSurface.push(this.subMenus[item.sub][key]);
         }
-        this.$refs.sub.triggerClick(0)
+        this.$refs.sub.triggerClick(0);
       } else {
         this.showSub = false;
       }
-
     },
-    _handleSubbar (item){
-      if(item.mobile){
-        this.isMobile = true
+    _handleSubbar(item) {
+      if (item.mobile) {
+        this.isMobile = true;
       } else {
-        this.isMobile = false
+        this.isMobile = false;
       }
     },
-    //读取markdown文档
-    loadingMarkdown (){
-      let _this = this;
+    // 读取markdown文档
+    loadingMarkdown() {
+      const _this = this;
       _this.currentComponent = this.$route.path.split('/').pop();
 
       $.ajax({
-        url: '/src/components/' + _this.currentComponent + '/doc.md',
+        url: `/src/components/${_this.currentComponent}/doc.md`,
         type: 'get',
         data: {},
-        success (md){
-          let render = new marked.Renderer();
+        success(md) {
+          const render = new marked.Renderer();
           $('#content').html(marked(md));
           Prism.highlightAll();
         },
-        error (){
+        error() {
           $('#content').html('Document not found');
-        }
-      })
-    }
+        },
+      });
+    },
   },
-  ready (){
-
-    this.$refs.mains.triggerClick(this.$route.params.name)
+  ready() {
+    this.$refs.mains.triggerClick(this.$route.params.name);
   },
-  created (){
+  created() {
     this.loadingMarkdown();
   },
   watch: {
-    '$route': 'loadingMarkdown'
-  }
-}
+    $route: 'loadingMarkdown',
+  },
+};
+/*eslint-enable */
 </script>

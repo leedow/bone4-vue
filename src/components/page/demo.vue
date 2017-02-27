@@ -7,14 +7,12 @@
 </template>
 
 <script>
-import test from './test.vue'
-
 export default {
   name: 'test1',
   components: {
-    test
+
   },
-  data () {
+  data() {
     return {
 
     }

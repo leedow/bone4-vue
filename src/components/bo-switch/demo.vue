@@ -38,9 +38,8 @@
 </template>
 
 <script>
-import BoSwitch from './bo-switch.vue'
-import Dmenu from '../demohelper/demoswitch.vue'
-import menuVertical from '../menu-vertical/menu-vertical.vue'
+import BoSwitch from './bo-switch'
+import menuVertical from '../menu-vertical/menu-vertical'
 
 export default {
   name: 'switchdemo',
@@ -48,7 +47,7 @@ export default {
     BoSwitch,
     menuVertical
   },
-  data () {
+  data() {
     return {
 
     }

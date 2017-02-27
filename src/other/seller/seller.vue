@@ -62,12 +62,12 @@
 </template>
 
 <script>
-import FormGroup from '../../components/form-group/form-group.vue'
-import Slide from '../../components/slide/slide.vue'
-import BoInput from '../../components/bo-input/bo-input.vue'
-import Btn from '../../components/btn/btn.vue'
-import Toast from '../../components/toast/toast.vue'
-import MenusHorizon from '../../components/menus-horizon/menus-horizon.vue'
+import FormGroup from '../../components/form-group/form-group'
+import Slide from '../../components/slide/slide'
+import BoInput from '../../components/bo-input/bo-input'
+import Btn from '../../components/btn/btn'
+import Toast from '../../components/toast/toast'
+import MenusHorizon from '../../components/menus-horizon/menus-horizon'
 
 export default {
   name: 'login',
@@ -86,7 +86,7 @@ export default {
   methods: {
 
   },
-  data () {
+  data() {
     return {
 
       type: 'warm'

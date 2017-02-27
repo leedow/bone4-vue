@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import Drawer from './drawer.vue'
-import Dmenu from '../demohelper/demoswitch.vue'
+import Drawer from './drawer'
+import Dmenu from '../demohelper/demoswitch'
 
 export default {
   name: 'drawerdemo',
@@ -27,18 +27,15 @@ export default {
     Dmenu
   },
   methods: {
-    play (data){
-
+    play(data) {
       this.show = true
       this.pos = data.obj.alias
-
     },
-    close (){
+    close() {
       this.show = false
-
     }
   },
-  data () {
+  data() {
     return {
       show: false,
       pos: 'center',

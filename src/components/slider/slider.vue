@@ -7,106 +7,100 @@
 </template>
 
 <script>
-import touchit from '../helper/touchit'
+import Touchit from '../helper/touchit'
 
 export default {
   name: 'slider',
-  mounted (){
-    this.touchit = new touchit({
+  mounted() {
+    this.touchit = new Touchit({
       dom: this.$refs.scroll,
       type: 'swipe',
-      done: this._handleTouchEnd,
-      doing: this._handleTouch
-    });
+      done: this.handleTouchEnd,
+      doing: this.handleTouch
+    })
   },
   methods: {
-    _reachTop (){
-      return this.distance>=0
+    reachTop() {
+      return this.distance >= 0
     },
-    _reachBottom (){
-      return this.distance<=(this.$refs.scroll.clientHeight-this.$refs.content.clientHeight)
+    reachBottom() {
+      return this.distance <= (this.$refs.scroll.clientHeight - this.$refs.content.clientHeight)
     },
-    _putRight (){
-      if(this._reachTop()){
+    putRight() {
+      /* eslint-disable */
+      if (this.reachTop()) {
         this.distanceBackup = 0
-        this._moveY(-this.distanceBackup)
+        this.moveY(-this.distanceBackup)
         clearInterval(this.timer)
         return true
       }
 
-      if(this._reachBottom()){
-        this._moveY(-this.$refs.content.clientHeight+this.$refs.scroll.clientHeight-this.distanceBackup)
+      if (this.reachBottom()) {
+        this.moveY(-this.$refs.content.clientHeight + this.$refs.scroll.clientHeight - this.distanceBackup)
         clearInterval(this.timer)
         return true
       }
       return false
+      /* eslint-enable */
     },
-    _moveY (distance){
+    moveY(distance) {
       this.distance = distance + this.distanceBackup
-      this.$refs.content.style.transform = 'translate3d(0px, '+ this.distance +'px, 0px)'
+      this.$refs.content.style.transform = `translate3d(0px, ${this.distance}px, 0px)`
     },
-    _handleTouch (eventType, data){
-
-      switch (eventType){
+    handleTouch(eventType, data) {
+      switch (eventType) {
         case 'touchstart': {
           clearInterval(this.timer)
           this.distanceBackup = this.distance
-
           break
         }
         case 'touchmove': {
-          this._moveY(data.distance.y)
+          this.moveY(data.distance.y)
+          break
+        }
+        default: {
+          break
         }
       }
-
     },
-    _handleTouchEnd (data){
+    handleTouchEnd(data) {
+      if (this.putRight()) return
+
+      /* eslint-disable */
+      const jump = parseInt(1000 / 100)
+
+      // data.speed.y += 200
+      let step = data.speed.y * jump / 1000
+      let length = this.distance - this.distanceBackup
+      const everystep = step / 100
 
 
-      if(this._putRight()) return
-
-      let jump = parseInt(1000/100)
-
-
-      //data.speed.y += 200
-      let step = data.speed.y*jump/1000
-      let length = this.distance-this.distanceBackup
-      let everystep = step/100
-
-
-      this.timer = setInterval(()=>{
-
-        if(data.distance.y >= 0){
+      this.timer = setInterval(() => {
+        if (data.distance.y >= 0) {
           length += step
-          this._moveY(length)
-
+          this.moveY(length)
         } else {
           length -= step
-          this._moveY(length)
-
+          this.moveY(length)
         }
-
 
 
         step -= everystep
 
-        if(step <= everystep){
+        if (step <= everystep) {
           clearInterval(this.timer)
           this.distanceBackup = this.distance
         }
 
-        if(this._putRight()){
+        if (this.putRight()) {
           clearInterval(this.timer)
         }
-
-
       }, jump)
 
-
-
+      /* eslint-enable */
     }
   },
-  data () {
+  data() {
     return {
       touchit: null,
       distanceBackup: 0,
@@ -114,7 +108,7 @@ export default {
       timer: null
     }
   },
-  beforeDestroy (){
+  beforeDestroy() {
     this.touchit.destory()
   }
 }

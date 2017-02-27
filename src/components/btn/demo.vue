@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import Btn from './btn.vue'
+import Btn from './btn'
 import eventbus from '../helper/eventbus'
 
 export default {
@@ -63,12 +63,12 @@ export default {
   components: {
     Btn
   },
-  created (){
-     eventbus.$on('on-submit' , (msg)=>{
-       //alert('触发表单' + msg)
-     })
+  created() {
+    eventbus.$on('on-submit', (msg) => {
+        alert('触发表单' + msg); // eslint-disable-line
+    })
   },
-  data () {
+  data() {
     return {
 
     }

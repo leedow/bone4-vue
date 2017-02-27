@@ -19,7 +19,7 @@
 |-------|-------|
 | getValue() | 获取输入值 |
 | setState(state) | 设置输入框状态, `state` 可以为 `wrong` `pass`|
-| verify() | 触发输入框验证，并改变输入框状态  |
+| verify() | 触发输入框验证，并改变输入框状态,返回`Object`  |
 
 ## 组件事件
 

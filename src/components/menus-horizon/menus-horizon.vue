@@ -5,13 +5,13 @@
 ]">
 
   <button v-for="(item, index) in surface" class="menu-horizon-item" :class="[
-    item.alias==current_?'menu-current':''
+    item.alias==currentSelf?'menu-current':''
   ]"
     @click="_handleClick(item, index)"
   >
     <span class="menu-pic">
       <i class="icon iconfont" :class="[
-        item.alias==current_&&item.currentIcon?'icon-'+item.currentIcon:'icon-' + item.icon
+        item.alias==currentSelf&&item.currentIcon?'icon-'+item.currentIcon:'icon-' + item.icon
       ]"></i>
     </span>
     <span class="menu-title">{{item.title}}</span>
@@ -28,7 +28,7 @@ export default {
   props: {
     surface: {
       type: Array,
-      default (){
+      default() {
         return []
       }
     },
@@ -45,27 +45,25 @@ export default {
       default: ''
     }
   },
-  created (){
-    //alert(this.path_)
+  created() {
+    // alert(this.pathSelf)
   },
   methods: {
-    setCurrent (alias){
-
-      this.current_ = alias;
-
+    setCurrent(alias) {
+      this.currentSelf = alias
     },
-    _handleClick (item, index){
-      if(item.path){
-        this.$router.push(item.path);
+    _handleClick(item) {
+      if (item.path) {
+        this.$router.push(item.path)
       }
-      this.$emit('on-click', item);
-      this.setCurrent(item.alias);
+      this.$emit('on-click', item)
+      this.setCurrent(item.alias)
     }
   },
-  data () {
+  data() {
     return {
-      current_: this.current,
-      path_: this.$route.path
+      currentSelf: this.current,
+      pathSelf: this.$route.path
     }
   }
 }

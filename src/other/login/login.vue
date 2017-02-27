@@ -33,10 +33,10 @@
 </template>
 
 <script>
-import FormGroup from '../../components/form-group/form-group.vue'
-import FormInput from '../../components/bo-input/bo-input.vue'
-import Btn from '../../components/btn/btn.vue'
-import Toast from '../../components/toast/toast.vue'
+import FormGroup from '../../components/form-group/form-group'
+import FormInput from '../../components/bo-input/bo-input'
+import Btn from '../../components/btn/btn'
+import Toast from '../../components/toast/toast'
 
 export default {
   name: 'login',
@@ -51,20 +51,20 @@ export default {
 
   },
   methods: {
-    submit (data){
+    submit(data) {
       this.loading = true
       this.$emit('on-login', data)
     },
-    reset (){
+    reset() {
       this.content = ''
       this.loading = false
     },
-    toast (content){
+    toast(content) {
       this.content = content
       this.$refs.toast.open()
     }
   },
-  data () {
+  data() {
     return {
       loading: false,
       content: '',

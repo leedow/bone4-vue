@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import Slide from './slide.vue'
+import Slide from './slide'
 
 export default {
   name: 'slidedemo',
   components: {
     Slide
   },
-  data () {
+  data() {
     return {
 
     }

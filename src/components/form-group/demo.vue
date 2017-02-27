@@ -74,10 +74,10 @@
 </template>
 
 <script>
-import FormGroup from './form-group.vue'
-import FormInput from '../bo-input/bo-input.vue'
-import BoSelect from '../bo-select/bo-select.vue'
-import Btn from '../btn/btn.vue'
+import FormGroup from './form-group'
+import FormInput from '../bo-input/bo-input'
+import BoSelect from '../bo-select/bo-select'
+import Btn from '../btn/btn'
 
 export default {
   name: 'test1',
@@ -88,18 +88,18 @@ export default {
     Btn
   },
   methods: {
-    submit (data){
-      console.log(data)
+    submit(data) {
+      console.log(data) // eslint-disable-line
     },
-    changeTheme (){
-      if(this.theme == 'blank'){
+    changeTheme() {
+      if (this.theme === 'blank') {
         this.theme = 'head'
       } else {
         this.theme = 'blank'
       }
     }
   },
-  data () {
+  data() {
     return {
       theme: 'blank'
     }

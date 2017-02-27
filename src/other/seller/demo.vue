@@ -3,20 +3,20 @@
 </template>
 
 <script>
-import seller from './seller.vue'
+import seller from './seller'
 
 export default {
   name: 'test1',
   components: {
     seller
   },
-  created (){
+  created() {
 
   },
   methods: {
 
   },
-  data () {
+  data() {
     return {
 
     }

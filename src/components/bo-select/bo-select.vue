@@ -4,7 +4,7 @@
   ]">
     <label :for="name" :class="['label-' + this.size]">{{label}}</label>
     <div :class="[
-        'be-' + state_,
+        'be-' + stateSelf,
         icon!=''?'has-icon':''
     ]">
         <select  class="select form-control"
@@ -13,7 +13,7 @@
               'select-' + this.size,
               this.theme=='underline'?'select-' + this.theme:''
             ]"
-            v-model="value_"
+            v-model="valueSelf"
         >
           <option v-for="item in options" :value="item.value">
             {{item.text}}
@@ -24,7 +24,7 @@
   </div>
 
   <div v-else class="form-item" :class="[
-      'be-' + state_,
+      'be-' + stateSelf,
       icon!=''?'has-icon':''
   ]">
     <select  class="select form-control"
@@ -33,7 +33,7 @@
           'select-' + this.size,
           this.theme=='underline'?'select-' + this.theme:''
         ]"
-        v-model="value_"
+        v-model="valueSelf"
     >
       <option v-for="item in options" :value="item.value">
         {{item.text}}
@@ -61,13 +61,13 @@ export default {
     },
     options: {
       type: Array,
-      default (){
+      default() {
         return []
       }
     },
     theme: {
       type: String,
-      default: 'default' //default|underline
+      default: 'default' // default|underline
     },
     size: {
       type: String,
@@ -79,15 +79,11 @@ export default {
     },
     state: {
       type: String,
-      default: 'normal' //normal|warm|pass|loading
+      default: 'normal' // normal|warm|pass|loading
     },
     enable: {
       type: Boolean,
       default: true
-    },
-    required: {
-      type: Boolean,
-      default: false
     },
     required: {
       type: Boolean,
@@ -106,58 +102,58 @@ export default {
     /**
      * 获取输入值
      */
-    getValue (){
-      return this.value_;
+    getValue() {
+      return this.valueSelf
     },
     /**
      * 设置显示状态
      * @param state 'wrong'|'pass'|'loading'
      */
-    setState (state){
-      this.state_ = state;
+    setState(state) {
+      this.stateSelf = state
     },
     /**
      * 触发验证，验证后将切换state状态
      * @return {state: boolean, msg: string}
      */
-    verify (){
-      let check = format.do(this.required, '', this.value_);
-      if(check.state){
-        this.setState('');
+    verify() {
+      const check = format.do(this.required, '', this.valueSelf)
+      if (check.state) {
+        this.setState('')
       } else {
-        this.setState('wrong');
+        this.setState('wrong')
       }
-      return check;
+      return check
     },
-    formVerify (formid){
-      //console.log(this.verify())
-      if(this.for == formid){
+    formVerify(formid) {
+      // console.log(this.verify())
+      if (this.for === formid) {
         eventbus.$emit('input-verify', {
-          formid: formid,
+          formid,
           result: this.verify(),
           data: {
             name: this.name,
-            value: this.value_
+            value: this.valueSelf
           }
         })
       }
     }
   },
-  created (){
+  created() {
     eventbus.$on('form-verify', this.formVerify)
   },
-  beforeDestroy () {
+  beforeDestroy() {
     eventbus.$off('form-verify', this.formVerify)
   },
   watch: {
-    value (newval , oldval){
-      this.value_ = newval
+    value(newval) {
+      this.valueSelf = newval
     }
   },
-  data () {
+  data() {
     return {
-      value_: this.value,
-      state_: this.state
+      valueSelf: this.value,
+      stateSelf: this.state
     }
   }
 }

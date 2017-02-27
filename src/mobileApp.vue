@@ -40,15 +40,14 @@
 
 </template>
 <script>
-import Page from './components/page/page.vue'
-import menusHorizon from './components/menus-horizon/menus-horizon.vue'
+import menusHorizon from './components/menus-horizon/menus-horizon'
 
 export default {
   components: {
     menusHorizon
   },
   name: 'app',
-  data () {
+  data() {
     return {
       datas: [
         {
@@ -61,14 +60,14 @@ export default {
   methods: {
 
   },
-  ready (){
+  ready() {
 
   },
-  created (){
+  created() {
 
   },
   watch: {
-    //'$route': 'loadingMarkdown'
+    // '$route': 'loadingMarkdown'
   }
 }
 </script>

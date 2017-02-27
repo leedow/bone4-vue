@@ -1,24 +1,20 @@
 import Vue from 'vue'
-import App from './mobileApp.vue'
-import Demos from './demos.vue'
-import Demo from './demo.vue'
 import VueRouter from 'vue-router'
+import App from './mobileApp'
+import Demos from './demos'
+import Demo from './demo'
 import RouterConfig from './router'
-import dmenu from './components/demohelper/demomenu.vue'
-import Device from './components/helper/device'
+import Toast from './components/toast'
+// demos
+// const Listdown = resolve => require(['./components/list/demo2'], resolve)
 
-import Toast from './components/toast/toast'
-//demos
-//const Listdown = resolve => require(['./components/list/demo2.vue'], resolve)
-
-//Device.initScale()
+// Device.initScale()
 
 Vue.use(VueRouter)
 
-
 Vue.prototype.$toast = Toast
 
-//Vue.use(dmenu)
+// Vue.use(dmenu)
 const router = new VueRouter({
   routes: [
     {
@@ -37,12 +33,13 @@ const router = new VueRouter({
   ]
 })
 
+/* eslint-disable */
 const app = new Vue({ router,
   methods: {
 
   },
-  data (){
-    return{
+  data() {
+    return {
 
     }
   }

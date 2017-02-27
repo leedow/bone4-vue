@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Tabs from './tabs.vue'
+import Tabs from './tabs'
 
 export default {
   name: 'tabsdemo',
@@ -30,13 +30,13 @@ export default {
     Tabs
   },
   methods: {
-    handleclick (item){
+    handleclick(item) {
       this.content = item.alias
     }
   },
-  data () {
+  data() {
     return {
-        content: 'like'
+      content: 'like'
     }
   }
 }

@@ -8,10 +8,11 @@
 </template>
 
 <script>
-import menuVertical from '../menu-vertical/menu-vertical.vue'
+import menuVertical from '../menu-vertical/menu-vertical'
+
 export default {
   name: 'test1',
-  components:{
+  components: {
     menuVertical
   },
   props: {
@@ -29,11 +30,11 @@ export default {
     }
   },
   methods: {
-    onclick (){
+    onclick() {
       this.$emit('on-click', '')
     }
   },
-  data () {
+  data() {
     return {
 
     }

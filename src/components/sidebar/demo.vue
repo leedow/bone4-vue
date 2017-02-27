@@ -131,7 +131,7 @@
 </template>
 
 <script>
-import Sidebar from './sidebar.vue'
+import Sidebar from './sidebar'
 
 
 export default {
@@ -139,21 +139,21 @@ export default {
   components: {
     Sidebar
   },
-  created (){
-    setTimeout(()=>{
-      //this.curl = true;
+  created() {
+    setTimeout(() => {
+      // this.curl = true;
     }, 1000)
   },
   methods: {
-    setCurl (state){
-      this.curl = state;
+    setCurl(state) {
+      this.curl = state
     },
-    setCurrent (current){
+    setCurrent(current) {
       this.$refs.sidebar.setCurrent(current)
-      //this.current = current;
+      // this.current = current;
     }
   },
-  data () {
+  data() {
     return {
       current: 'a',
       curl: false,

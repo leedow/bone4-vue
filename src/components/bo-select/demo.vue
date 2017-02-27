@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import BoSelect from './bo-select.vue'
+import BoSelect from './bo-select'
 
 export default {
   name: '',
@@ -61,17 +61,17 @@ export default {
     BoSelect
   },
   methods: {
-    getValue (){
-      alert(this.$refs.test.getValue())
+    getValue() {
+      alert(this.$refs.test.getValue());// eslint-disable-line
     },
-    setState (state){
+    setState(state) {
       this.$refs.test.setState(state)
     },
-    verify (){
-      alert(this.$refs.test.verify().msg);
+    verify() {
+      alert(this.$refs.test.verify().msg);// eslint-disable-line
     }
   },
-  data () {
+  data() {
     return {
       options: [
         {
