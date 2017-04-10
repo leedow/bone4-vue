@@ -30,6 +30,9 @@ export default {
       if (!this.enable) return
       this.scoreSelf = score
       this.$emit('on-change', this.scoreSelf)
+    },
+    getValue() {
+      return this.scoreSelf
     }
   },
   data() {

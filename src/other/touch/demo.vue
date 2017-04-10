@@ -66,7 +66,7 @@ export default {
     Toast
   },
   mounted() {
-    this.touchit.forEach((type, key) => {
+    this.touchType.forEach((type, key) => {
       this.touchit[key] = new Touchit({
         alias: type,
         dom: this.$refs[type],

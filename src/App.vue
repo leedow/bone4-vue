@@ -1,6 +1,5 @@
 <template>
   <div id="mainapp">
-
     <div id="left" class="left-scroll">
       <h1 id="logo">Bone4</h1>
       <h2 id="logo-tiny">Vue 2.0 version</h2>

@@ -11,6 +11,16 @@ import Touchit from '../helper/touchit'
 
 export default {
   name: 'slider',
+  props: {
+    direction: {
+      type: String,
+      default: 'y'
+    },
+    mode: {
+      type: String,
+      default: 'linear' // linear||drawer
+    }
+  },
   mounted() {
     this.touchit = new Touchit({
       dom: this.$refs.scroll,
@@ -20,38 +30,60 @@ export default {
     })
   },
   methods: {
+    /**
+     * y轴移动时是否到达顶部
+     */
     reachTop() {
+      return this.distanceY >= 0
+    },
+    /**
+     * y轴移动时是否到达底部
+     */
+    reachBottom() {
+      return this.distanceY <= (this.$refs.scroll.clientHeight - this.$refs.content.clientHeight)
+    },
+    /**
+     * x轴移动时是否到达左端
+     */
+    reachLeft() {
       return this.distance >= 0
     },
-    reachBottom() {
-      return this.distance <= (this.$refs.scroll.clientHeight - this.$refs.content.clientHeight)
+    /**
+     * x轴移动时是否到达右端
+     */
+    reachRight() {
+      return this.distanceY <= (this.$refs.scroll.clientHeight - this.$refs.content.clientHeight)
     },
     putRight() {
       /* eslint-disable */
       if (this.reachTop()) {
-        this.distanceBackup = 0
-        this.moveY(-this.distanceBackup)
+        this.distanceYBackup = 0
+        this.moveY(-this.distanceYBackup)
         clearInterval(this.timer)
         return true
       }
 
       if (this.reachBottom()) {
-        this.moveY(-this.$refs.content.clientHeight + this.$refs.scroll.clientHeight - this.distanceBackup)
+        this.moveY(-this.$refs.content.clientHeight + this.$refs.scroll.clientHeight - this.distanceYBackup)
         clearInterval(this.timer)
         return true
       }
+
       return false
       /* eslint-enable */
     },
     moveY(distance) {
-      this.distance = distance + this.distanceBackup
-      this.$refs.content.style.transform = `translate3d(0px, ${this.distance}px, 0px)`
+      this.distanceY = distance + this.distanceYBackup
+      this.$refs.content.style.transform = `translate3d(0px, ${this.distanceY}px, 0px)`
     },
+    /**
+     * 手势移动中
+     */
     handleTouch(eventType, data) {
       switch (eventType) {
         case 'touchstart': {
           clearInterval(this.timer)
-          this.distanceBackup = this.distance
+          this.distanceYBackup = this.distanceY
           break
         }
         case 'touchmove': {
@@ -63,6 +95,9 @@ export default {
         }
       }
     },
+    /**
+     * 处理滑动事件结束
+     */
     handleTouchEnd(data) {
       if (this.putRight()) return
 
@@ -71,7 +106,7 @@ export default {
 
       // data.speed.y += 200
       let step = data.speed.y * jump / 1000
-      let length = this.distance - this.distanceBackup
+      let length = this.distanceY - this.distanceYBackup
       const everystep = step / 100
 
 
@@ -89,7 +124,7 @@ export default {
 
         if (step <= everystep) {
           clearInterval(this.timer)
-          this.distanceBackup = this.distance
+          this.distanceYBackup = this.distanceY
         }
 
         if (this.putRight()) {
@@ -103,8 +138,10 @@ export default {
   data() {
     return {
       touchit: null,
-      distanceBackup: 0,
-      distance: 0,
+      distanceXBackup: 0, // 记录每次滑动前一次的滑动距离
+      distanceYBackup: 0, // 记录每次滑动前一次的滑动距离
+      distanceX: 0, // x轴上的滑动距离
+      distanceY: 0, // y轴上的滑动距离
       timer: null
     }
   },

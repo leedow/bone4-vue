@@ -1,0 +1,43 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'dev' ]
+2 info using npm@3.3.12
+3 info using node@v6.9.1
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle bone4@0.1.7~predev: bone4@0.1.7
+6 silly lifecycle bone4@0.1.7~predev: no script for predev, continuing
+7 info lifecycle bone4@0.1.7~dev: bone4@0.1.7
+8 verbose lifecycle bone4@0.1.7~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle bone4@0.1.7~dev: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/leedow/www/bone4-vue/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+10 verbose lifecycle bone4@0.1.7~dev: CWD: /Users/leedow/www/bone4-vue
+11 silly lifecycle bone4@0.1.7~dev: Args: [ '-c', 'node build/dev-server.js' ]
+12 silly lifecycle bone4@0.1.7~dev: Returned: code: 1  signal: null
+13 info lifecycle bone4@0.1.7~dev: Failed to exec dev script
+14 verbose stack Error: bone4@0.1.7 dev: `node build/dev-server.js`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:232:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid bone4@0.1.7
+16 verbose cwd /Users/leedow/www/bone4-vue
+17 error Darwin 15.5.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "dev"
+19 error node v6.9.1
+20 error npm  v3.3.12
+21 error code ELIFECYCLE
+22 error bone4@0.1.7 dev: `node build/dev-server.js`
+22 error Exit status 1
+23 error Failed at the bone4@0.1.7 dev script 'node build/dev-server.js'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the bone4 package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node build/dev-server.js
+23 error You can get their info via:
+23 error     npm owner ls bone4
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

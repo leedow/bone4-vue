@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="form-blank">
     <phone-code ref="code" @on-send="sendCode"/>
 
     <div class="p2222">

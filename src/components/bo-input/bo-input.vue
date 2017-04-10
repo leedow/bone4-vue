@@ -7,8 +7,18 @@
         'be-' + stateSelf,
         icon!=''?'has-icon':''
     ]">
-      <input ref="input"  class="input form-control"
+      <input v-if="type=='text'" ref="input"  class="input form-control"
               type="text"
+              :name="name"
+              :class="[
+                'input-' + this.size,
+                'input-' + this.theme
+              ]"
+              v-model="valueSelf"
+              :placeholder="holder"
+            />
+      <input v-if="type=='password'" ref="input"  class="input form-control"
+              type="password"
               :name="name"
               :class="[
                 'input-' + this.size,
@@ -25,8 +35,18 @@
       'be-' + stateSelf,
       icon!=''?'has-icon':''
   ]">
-    <input ref="input" class="input form-control"
+    <input v-if="type=='text'" ref="input" class="input form-control"
             type="text"
+            :name="name"
+            :class="[
+              'input-' + this.size,
+              this.theme=='underline'?'input-' + this.theme:''
+            ]"
+            v-model="valueSelf"
+            :placeholder="holder"
+          />
+    <input v-if="type=='password'" ref="input" class="input form-control"
+            type="password"
             :name="name"
             :class="[
               'input-' + this.size,
@@ -119,7 +139,7 @@ export default {
       this.stateSelf = state
     },
     /**
-     * 出发验证，验证后将切换state状态
+     * 触发验证，验证后将切换state状态
      * @return {state: boolean, msg: string}
      */
     verify() {

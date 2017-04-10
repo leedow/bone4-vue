@@ -50,7 +50,7 @@ export default {
     sliding(eventType, data) {
       switch (eventType) {
         case 'touchmove': {
-          this.move(data.distance.x)
+          this.move(data.distance.x, true)
           break
         }
         case 'touchend': {
@@ -73,7 +73,7 @@ export default {
       }
 
       this.move(-this.currentIndex * this.itemWidth, false)
-
+      console.log(this.currentIndex)
       this.preDistance = this.distance
       /* eslint-enable */
     },
@@ -83,8 +83,8 @@ export default {
      */
     move(distance, relative) {
       // if (relative === undefined) relative = true
-      const rlt = relative || true
-      if (rlt) {
+
+      if (relative) {
         this.distance = this.preDistance + distance
       } else {
         this.distance = distance
