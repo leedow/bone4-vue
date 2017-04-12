@@ -15,6 +15,7 @@ import Stars from './components/stars/stars'
 import Login from './other/login/login'
 import BoSwitch from './components/bo-switch/bo-switch'
 import Drawer from './components/drawer/drawer'
+import Slide from './components/slide/slide'
 import Device from './components/helper/device'
 import Toast_ from './components/toast'
 
@@ -37,5 +38,6 @@ export {
   Drawer,
   Login,
   Device,
-  Stars
+  Stars,
+  Slide
 }

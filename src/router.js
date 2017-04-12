@@ -124,6 +124,12 @@ const code =  (resolve) => {
   });
 };
 
+const number =  (resolve) => {
+  require.ensure(['./components/bo-number/demo'], () => {
+    resolve(require('./components/bo-number/demo'));
+  });
+};
+
 
 /*eslint-enable */
 
@@ -190,4 +196,7 @@ export default [{
 }, {
   path: 'code',
   component: code
+}, {
+  path: 'number',
+  component: number
 }]

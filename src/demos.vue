@@ -14,6 +14,7 @@
     <dmenu path="/demo/bo-select" name="下拉菜单" />
     <dmenu path="/demo/form-group" name="表 单" />
    <dmenu path="/demo/bo-switch" name="滑动开关" />
+   <dmenu path="/demo/number" name="数字选择" />
   </ul>
 
   <div class="list-title">列表&菜单</div>

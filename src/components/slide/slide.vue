@@ -25,6 +25,10 @@ export default {
         return []
       }
     },
+    showStatus: {
+      type: Boolean,
+      default: true
+    },
     height: {
       type: String,
       default: '100px'

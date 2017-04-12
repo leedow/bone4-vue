@@ -3,6 +3,7 @@
 | 属性名      | 说 明         | 类 型 |默认值  |
 | ------------- |-----------|------| -----|
 | surface | 显示数据数组[{alias, path, imgUrl}] | Array | [] |
+| showStatus | 是否显示状态条 | Boolean | true |
 | height |  整体高度  | String | '100px' |
 | width |  整体宽度 | String | '100%' |
 
