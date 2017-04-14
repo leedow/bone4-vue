@@ -15,6 +15,7 @@
     <dmenu path="/demo/form-group" name="表 单" />
    <dmenu path="/demo/bo-switch" name="滑动开关" />
    <dmenu path="/demo/number" name="数字选择" />
+   <dmenu path="/demo/calendar" name="日 历" />
   </ul>
 
   <div class="list-title">列表&菜单</div>
@@ -23,6 +24,7 @@
     <dmenu path="/demo/listup" name="下拉刷新" />
     <dmenu   name="主菜单"  dock="见本页下方"/>
     <dmenu path="/demo/tabs" name="选项卡" />
+    <dmenu path="/demo/sidebar" name="侧栏菜单" />
   </ul>
 
   <div class="list-title">信息提示</div>

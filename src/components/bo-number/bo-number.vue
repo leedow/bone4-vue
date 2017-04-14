@@ -3,11 +3,10 @@
      <div class="flex-item">
        <button type="button" :class="['btn-icon', 'number-btn-'+this.leftBtnState]" @click="sub">
          <i class="icon iconfont icon-jian-xianxingyuankuang"></i>
-
        </button>
      </div>
      <div class="flex-item-1">
-       <input type="text" readonly="" class="number-input flex-item-1" v-model="valueSelf">
+       <input type="text" readonly="" :class="['number-input', 'flex-item-1', valueSelf==0?'number-input-hidden':'']" v-model="valueSelf">
      </div>
      <div class="flex-item">
        <button type="button" name="button" :class="['btn-icon', 'number-btn-'+this.rightBtnState]" @click="plus">
@@ -43,6 +42,11 @@ export default {
       if (this.valueSelf > this.max) {
         this.valueSelf = this.max
       }
+      if (this.valueSelf === 0) {
+        this.setBtn({
+          left: 'hidden'
+        })
+      }
     },
     /**
      * 获取输入值
@@ -56,6 +60,9 @@ export default {
     plus() {
       if (this.valueSelf < this.max) {
         this.valueSelf = this.valueSelf - 0 + 1 //eslint-disable-line
+        this.$emit('on-change', this.valueSelf)
+      } else {
+        this.$emit('on-max', this.valueSelf)
       }
     },
     /**
@@ -64,6 +71,9 @@ export default {
     sub() {
       if (this.valueSelf >= 1 && this.valueSelf > this.min) {
         this.valueSelf -= 1
+        this.$emit('on-change', this.valueSelf)
+      } else {
+        this.$emit('on-min', this.valueSelf)
       }
     },
     /**
@@ -78,12 +88,6 @@ export default {
         this.leftBtnState = params.left
       }
     }
-  },
-  created() {
-
-  },
-  beforeDestroy() {
-
   },
   mounted() {
     this.init()

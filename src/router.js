@@ -130,6 +130,18 @@ const number =  (resolve) => {
   });
 };
 
+const calendar =  (resolve) => {
+  require.ensure(['./components/calendar/demo'], () => {
+    resolve(require('./components/calendar/demo'));
+  });
+};
+
+const sidebar =  (resolve) => {
+  require.ensure(['./components/sidebar/demo'], () => {
+    resolve(require('./components/sidebar/demo'));
+  });
+};
+
 
 /*eslint-enable */
 
@@ -199,4 +211,10 @@ export default [{
 }, {
   path: 'number',
   component: number
+}, {
+  path: 'calendar',
+  component: calendar
+}, {
+  path: 'sidebar',
+  component: sidebar
 }]

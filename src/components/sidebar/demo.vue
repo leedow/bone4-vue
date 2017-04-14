@@ -120,7 +120,7 @@
     </div>
 
 
-    <sidebar ref="sidebar" :css="{width: '300px'}"  theme="white" :current="current" :surface="surface"></sidebar>
+    <sidebar ref="sidebar" :css="{width: '300px'}"  theme="light" :current="current" :surface="surface"></sidebar>
     <div class="p2000" style="text-align:left">
       <button @click="setCurrent('a')" type="button" name="button" class="btn btn-primary-blank">选中一</button>
       <button @click="setCurrent('b')" type="button" name="button" class="btn btn-primary-blank">选中二</button>

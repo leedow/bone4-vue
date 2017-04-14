@@ -12,7 +12,7 @@ const Toast = {
       this.com = new ToastConstructor({
         data: {
           typeSelf,
-          conentSelf: content
+          contentSelf: content
         }
       }).$mount()
     } else {

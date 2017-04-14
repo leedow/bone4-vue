@@ -6,6 +6,7 @@ import FormGroup from './components/form-group/form-group'
 import PhoneCode from './components/phone-code/phone-code'
 import BoInput from './components/bo-input/bo-input'
 import BoSelect from './components/bo-select/bo-select'
+import BoNumber from './components/bo-number/bo-number'
 import MenuVertical from './components/menu-vertical/menu-vertical'
 import MenusHorizon from './components/menus-horizon/menus-horizon'
 import Modal from './components/modal/modal'
@@ -16,7 +17,9 @@ import Login from './other/login/login'
 import BoSwitch from './components/bo-switch/bo-switch'
 import Drawer from './components/drawer/drawer'
 import Slide from './components/slide/slide'
+import Sidebar from './components/sidebar/sidebar'
 import Device from './components/helper/device'
+import Calendar from './components/calendar/calendar'
 import Toast_ from './components/toast'
 
 
@@ -30,6 +33,7 @@ export {
   BoInput,
   BoSelect,
   BoSwitch,
+  BoNumber,
   MenuVertical,
   MenusHorizon,
   Modal,
@@ -39,5 +43,7 @@ export {
   Login,
   Device,
   Stars,
-  Slide
+  Slide,
+  Sidebar,
+  Calendar
 }

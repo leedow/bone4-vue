@@ -7,7 +7,7 @@
                 curl&&size==='sm'?'sidebar-menu-sm-curl':'',
                 curl&&size==='default'?'sidebar-menu-curl':''
                 ]">
-      <li v-for="(item, index) in surfaceData" class="menu-item"
+      <li v-for="(item, index) in surface" class="menu-item"
         :class="[item.alias===currentItem?'menu-item-current':'' ,
         item.icon?'menu-item-icon':'']"
         @click="handleClick(item, index)"
@@ -55,26 +55,30 @@ export default {
     // 手工触发点击事件
     triggerClick(alias) {
       if (typeof alias === 'string') {
-        this.surfaceData.forEach((item) => {
+        this.surface.forEach((item) => {
           if (item.alias === alias) {
             this.handleClick(item)
           }
         })
       } else if (typeof alias === 'number') {
-        this.handleClick(this.surfaceData[alias])
+        this.handleClick(this.surface[alias])
       }
     },
     handleClick(item) {
       if (item.link) {
         this.$router.push(item.link)
       }
-      this.$emit('sidebar-click', item)
+      this.$emit('on-click', item)
       this.setCurrent(item.alias)
+    }
+  },
+  watch: {
+    current(newVal) {
+      this.currentItem = newVal
     }
   },
   data() {
     return {
-      surfaceData: this.surface,
       currentItem: this.current
     }
   }
