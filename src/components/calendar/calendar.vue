@@ -2,7 +2,7 @@
 <div class="calendar">
   <table>
     <thead>
-      <tr>
+      <tr v-show="showHeader">
         <th class="prev" style="visibility: visible;" @click="pre">
           <i class="icon iconfont icon-back"></i>
         </th>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import Time from '../helper/time'
+
 export default {
   name: 'calendar',
   props: {
@@ -63,6 +65,10 @@ export default {
     mode: {
       type: String,
       default: 'todayafter'
+    },
+    showHeader: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
@@ -74,11 +80,13 @@ export default {
     next() {
       if (this.currentMonth === 12) return
       this.currentMonth = this.currentMonth + 1
+      this.$emit('on-month-change', this.currentMonth)
       this.draw()
     },
     pre() {
       if (this.currentMonth === 1) return
       this.currentMonth = this.currentMonth - 1
+      this.$emit('on-month-change', this.currentMonth)
       this.draw()
     },
     /**
@@ -164,7 +172,8 @@ export default {
           }
 
         daysData.push({
-          date: month+'-'+ii,
+          //date: month+'-'+ii,
+          date: new Time(this.currentYear+'-'+month+'-'+ii),
           id: i+1,
           name: i+1,
           status: status
@@ -176,11 +185,21 @@ export default {
     },
     /**
      * 修改日期状态
-     * @params {String} day 1-1
+     * @params {String} day Time | String
      */
      setStatusOfDay(day, status){
+       //console.log(day)
        let index = this.daysData.findIndex((item, index)=>{
-         return item.date == day
+         if(item.date && day instanceof Time){
+           //console.log('11111'+day)
+           return item.date.equal(day)
+         } else if(item.date && typeof day == 'string'){
+           console.log('equare', day  )
+           console.log('equare', JSON.stringify(item.date)  )
+           return item.date.equal(new Time(day))
+         } else {
+           return false
+         }
        })
        let data = this.daysData[index]
        if(data){
@@ -216,6 +235,7 @@ export default {
        this.activeDaysSelf.forEach((item)=>{
          this.setStatusOfDay(item, 'active')
        })
+
        this.unactiveDaysSelf.forEach((item)=>{
          this.setStatusOfDay(item, 'unactive')
        })
@@ -236,14 +256,25 @@ export default {
     this.draw()
   },
   watch: {
-
+    disableDays (newVal){
+      this.disableDaysSelf = disableDays
+      this.draw()
+    },
+    activeDays (newVal){
+      this.activeDaysSelf = activeDays
+      this.draw()
+    },
+    unactiveDays (newVal){
+      this.unactiveDaysSelf = unactiveDays
+      this.draw()
+    }
   },
   data() {
     return {
+      currentYear: new Date().getFullYear(),
       currentMonth: 0,
       currentDay: 0,
       currentWeek: 0,
-      currentYear: 0,
       disableDaysSelf: this.disableDays,
       activeDaysSelf: this.activeDays,
       unactiveDaysSelf: this.unactiveDays,

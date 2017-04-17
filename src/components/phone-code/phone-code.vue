@@ -7,6 +7,7 @@
       label="手机号"
       theme="blank"
       format="phone"
+      :value="phone"
       :required=true
     />
 
@@ -38,6 +39,10 @@ export default {
     seconds: {
       type: Number,
       default: 60
+    },
+    phone: {
+      type: String,
+      default: ''
     }
   },
   created() {

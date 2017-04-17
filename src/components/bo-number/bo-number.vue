@@ -54,6 +54,9 @@ export default {
     getValue() {
       return this.valueSelf
     },
+    getOldValue() {
+      return this.valueSelf
+    },
     /**
      * 增加
      */
@@ -87,13 +90,20 @@ export default {
       if (params.left) {
         this.leftBtnState = params.left
       }
+    },
+    /**
+     * 回滚到上个值
+     */
+    rollback() {
+      this.valueSelf = this.valueOld
     }
   },
   mounted() {
     this.init()
   },
   watch: {
-    valueSelf(newVal) {
+    valueSelf(newVal, oldVal) {
+      this.valueOld = oldVal
       if (newVal >= this.max) {
         this.setBtn({
           right: 'disable'
@@ -121,6 +131,7 @@ export default {
   data() {
     return {
       valueSelf: this.value,
+      valueOld: this.value,
       leftBtnState: 'active', // 按钮状态 active|hidden|disable
       rightBtnState: 'active'
     }
