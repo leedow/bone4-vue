@@ -8,6 +8,7 @@
       <div class="dialog">
         <div class="dialog-content">
           <slot></slot>
+          {{content}}
         </div>
         <div class="dialog-buttons">
           <button class="button-no" v-if="type=='confirm'" @click="cancel">{{buttons[1]}}</button>
@@ -56,7 +57,7 @@ export default {
   },
   data() {
     return {
-
+      content: ''
     }
   }
 }

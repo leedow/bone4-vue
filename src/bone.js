@@ -10,6 +10,7 @@ import BoNumber from './components/bo-number/bo-number'
 import MenuVertical from './components/menu-vertical/menu-vertical'
 import MenusHorizon from './components/menus-horizon/menus-horizon'
 import Modal from './components/modal/modal'
+import Modal_ from './components/modal'
 import Tabs from './components/tabs/tabs'
 import Toast from './components/toast/toast'
 import Stars from './components/stars/stars'
@@ -24,6 +25,7 @@ import Toast_ from './components/toast'
 
 
 Vue.prototype.$toast = Toast_
+Vue.prototype.$modal = Modal_
 
 export {
   List,

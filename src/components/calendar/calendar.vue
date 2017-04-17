@@ -257,15 +257,15 @@ export default {
   },
   watch: {
     disableDays (newVal){
-      this.disableDaysSelf = disableDays
+      this.disableDaysSelf = newVal
       this.draw()
     },
     activeDays (newVal){
-      this.activeDaysSelf = activeDays
+      this.activeDaysSelf = newVal
       this.draw()
     },
     unactiveDays (newVal){
-      this.unactiveDaysSelf = unactiveDays
+      this.unactiveDaysSelf = newVal
       this.draw()
     }
   },

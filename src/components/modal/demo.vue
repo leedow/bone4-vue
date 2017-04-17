@@ -4,6 +4,7 @@
           <dmenu @on-switch="alert"  name="Alert"/>
           <dmenu @on-switch="confirm"  name="Confirm" />
           <dmenu @on-switch="show2=true"  name="Has child components" />
+          <dmenu @on-switch="open"  name="全局调用" />
         </ul>
         <modal :show="show" @on-confirm="show=false" @on-cancel="show=false" :type="type">Hello world!</modal>
         <modal :show="show2" @on-confirm="show2=false" @on-cancel="show2=false" :type="type" >
@@ -31,6 +32,11 @@ export default {
     confirm() {
       this.type = 'confirm'
       this.show = true
+    },
+    open() {
+      this.$modal.open('test').$on('on-confirm', () => {
+        this.$modal.close()
+      })
     }
   },
   data() {
