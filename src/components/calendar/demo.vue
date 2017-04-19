@@ -3,7 +3,7 @@
     <div class="">
       {{now}}
     </div>
-    <div style="">
+    <div style="" ref="touchbox">
       <calendar ref="calendar" :activeDays="['2017-4-18', '2017-4-19']" :unactiveDays="['2017-4-20']" @on-click="handle"
         @on-month-change="monthChange"
       />
@@ -14,13 +14,31 @@
 
 <script>
 import calendar from './calendar'
+import Touchit from '../../components/helper/touchit'
 
 export default {
   name: '',
   components: {
     calendar
   },
+  mounted() {
+    this.touch = new Touchit({
+      alias: 'swipeX',
+      dom: this.$refs.touchbox,
+      type: 'swipeX',
+      done: this.done
+    })
+  },
   methods: {
+    done(e) {
+      console.log('done')
+      if (e.distance.x > 0) {
+        this.$refs.calendar.pre()
+      }
+      if (e.distance.x < 0) {
+        this.$refs.calendar.next()
+      }
+    },
     handle(data) {
       this.$toast.open(JSON.stringify(data))
       console.log(JSON.stringify(data))
@@ -33,8 +51,12 @@ export default {
   },
   data() {
     return {
-      now: ''
+      now: '',
+      touch: null
     }
+  },
+  beforeDestroy() {
+    this.touch.destory()
   }
 }
 </script>

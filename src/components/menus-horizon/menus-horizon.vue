@@ -20,6 +20,8 @@
       <img v-else :src="item.icon" alt="">
     </span>
 
+    <span class="tip" v-if="item.tip">{{item.tip}}</span>
+
     <span class="menu-title">{{item.title}}</span>
   </button>
 </nav>

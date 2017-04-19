@@ -13,7 +13,7 @@
   <section class="layout-bottom bor-top" style="background-color:#fff">
     <menus-horizon
       size="sm"
-     
+
       :current="this.$route.path"
       :surface="[{
           icon: 'like',
@@ -25,6 +25,7 @@
           currentIcon: 'timefill',
           alias: '/demos',
           title: '组 件',
+          tip: tip,
           path: '/demos'
         },{
           icon: 'shop',
@@ -53,14 +54,17 @@ export default {
           id: 1,
           content: '标题1'
         }
-      ]
+      ],
+      tip: 1
     }
   },
   methods: {
 
   },
-  ready() {
-
+  mounted() {
+    setTimeout(() => {
+      this.tip = 2
+    }, 1000)
   },
   created() {
 

@@ -22,6 +22,7 @@ import Sidebar from './components/sidebar/sidebar'
 import Device from './components/helper/device'
 import Calendar from './components/calendar/calendar'
 import Toast_ from './components/toast'
+import Touch from './components/helper/touchit'
 
 
 Vue.prototype.$toast = Toast_
@@ -47,5 +48,6 @@ export {
   Stars,
   Slide,
   Sidebar,
-  Calendar
+  Calendar,
+  Touch
 }
