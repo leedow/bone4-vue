@@ -27,6 +27,31 @@
       ></menus-horizon>
     </div>
 
+
+    <div class="layout-bottom bor-top" style="background:#fff">
+      <menus-horizon
+        size="sm"
+        current="like"
+        @on-click="handleclick"
+        :surface="[{
+            icon: 'like',
+            currentIcon: 'likefill',
+            alias: 'like',
+            title: '收 藏'
+          },{
+            icon: 'time',
+            currentIcon: 'timefill',
+            alias: 'time',
+            title: '时光机'
+          },{
+            icon: 'shop',
+            currentIcon: 'shopfill',
+            alias: 'shop',
+            title: '小 摊'
+          }]"
+      ></menus-horizon>
+    </div>
+
   </div>
 </template>
 

@@ -3,6 +3,7 @@
 | 属性名      | 说 明         | 类 型 |默认值  |
 | ------------- |-----------|------| -----|
 | surface    | 菜单列表数据，格式为 ``[{alias, title, icon, link}]`` ,  `alias` 为 `title` 的别名, `icon` `path` 可以省略 | Array | `[ ]` |
+| type | 图标种类 iconfont 或 image | String  | 'iconfont' |
 
 ## 组件方法
 

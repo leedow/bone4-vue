@@ -1,7 +1,7 @@
 <template>
   <div class="card p2222">
     <div style="width:90px;">
-      <bo-number max="5" />
+      <bo-number max="5" value="6" />
     </div>
 
     <div style="width:90px;">

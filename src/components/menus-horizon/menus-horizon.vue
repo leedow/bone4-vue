@@ -9,11 +9,17 @@
   ]"
     @click="_handleClick(item, index)"
   >
-    <span class="menu-pic">
+    <span class="menu-pic" v-if="type=='iconfont'">
       <i class="icon iconfont" :class="[
         item.alias==currentSelf&&item.currentIcon?'icon-'+item.currentIcon:'icon-' + item.icon
       ]"></i>
     </span>
+
+    <span class="menu-pic" v-if="type=='image'">
+      <img v-if="item.alias==currentSelf&&item.currentIcon" :src="item.currentIcon" alt="">
+      <img v-else :src="item.icon" alt="">
+    </span>
+
     <span class="menu-title">{{item.title}}</span>
   </button>
 </nav>
@@ -26,6 +32,10 @@ export default {
 
   },
   props: {
+    type: {
+      type: String,
+      default: 'iconfont' // iconfont | pic
+    },
     surface: {
       type: Array,
       default() {

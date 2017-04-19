@@ -13,6 +13,7 @@
   <section class="layout-bottom bor-top" style="background-color:#fff">
     <menus-horizon
       size="sm"
+     
       :current="this.$route.path"
       :surface="[{
           icon: 'like',
