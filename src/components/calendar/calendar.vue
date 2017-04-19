@@ -78,15 +78,31 @@ export default {
       }
     },
     next() {
-      if (this.currentMonth === 12) return
-      this.currentMonth = this.currentMonth + 1
-      this.$emit('on-month-change', this.currentMonth)
+      if (this.currentMonth === 12) {
+        this.currentMonth = 1
+        this.currentYear = this.currentYear + 1
+      } else {
+        this.currentMonth = this.currentMonth + 1
+      }
+
+      this.$emit('on-month-change', {
+        year: this.currentYear,
+        month: this.currentMonth
+      })
       this.draw()
     },
     pre() {
-      if (this.currentMonth === 1) return
-      this.currentMonth = this.currentMonth - 1
-      this.$emit('on-month-change', this.currentMonth)
+      if (this.currentMonth === 1) {
+        this.currentMonth = 12
+        this.currentYear = this.currentYear - 1
+      } else {
+        this.currentMonth = this.currentMonth - 1
+      }
+
+      this.$emit('on-month-change', {
+        year: this.currentYear,
+        month: this.currentMonth
+      })
       this.draw()
     },
     /**
@@ -112,7 +128,7 @@ export default {
       const d = new Date()
       d.setMonth(month - 1)
       d.setDate(1)
-      return d.getDay() + 1
+      return d.getDay() === 0 ? 7 : d.getDay()
     },
     /**
      * 初始化某月列表日期数据
@@ -122,6 +138,7 @@ export default {
       this.currentMonth = month
       const days = this.getDaysOfMonth(month)
       const startDay = this.getStartDayOfMonth(month)
+      console.log('startDay'+startDay)
       const todayDate = new Date().getDate()
 
       const daysData = []// 缓存日期
@@ -146,26 +163,34 @@ export default {
             }
             case 'todayafter': {
 
-              if(this.currentMonth == new Date().getMonth()+1){
+              if(this.currentMonth == new Date().getMonth()+1 && (this.currentYear == this.nowYear)){
                 if(todayDate > i){
                   status = 'disable'
                 }
               }
 
-              if(this.currentMonth < new Date().getMonth()+1){
+              if(this.currentMonth < new Date().getMonth()+1 && (this.currentYear <= this.nowYear)){
                   status = 'disable'
+              }
+
+              if(this.currentYear < this.nowYear){
+                status = 'disable'
               }
 
               break
             }
             case 'after': {
-              if(this.currentMonth == new Date().getMonth()+1){
+              if(this.currentMonth == new Date().getMonth()+1 && this.currentYear == this.nowYear){
                 if(todayDate >= i){
                   status = 'disable'
                 }
               }
-              if(this.currentMonth < new Date().getMonth()+1){
+              if(this.currentMonth < new Date().getMonth()+1 && this.currentYear <= this.nowYear){
                   status = 'disable'
+              }
+
+              if(this.currentYear < this.nowYear){
+                status = 'disable'
               }
 
             }
@@ -194,8 +219,8 @@ export default {
            //console.log('11111'+day)
            return item.date.equal(day)
          } else if(item.date && typeof day == 'string'){
-           console.log('equare', day  )
-           console.log('equare', JSON.stringify(item.date)  )
+           //console.log('equare', day  )
+           //console.log('equare', JSON.stringify(item.date)  )
            return item.date.equal(new Time(day))
          } else {
            return false
@@ -271,6 +296,7 @@ export default {
   },
   data() {
     return {
+      nowYear: new Date().getFullYear(),
       currentYear: new Date().getFullYear(),
       currentMonth: 0,
       currentDay: 0,
