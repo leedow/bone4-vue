@@ -1,10 +1,10 @@
 <template>
 <div>
   <transition name="layout">
-    <div class="layout-opacity" :class="[position=='top-header'?'layout-header':'']" v-if="show"></div>
+    <div class="layout-opacity" :class="[position=='top-header'?'layout-header':'']" v-show="show"></div>
   </transition>
   <transition :name="animate[position]">
-    <div class="drawer" :class="['drawer-'+position ]" v-if="show">
+    <div class="drawer" :class="['drawer-'+position ]" v-show="show">
       <div class="drawer-box">
         <slot></slot>
       </div>

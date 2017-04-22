@@ -22,30 +22,29 @@ function Time(str){
 /**
  * 初始化日期数据
  * @param {String} str yyyy-mm-dd | yyyy-m-d | yyyy-mm-dd hh:mm:ss
+ *                     yyyy/mm/dd | yyyy/m/d | yyyy/mm/dd hh:mm:ss
  */
 Time.prototype.init = function(str){
 
-  if(/^\d{4}-\d{1,2}-\d{1,2}$/.test(str)){
-    var d = str.split('-')
-    this.year = parseInt(d[0])
-    this.month = parseInt(d[1])
-    this.date = parseInt(d[2])
+  var d = str.split(' ')
+  var d1 = d[0].split('-')
+
+  if(d1.length === 1){
+    d1 = d[0].split('/')
   }
-  else if(/^\d{4}-\d{1,2}-\d{1,2}\s{1}\d{1,2}:\d{1,2}:\d{1,2}$/.test(str)){
-    var d = str.split(' ')
-    var d1 = d[0].split('-')
-    var d2 = d[1].split(':')
-    this.year = parseInt(d1[0])
-    this.month = parseInt(d1[1])
-    this.date = parseInt(d1[2])
-    this.hour = parseInt(d2[0])
-    this.minute = parseInt(d2[1])
-    this.second = parseInt(d2[2])
+
+
+  this.year = parseInt(d1[0])
+  this.month = parseInt(d1[1])
+  this.date = parseInt(d1[2])
+
+  if(d[1]){
+      var d2 = d[1].split(':')
+      this.hour = parseInt(d2[0])
+      this.minute = parseInt(d2[1])
+      this.second = parseInt(d2[2])
   }
-  else {
-    //console.log('Wrong date string format: ' + str)
-    return
-  }
+
   this.obj = new Date(this.year, this.month-1, this.date, this.hour, this.minute, this.second)
 }
 
@@ -72,6 +71,22 @@ Time.prototype.equal = function(aim, min){
 
   return result
 
+}
+
+/**
+ * @param {format} yy-mm-dd hh:mm:ss
+ */
+Time.prototype.format = function(format){
+  let result = format.replace('yy', this.year)
+  result = result.replace('mm', this.month)
+  result = result.replace('dd', this.date)
+  result = result.replace('hh', this.hour)
+  result = result.replace('mm', this.minute)
+  result = result.replace('ss', this.second)
+
+
+
+  return result
 }
 
 export default Time

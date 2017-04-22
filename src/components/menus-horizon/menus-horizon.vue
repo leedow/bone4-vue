@@ -20,7 +20,7 @@
       <img v-else :src="item.icon" alt="">
     </span>
 
-    <span class="tip" v-if="item.tip">{{item.tip}}</span>
+    <span class="tip" v-if="item.tip && item.tip>0">{{item.tip}}</span>
 
     <span class="menu-title">{{item.title}}</span>
   </button>
@@ -72,9 +72,14 @@ export default {
       this.setCurrent(item.alias)
     }
   },
+  computed: {
+    currentSelf() {
+      return this.current
+    }
+  },
   data() {
     return {
-      currentSelf: this.current,
+
       pathSelf: this.$route.path
     }
   }

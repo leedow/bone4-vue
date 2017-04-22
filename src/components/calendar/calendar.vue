@@ -213,21 +213,33 @@ export default {
      * @params {String} day Time | String
      */
      setStatusOfDay(day, status){
-       //console.log(day)
+       /*
        let index = this.daysData.findIndex((item, index)=>{
          if(item.date && day instanceof Time){
-           //console.log('11111'+day)
+
            return item.date.equal(day)
          } else if(item.date && typeof day == 'string'){
-           //console.log('equare', day  )
-           //console.log('equare', JSON.stringify(item.date)  )
+
            return item.date.equal(new Time(day))
          } else {
            return false
          }
+       })*/
+       let index = -1
+       this.daysData.forEach((item, i) => {
+         if(item.date && day instanceof Time){
+            if(item.date.equal(day)){
+              index = i
+            }
+         } else if(item.date && typeof day == 'string'){
+           if( item.date.equal(new Time(day)) ){
+             index = i
+           }
+         }
        })
-       let data = this.daysData[index]
-       if(data){
+
+       if(index >=0){
+         let data = this.daysData[index]
          data.status = status
          this.daysData[index] = data
        }

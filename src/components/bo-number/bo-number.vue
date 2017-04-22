@@ -22,15 +22,12 @@ export default {
   name: 'boNumber',
   props: {
     value: {
-      type: Number,
       default: 0
     },
     max: {
-      type: Number,
       default: 9999
     },
     min: {
-      type: Number,
       default: 0
     }
   },

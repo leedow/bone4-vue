@@ -26,7 +26,6 @@ export default {
       default: []
     },
     current: {
-      type: String,
       default: ''
     },
     size: {

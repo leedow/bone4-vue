@@ -29,10 +29,7 @@ export default {
       type: Boolean,
       default: true
     },
-    height: {
-      type: String,
-      default: '100px'
-    },
+
     width: {
       type: String,
       default: '100%'

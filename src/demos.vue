@@ -11,11 +11,14 @@
   </ul>
   <div class="list-title">输 入</div>
   <ul class="list list-box p0002">
-    <dmenu path="/demo/bo-select" name="下拉菜单" />
+
     <dmenu path="/demo/form-group" name="表 单" />
    <dmenu path="/demo/bo-switch" name="滑动开关" />
    <dmenu path="/demo/number" name="数字选择" />
    <dmenu path="/demo/calendar" name="日 历" />
+   <dmenu path="/demo/bo-select" name="下拉菜单" />
+   <dmenu path="/demo/selector" name="选择列表" />
+   <dmenu path="/demo/selectorTime" name="时间选择" />
   </ul>
 
   <div class="list-title">列表&菜单</div>

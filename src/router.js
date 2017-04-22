@@ -142,6 +142,18 @@ const sidebar =  (resolve) => {
   });
 };
 
+const selector =  (resolve) => {
+  require.ensure(['./components/selector/demo'], () => {
+    resolve(require('./components/selector/demo'));
+  });
+};
+
+const selectorTime =  (resolve) => {
+  require.ensure(['./components/selector-time/demo'], () => {
+    resolve(require('./components/selector-time/demo'));
+  });
+};
+
 
 /*eslint-enable */
 
@@ -217,4 +229,10 @@ export default [{
 }, {
   path: 'sidebar',
   component: sidebar
+}, {
+  path: 'selector',
+  component: selector
+}, {
+  path: 'selectorTime',
+  component: selectorTime
 }]
