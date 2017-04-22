@@ -1,9 +1,9 @@
 <template lang="html">
-<div class="selector">
+<div class="selector" :class="['selector-'+size, 'selector-'+theme, underline!=''?'selector-underline':'']">
   <h3 class="selector-title" v-show="title!=''">
     {{title}}
   </h3>
-  <ul class="selector-list">
+  <ul class="selector-list" :style="listHeight">
     <li v-for="item in options"
         :class="[item.value==valueSelf?'selected':'']"
         @click="handleClick(item)"
@@ -24,6 +24,17 @@ export default {
     value: {
       default: ''
     },
+    theme: {
+      type: String,
+      default: 'default' // check |
+    },
+    underline: { // 选项是否有下划线
+      default: false
+    },
+    size: { // 尺寸
+      type: String,
+      default: 'normal'
+    },
     options: {
       type: Array,
       default() {
@@ -32,6 +43,17 @@ export default {
          */
         return []
       }
+    },
+    maxHeight: {
+      default: ''
+    }
+  },
+  computed: {
+    listHeight() {
+      if (this.maxHeight !== '') {
+        return { height: this.maxHeight }
+      }
+      return {}
     }
   },
   data() {
@@ -39,7 +61,6 @@ export default {
       valueSelf: this.value
     }
   },
-
   mounted() {},
   methods: {
     /**
@@ -47,7 +68,6 @@ export default {
      */
     handleClick(value) {
       this.valueSelf = value.value
-
       this.$emit('on-change', value)
     },
     /**
