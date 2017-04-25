@@ -155,6 +155,13 @@ const selectorTime =  (resolve) => {
 };
 
 
+const MapLocation =  (resolve) => {
+  require.ensure(['./components/bo-map/demo'], () => {
+    resolve(require('./components/bo-map/demo'));
+  });
+};
+
+
 /*eslint-enable */
 
 export default [{
@@ -235,4 +242,7 @@ export default [{
 }, {
   path: 'selectorTime',
   component: selectorTime
+}, {
+  path: 'map',
+  component: MapLocation
 }]
