@@ -25,6 +25,7 @@ import Toast_ from './components/toast'
 import Touch from './components/helper/touchit'
 import Selector from './components/selector/selector'
 import SelectorTime from './components/selector-time/selector-time'
+import Back from './components/back/back'
 
 Vue.prototype.$toast = Toast_
 Vue.prototype.$modal = Modal_
@@ -52,5 +53,6 @@ export {
   Calendar,
   Touch,
   Selector,
-  SelectorTime
+  SelectorTime,
+  Back
 }

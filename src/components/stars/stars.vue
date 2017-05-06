@@ -1,9 +1,10 @@
 <template>
-  <div class="stars" :class="['stars-'+size]">
-    <button class="star" v-for="(item, index) in stars"  @click="changeScore(index+1)" :class="[
+  <div class="stars" :class="['stars-'+size, 'stars-'+theme]">
+    <button class="star" v-for="(item, index) in stars"
+      :style="{opacity: index+1<=scoreSelf&&theme=='circle'?(index+1)/score:1}"  @click="changeScore(index+1)" :class="[
       index+1<=scoreSelf?'star-check':''
     ]">
-      <i class="icon iconfont icon-favorfill"></i>
+      <i v-if="theme=='default'" class="icon iconfont icon-favorfill"></i>
     </button>
   </div>
 </template>
@@ -12,6 +13,10 @@
 export default {
   name: 'stars',
   props: {
+    theme: {
+      type: String,
+      default: 'default'
+    },
     size: {
       type: String,
       default: 'default'

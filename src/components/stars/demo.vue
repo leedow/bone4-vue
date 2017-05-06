@@ -1,8 +1,17 @@
 <template>
   <div class="">
-    <stars :score="5" />
+    <div class="card card-square p2222">
+        <stars :score="5" />
+    </div>
 
-    <stars :score="2" size="sm" :enable="false" />
+    <div class="card card-square p2222 m2000">
+        <stars :score="2" size="sm" :enable="false" />
+    </div>
+
+    <div class="card card-square p2222 m2000">
+        <stars :score="3" size="sm" theme="circle" :enable="false" />
+    </div>
+
   </div>
 </template>
 
