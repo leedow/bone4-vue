@@ -75,6 +75,12 @@ export default {
      */
     getValue() {
       return this.valueSelf
+    },
+    /**
+     * 获取输入值
+     */
+    setValue(val) {
+      this.valueSelf = val
     }
   },
   components: {}

@@ -161,6 +161,12 @@ const MapLocation =  (resolve) => {
   });
 };
 
+const Keyboard =  (resolve) => {
+  require.ensure(['./components/keyboard/demo'], () => {
+    resolve(require('./components/keyboard/demo'));
+  });
+};
+
 
 /*eslint-enable */
 
@@ -245,4 +251,7 @@ export default [{
 }, {
   path: 'map',
   component: MapLocation
+}, {
+  path: 'keyboard',
+  component: Keyboard
 }]

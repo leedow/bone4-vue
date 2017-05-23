@@ -30,6 +30,11 @@ export default {
       default: true
     }
   },
+  watch: {
+    score(newVal) {
+      this.scoreSelf = newVal
+    }
+  },
   methods: {
     changeScore(score) {
       if (!this.enable) return

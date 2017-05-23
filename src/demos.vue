@@ -19,6 +19,7 @@
    <dmenu path="/demo/bo-select" name="下拉菜单" />
    <dmenu path="/demo/selector" name="选择列表" />
    <dmenu path="/demo/selectorTime" name="时间选择" />
+   <dmenu path="/demo/keyboard" name="数字键盘" />
   </ul>
 
   <div class="list-title">列表&菜单</div>

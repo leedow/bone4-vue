@@ -167,7 +167,7 @@ module.exports = function (config) {
 
   this.init = function () {
 
-    return; // eslint-disable-line
+    //return; // eslint-disable-line
     this.dom.addEventListener('touchstart', this.handleTouchStart)
     this.dom.addEventListener('touchmove', this.handleTouchMove)
     this.dom.addEventListener('touchend', this.handleTouchEnd)

@@ -1,7 +1,10 @@
 <template>
 <div class="slide" ref="slide" :style="{height:height + 'px',width:width}">
   <div class="slide-content animate-hack" ref="slidecontent" :style="{width:fullWidth+'px'}">
-    <div class="slide-item" v-for="item in surface" :style="{width:itemWidth+'px'}">
+    <div class="slide-item"
+        v-for="item in surface"
+        @click="handleClick(item)"
+        :style="{width:itemWidth+'px'}">
       <img :src="item.imgUrl" @load="imgload" alt="" />
     </div>
   </div>
@@ -29,7 +32,6 @@ export default {
       type: Boolean,
       default: true
     },
-
     width: {
       type: String,
       default: '100%'
@@ -38,7 +40,7 @@ export default {
   mounted() {
     this.itemWidth = this.$refs.slide.clientWidth
     this.itemHeight = this.$refs.slide.clientHeight
-    this.fullWidth = this.itemWidth * this.surface.length
+    // this.fullWidth = this.itemWidth * this.surface.length
 
     this.touchit = new Touchit({
       dom: this.$refs.slide,
@@ -47,7 +49,16 @@ export default {
       doing: this.sliding
     })
   },
+  computed: {
+    fullWidth() {
+      // this.itemWidth = this.$refs.slide.clientWidth
+      return this.itemWidth * this.surface.length
+    }
+  },
   methods: {
+    handleClick(item) {
+      this.$emit('on-click', item)
+    },
     sliding(eventType, data) {
       switch (eventType) {
         case 'touchmove': {
@@ -84,7 +95,6 @@ export default {
      */
     move(distance, relative) {
       // if (relative === undefined) relative = true
-
       if (relative) {
         this.distance = this.preDistance + distance
       } else {
@@ -107,7 +117,6 @@ export default {
       height: 0,
       itemWidth: 0,
       itemHeight: 0,
-      fullWidth: 0,
       currentIndex: 0,
       preDistance: 0,
       distance: 0,

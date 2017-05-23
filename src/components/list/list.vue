@@ -1,5 +1,5 @@
 <template>
-<ul class="list" ref="list">
+<ul class="list-hack" ref="list">
  <li class="down-fresh" v-show="pullState>0&&mode==='swipeDown'">
     <p>
       <i class="icon iconfont icon-loading" :class="[

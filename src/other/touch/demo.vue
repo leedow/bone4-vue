@@ -82,7 +82,7 @@ export default {
       this.$refs.success.open()
     },
     doing(et, e) {
-      console.log(e)
+      // console.log(e)
       this.position = e.position
       this.distance = e.distance
     }
