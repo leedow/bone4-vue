@@ -17,6 +17,7 @@
             title="时"
             :value="hourSelf"
             :options="h"
+            max-height="200px"
             @on-change="handleHourChange"
         />
       </div>
@@ -25,6 +26,7 @@
             title="分"
             :value="minutesSelf"
             :options="m"
+            max-height="200px"
             @on-change="handleMinChange"
         />
       </div>
@@ -48,17 +50,11 @@ export default {
     minutes: {
       default: 0
     },
-    hourMax: {
-      default: 23
+    maxTime: {
+      default: '23:59'
     },
-    hourMin: {
-      default: 0
-    },
-    minMax: {
-      default: 59
-    },
-    minMin: {
-      default: 0
+    minTime: {
+      default: '00:00'
     },
     minStep: { // 分钟间隔
       default: 5
@@ -74,8 +70,10 @@ export default {
   computed: {
     h() {
       const h = []
+      const hourMax = parseInt(this.maxTime.split(':')[0]) // eslint-disable-line
+      const hourMin = parseInt(this.minTime.split(':')[0]) // eslint-disable-line
       for (let i = 0; i < 24; i += 1) {
-        if (i >= this.hourMin && i <= this.hourMax) {
+        if (i >= hourMin && i <= hourMax) {
           h.push({
             value: i,
             text: this.trans(i)
@@ -87,11 +85,40 @@ export default {
     m() {
       const count = Math.ceil(60 / this.minStep)
       const m = []
+      const hourMax = parseInt(this.maxTime.split(':')[0]) // eslint-disable-line
+      const hourMin = parseInt(this.minTime.split(':')[0]) // eslint-disable-line
+      const minMax = parseInt(this.maxTime.split(':')[1]) // eslint-disable-line
+      const minMin = parseInt(this.minTime.split(':')[1]) // eslint-disable-line
+
       for (let i = 0; i < count; i += 1) {
-        m.push({
-          value: i * this.minStep,
-          text: this.trans(i * this.minStep)
-        })
+        if (this.hourSelf === hourMin) {
+          const min = i * this.minStep
+          if (min >= minMin) {
+            m.push({
+              value: min,
+              text: this.trans(min)
+            })
+          }
+          if (this.minutesSelf < minMin) {
+            this.minutesSelf = minMin
+          }
+        } else if (this.hourSelf === hourMax) {
+          const min = i * this.minStep
+          if (min <= minMax) {
+            m.push({
+              value: min,
+              text: this.trans(min)
+            })
+          }
+          if (this.minutesSelf > minMax) {
+            this.minutesSelf = minMax
+          }
+        } else {
+          m.push({
+            value: i * this.minStep,
+            text: this.trans(i * this.minStep)
+          })
+        }
       }
       return m
     }

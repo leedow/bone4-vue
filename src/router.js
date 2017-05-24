@@ -167,6 +167,12 @@ const Keyboard =  (resolve) => {
   });
 };
 
+const PayPassword =  (resolve) => {
+  require.ensure(['./components/pay-password/demo'], () => {
+    resolve(require('./components/pay-password/demo'));
+  });
+};
+
 
 /*eslint-enable */
 
@@ -254,4 +260,7 @@ export default [{
 }, {
   path: 'keyboard',
   component: Keyboard
+}, {
+  path: 'paypassword',
+  component: PayPassword
 }]

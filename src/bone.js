@@ -26,6 +26,8 @@ import Touch from './components/helper/touchit'
 import Selector from './components/selector/selector'
 import SelectorTime from './components/selector-time/selector-time'
 import Back from './components/back/back'
+import Keyboard from './components/keyboard/keyboard'
+import PayPassword from './components/pay-password/pay-password'
 
 Vue.prototype.$toast = Toast_
 Vue.prototype.$modal = Modal_
@@ -54,5 +56,7 @@ export {
   Touch,
   Selector,
   SelectorTime,
-  Back
+  Back,
+  PayPassword,
+  Keyboard
 }

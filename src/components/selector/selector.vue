@@ -61,6 +61,11 @@ export default {
       valueSelf: this.value
     }
   },
+  watch: {
+    value(newval) {
+      this.valueSelf = newval
+    }
+  },
   mounted() {},
   methods: {
     /**
