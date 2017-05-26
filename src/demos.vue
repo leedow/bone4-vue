@@ -4,7 +4,7 @@
   <ul class="list list-box p0002">
     <dmenu path="/demo/btn" name="按 钮"  />
     <dmenu path="/demo/form-group" name="表 单" />
-    <dmenu path="/demo/code" name="验证码" />
+    <dmenu path="/demo/phone-code" name="验证码" />
     <dmenu path="/demo/drawer" name="动效抽屉" />
     <dmenu path="/demo/touch" name="手势操作" />
     <dmenu path="/demo/slider" name="内容滚动" />

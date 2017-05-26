@@ -237,7 +237,7 @@ export default [{
   path: 'stars',
   component: Stars
 }, {
-  path: 'code',
+  path: 'phone-code',
   component: code
 }, {
   path: 'number',

@@ -3,8 +3,7 @@
     <button type="button" class="btn btn-primary" @click="open">时间选择</button>
     <selector-time
       ref="time"
-      hour="17"
-      minutes="30"
+      time="15:00"
       minTime="14:25"
       maxTime="18:30"
       minStep="5"

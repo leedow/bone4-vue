@@ -5,7 +5,7 @@
         <button @click="close">取 消</button>
       </div>
       <div class="header-body">
-        {{hourSelf}}:{{minutesSelf}}
+        {{text}}
       </div>
       <div class="header-dock ar">
          <button @click="submit">确 定</button>
@@ -44,11 +44,8 @@ export default {
       type: String,
       default: 'bottom'
     },
-    hour: {
-      default: 0
-    },
-    minutes: {
-      default: 0
+    time: {
+      default: '00:00'
     },
     maxTime: {
       default: '23:59'
@@ -63,8 +60,14 @@ export default {
   data() {
     return {
       show: false,
-      hourSelf: this.hour,
-      minutesSelf: this.minutes
+      hourSelf: this.time.split(':')[0],
+      minutesSelf: this.time.split(':')[1]
+    }
+  },
+  watch: {
+    time(newval) {
+      this.hourSelf = newval.split(':')[0]
+      this.minutesSelf = newval.split(':')[1]
     }
   },
   computed: {
@@ -121,6 +124,9 @@ export default {
         }
       }
       return m
+    },
+    text() {
+      return `${this.trans(this.hourSelf)}:${this.trans(this.minutesSelf)}`
     }
   },
   mounted() {},
