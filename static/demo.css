@@ -91,9 +91,20 @@ body, html{
   left: 620px;
   bottom:0;
   text-align: left;
-  background: #fff;
+  background: #f9f9f9;
+  border-left:1px #eee solid;
 
 }
+
+#right table{
+  background: #fff;
+}
+
+#right table th{
+  font-weight: bold;
+  background: #fff;
+}
+
 
 #content, #child-content{
 

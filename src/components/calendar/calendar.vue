@@ -110,12 +110,17 @@ export default {
      * @param {Number} 第几月份, 1-12
      */
     getDaysOfMonth(month) {
-      const d = new Date()
-      const d2 = new Date()
-      d.setMonth(month - 1)
+      let d = new Date() // eslint-disable-line
+      let d2 = new Date() // eslint-disable-line
+
       d.setDate(1)
-      d2.setMonth(month)
+      d.setMonth(month - 1)
+
+
       d2.setDate(1)
+      d2.setMonth(month)
+
+
       const monthStartDate = d.getTime()
       const monthEndDate = d2.getTime()
       return (monthEndDate - monthStartDate) / (1000 * 60 * 60 * 24)
@@ -140,6 +145,9 @@ export default {
       const startDay = this.getStartDayOfMonth(month)
       console.log('startDay'+startDay)
       const todayDate = new Date().getDate()
+
+
+
 
       const daysData = []// 缓存日期
 
@@ -206,6 +214,7 @@ export default {
       }
 
       this.daysData = daysData
+      //console.log(JSON.stringify(this.daysData))
       //this.translateData()
     },
     /**
