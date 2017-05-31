@@ -6,11 +6,11 @@
     <section class="layout-top">
       <header class="header">
         <div class="header-dock al">
-          <router-link to="/demos"><i class="icon iconfont icon-back"></i></router-link>
+          <router-link to="/mobile/demos"><i class="icon iconfont icon-back"></i></router-link>
 
         </div>
         <div class="header-body">
-          name
+          {{currentComponent}}
         </div>
       </header>
     </section>
@@ -32,7 +32,15 @@ export default {
 
   },
   created() {
-    this.currentComponent = this.$route.params.name
+    this.init()
+  },
+  methods: {
+    init() {
+      this.currentComponent = this.$route.path.replace('/mobile/demo/', '')
+    }
+  },
+  watch: {
+    $route: 'init'
   },
   data() {
     return {

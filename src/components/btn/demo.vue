@@ -1,7 +1,7 @@
 <template>
-  <div style="background:#fff" class="mp">
+  <div style="background:#fff" class="p2222">
     <div class="row p000 tl">
-      <btn name="Default"/>
+
       <btn theme="primary" name="Primary"/>
       <btn theme="warm" name="Warm"/>
       <btn theme="comfort" name="Comfort"/>
@@ -10,7 +10,7 @@
     <div class="divi">  </div>
 
     <div class="row p000 tl">
-      <btn name="blank"/>
+
       <btn theme="primary-blank" name="Primary"/>
       <btn theme="warm-blank" name="Warm"/>
       <btn theme="comfort-blank" name="Comfort"/>

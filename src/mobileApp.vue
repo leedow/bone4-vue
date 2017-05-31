@@ -1,5 +1,5 @@
 <template>
-<div class="">
+<div class="" >
   <section class="layout-top">
     <header class="header">
       <div class="header-body">
@@ -23,16 +23,16 @@
         },{
           icon: 'time',
           currentIcon: 'timefill',
-          alias: '/demos',
+          alias: '/mobile/demos',
           title: '组 件',
           tip: tip,
-          path: '/demos'
+          path: '/mobile/demos'
         },{
           icon: 'shop',
           currentIcon: 'shopfill',
           alias: '/about',
-          title: '关 于',
-          path: '/about'
+          title: '关 于'
+
         }]"
     ></menus-horizon>
   </section>

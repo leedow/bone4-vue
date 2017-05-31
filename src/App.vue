@@ -25,18 +25,18 @@
           title: '其 他',
           sub: 'other'
         }
-      ]" size="sm" current="base" @on-click="_handleSidebar"></sidebar-menu>
+      ]" size="sm" :current="currentCategory" @on-click="handleSidebar"></sidebar-menu>
 
     </div>
 
     <div class="sub-menu" v-show="showSub">
-      <sidebar-menu ref="sub" :surface="subSurface" size="sm" theme="white" current="grid" @on-click="_handleSubbar"></sidebar-menu>
+      <sidebar-menu ref="sub" :surface="subSurface" size="sm" theme="white" :current="currentComponent" @on-click="handleSubbar"></sidebar-menu>
     </div>
 
     <div id="mid" class="thin-scroll" :class="[showSub?'mid-sub':'']" >
       <div class="mobile" style="width: 330px;height: 560px;margin:0 auto;">
-        <div class="screen" style="background:#f2f2f2;">
-            <iframe :src="'/mobile.html#/demo/' +currentComponent" width="320" height="470" style="border:0;" class="thin-scroll"></iframe>
+        <div class="screen" style="background:#f2f2f2;overflow:hidden;height:470px;">
+            <iframe :src="'#/mobile/demo/' +currentComponent" width="320" height="470" style="border:0;" class="thin-scroll"></iframe>
         </div>
       </div>
     </div>
@@ -62,39 +62,22 @@
   }
 </style>
 <script>
-
 import marked from 'marked'
-
 import SidebarMenu from './components/sidebar/sidebar'
 import Sidebar from './components/sidebar/demo'
-import Btn from './components/btn/demo'
-
-import FormGroup from './components/form-group/demo'
-import Modal from './components/modal/demo'
-import List from './components/list/demo'
-import MenuVertical from './components/menu-vertical/demo'
-import MenusHorizon from './components/menus-horizon/demo'
-import Tabs from './components/tabs/demo'
-
 
 /*eslint-disable */
 export default {
   components: {
     SidebarMenu,
-    Sidebar,
-    Btn,
-    FormGroup,
-    Modal,
-    List,
-    MenuVertical,
-    MenusHorizon,
-    Tabs,
+    Sidebar
   },
   name: 'app',
   data() {
     return {
       isMobile: false,
       doc: '',
+      currentCategory: '',
       currentComponent: '',
       showSub: false,
       subSurface: [],
@@ -103,9 +86,6 @@ export default {
           {
             alias: 'btn',
             title: '按 钮'
-          }, {
-            alias: 'form-group',
-            title: '表 单'
           }, {
             alias: 'phone-code',
             title: '验证码'
@@ -119,20 +99,67 @@ export default {
         ],
         form: [
           {
-            alias: 'btn',
-            title: '按 钮'
-          }, {
             alias: 'form-group',
             title: '表 单'
           }, {
-            alias: 'phone-code',
-            title: '验证码'
+            alias: 'bo-switch',
+            title: '滑动开关'
           }, {
-            alias: 'drawer',
-            title: '抽 屉'
+            alias: 'number',
+            title: '数字选择'
           }, {
-            alias: 'touch',
-            title: '手 势'
+            alias: 'calendar',
+            title: '日 历'
+          }, {
+            alias: 'bo-select',
+            title: '下拉菜单'
+          }, {
+            alias: 'selector',
+            title: '选择列表'
+          }, {
+            alias: 'selectorTime',
+            title: '时间选择'
+          }, {
+            alias: 'keyboard',
+            title: '数字键盘'
+          }
+        ],
+        list: [
+          {
+            alias: 'listdown',
+            title: '上拉刷新'
+          },
+          {
+            alias: 'listup',
+            title: '下拉刷新'
+          },
+          {
+            alias: 'tabs',
+            title: '选项卡'
+          },
+          {
+            alias: 'sidebar',
+            title: '侧栏菜单'
+          }
+        ],
+        message: [
+          {
+            alias: 'modal',
+            title: '对话框'
+          },
+          {
+            alias: 'toast',
+            title: '轻提示'
+          }
+        ],
+        other: [
+          {
+            alias: 'slide',
+            title: '幻灯片'
+          },
+          {
+            alias: 'stars',
+            title: '评 分'
           }
         ]
       },
@@ -140,33 +167,28 @@ export default {
   },
   methods: {
     // 切换二级菜单
-    _handleSidebar(item) {
+    handleSidebar(item) {
       this.showSub = true;
-      if (item.sub) {
-        this.showSub = true;
-        this.subSurface.splice(0);
-        for (const key in this.subMenus[item.sub]) {
-          this.subSurface.push(this.subMenus[item.sub][key]);
-        }
-        //this.$refs.sub.triggerClick(0);
-      } else {
-        this.showSub = false;
-      }
+      this.currentCategory = item.alias
+      this.currentComponent = this.subMenus[item.alias][0].alias
+      this.jump()
     },
-    _handleSubbar(item) {
+    handleSubbar(item) {
       this.currentComponent =  item.alias
-      this.loadingMarkdown()
+      this.jump()
+    },
+    jump(){
+      this.$router.push(`/category/${this.currentCategory}/component/${this.currentComponent}`)
     },
     // 读取markdown文档
     loadingMarkdown() {
-
       $.ajax({
         url: `/src/components/${this.currentComponent}/doc.md`,
         type: 'get',
         data: {},
         success(md) {
           const render = new marked.Renderer();
-          $('#content').html(marked(md));
+          $('#content').html(marked(md).replace('<pre>', '<pre class="language-markup">'));
           Prism.highlightAll();
         },
         error() {
@@ -174,15 +196,26 @@ export default {
         },
       });
     },
+    display() {
+      //alert('fds')
+      this.showSub = true;
+      this.subSurface.splice(0);
+      this.currentCategory = this.$route.params.category
+      this.currentComponent = this.$route.params.com
+      for (const key in this.subMenus[this.currentCategory]) {
+        this.subSurface.push(this.subMenus[this.currentCategory][key]);
+      }
+      this.loadingMarkdown()
+    }
   },
   ready() {
     this.$refs.mains.triggerClick(this.$route.params.name);
   },
   created() {
-    this.loadingMarkdown();
+    this.display()
   },
   watch: {
-    $route: 'loadingMarkdown',
+    '$route' : 'display'
   }
 };
 /*eslint-enable */
