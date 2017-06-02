@@ -105,7 +105,7 @@ export default {
             alias: 'bo-switch',
             title: '滑动开关'
           }, {
-            alias: 'number',
+            alias: 'bo-number',
             title: '数字选择'
           }, {
             alias: 'calendar',

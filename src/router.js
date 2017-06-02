@@ -240,7 +240,7 @@ export default [{
   path: 'phone-code',
   component: code
 }, {
-  path: 'number',
+  path: 'bo-number',
   component: number
 }, {
   path: 'calendar',

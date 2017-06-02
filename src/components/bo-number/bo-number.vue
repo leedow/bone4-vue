@@ -61,6 +61,7 @@ export default {
       if (this.valueSelf < this.max) {
         this.valueSelf = this.valueSelf - 0 + 1 //eslint-disable-line
         this.$emit('on-change', this.valueSelf)
+        this.$emit('input', this.valueSelf)
       } else {
         this.$emit('on-max', this.valueSelf)
       }
@@ -72,6 +73,7 @@ export default {
       if (this.valueSelf >= 1 && this.valueSelf > this.min) {
         this.valueSelf -= 1
         this.$emit('on-change', this.valueSelf)
+        this.$emit('input', this.valueSelf)
       } else {
         this.$emit('on-min', this.valueSelf)
       }
@@ -123,6 +125,9 @@ export default {
           left: 'active'
         })
       }
+    },
+    value(newval) {
+      this.valueSelf = newval
     }
   },
   data() {

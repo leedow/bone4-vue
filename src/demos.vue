@@ -13,7 +13,7 @@
   <ul class="list list-box p0002">
    <dmenu path="/mobile/demo/form-group" name="表 单" />
    <dmenu path="/mobile/demo/bo-switch" name="滑动开关" />
-   <dmenu path="/mobile/demo/number" name="数字选择" />
+   <dmenu path="/mobile/demo/bo-number" name="数字选择" />
    <dmenu path="/mobile/demo/calendar" name="日 历" />
    <dmenu path="/mobile/demo/bo-select" name="下拉菜单" />
    <dmenu path="/mobile/demo/selector" name="选择列表" />
