@@ -131,8 +131,9 @@ export default {
      */
     getStartDayOfMonth(month) {
       const d = new Date()
-      d.setMonth(month - 1)
       d.setDate(1)
+      d.setMonth(month - 1)
+
       return d.getDay() === 0 ? 7 : d.getDay()
     },
     /**

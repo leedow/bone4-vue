@@ -41,7 +41,7 @@ export default {
     },
     handle(data) {
       this.$toast.open(JSON.stringify(data))
-      console.log(JSON.stringify(data))
+      // console.log(JSON.stringify(data))
       // console.log(data.date.date.getDate())
       this.$refs.calendar.setStatusOfDay(data.date, 'active')
     },

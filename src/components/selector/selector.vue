@@ -5,11 +5,12 @@
   </h3>
   <ul class="selector-list" :style="listHeight">
     <li v-for="item in options"
-        :class="[item.value==valueSelf?'selected':'']"
+        :class="[item.value==value?'selected':'']"
         @click="handleClick(item)"
     >
       {{item.text}}
     </li>
+    <slot ref="options">
   </ul>
 </div>
 </template>
@@ -58,34 +59,54 @@ export default {
   },
   data() {
     return {
-      valueSelf: this.value
+
     }
+  },
+  mounted() {
+    // console.log(this.$children.length) // eslint-disable-line
+    this.updateSlot()
   },
   watch: {
-    value(newval) {
-      this.valueSelf = newval
+    value() {
+      this.updateSlot()
     }
   },
-  mounted() {},
   methods: {
     /**
      * 选择事件
      */
     handleClick(value) {
-      this.valueSelf = value.value
       this.$emit('on-change', value)
+      this.$emit('input', value.value)
     },
     /**
      * 获取输入值
      */
     getValue() {
-      return this.valueSelf
+      return this.value
     },
     /**
      * 获取输入值
      */
     setValue(val) {
-      this.valueSelf = val
+      console.log('警告：selector:setValue()是一个向前兼容的方法，不推荐使用')
+      this.$emit('input', val)
+      // this.valueSelf = val
+    },
+    /**
+     * 更新slot选项选中状态
+     */
+    updateSlot() {
+      if (this.$children && this.$children.length > 0) {
+        this.$children.forEach((item) => {
+          /* eslint-disable */
+          if (item.value === this.value) {
+            item.selected = true
+          } else {
+            item.selected = false
+          }
+        })
+      }
     }
   },
   components: {}
