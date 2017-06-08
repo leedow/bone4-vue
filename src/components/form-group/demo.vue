@@ -1,9 +1,6 @@
 <template>
   <div class="">
-
-
         <form-group :theme="theme" size="lg" name="testform" @on-submit="submit">
-
           <form-input
             label="手机号"
             holder="Phone"
@@ -63,12 +60,7 @@
           <div class="p0222">
               <btn theme="" :block=true size="lg" @on-click="changeTheme" name="切换风格"/>
           </div>
-
         </form-group>
-
-
-
-
 
   </div>
 </template>

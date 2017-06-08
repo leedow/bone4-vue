@@ -59,11 +59,19 @@ export default {
     mode: {
       type: String,
       default: 'float' // int | float
+    },
+    value: {
+      default: ''
     }
   },
   data() {
     return {
-      value: ''
+      valueSelf: this.value
+    }
+  },
+  watch: {
+    value(newval) {
+      this.valueSelf = newval
     }
   },
   computed: {},
@@ -71,23 +79,28 @@ export default {
   attached() {},
   methods: {
     handleClick(val) {
+      if (this.valueSelf === '0' || this.valueSelf === 0) {
+        this.valueSelf = ''
+      }
+
       switch (val) {
         case 'del': {
-          this.value = this.value.substring(0, this.value.length - 1)
+          this.valueSelf = this.valueSelf.substring(0, this.valueSelf.length - 1)
           break
         }
         case '.': {
-          if (this.value.indexOf('.') === -1) {
-            this.value = this.value + val
+          if (this.valueSelf.indexOf('.') === -1) {
+            this.valueSelf = this.valueSelf + val
           }
           break
         }
         default: {
-          this.value = this.value + val
+          this.valueSelf = this.valueSelf + val
         }
       }
-      // alert(this.value) // eslint-disable-line
-      this.$emit('on-click', this.value)
+      // alert(this.valueSelf) // eslint-disable-line
+      this.$emit('on-click', this.valueSelf)
+      this.$emit('input', this.valueSelf)
     }
   },
   components: {}

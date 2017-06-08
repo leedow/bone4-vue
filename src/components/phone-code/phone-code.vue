@@ -1,14 +1,16 @@
 <template>
-  <div class="p2000">
+  <div>
     <bo-input
+      v-show="phoneMode!='hide'"
       ref="phone"
       holder="输入手机号"
       size="lg"
       label="手机号"
       theme="blank"
       format="phone"
-      :value="phone"
+      v-model="phoneSelf"
       :required=true
+      :enable="phoneMode!='disable'"
     />
 
     <div class="form-item form-item-blank form-code">
@@ -26,7 +28,6 @@
 
 <script>
 import Btn from '../btn/btn'
-import eventbus from '../helper/eventbus'
 import BoInput from '../bo-input/bo-input'
 
 export default {
@@ -41,14 +42,15 @@ export default {
       default: 60
     },
     phone: {
-      type: String,
       default: ''
+    },
+    phoneMode: {
+      type: String,
+      default: 'default' // default | hide | disable
     }
   },
   created() {
-    eventbus.$on('on-submit', (msg) => {
-        alert('触发表单' + msg); // eslint-disable-line
-    })
+
   },
   methods: {
     /**
@@ -56,8 +58,6 @@ export default {
      */
     checkPhone() {
       if (this.$refs.phone.verify().state) {
-        this.phone = this.$refs.phone.getValue()
-        // alert(this.phone)//eslint-disable-line
         return true
       }
       return false
@@ -90,7 +90,7 @@ export default {
       // alert(this.checkPhone())//eslint-disable-line
       if (this.checkPhone()) {
         if (this.runClock()) {
-          this.$emit('on-send', this.phone)
+          this.$emit('on-send', this.phoneSelf)
         }
       }
     },
@@ -100,14 +100,19 @@ export default {
      */
     getValue() {
       return {
-        phone: this.phone,
+        phone: this.phoneSelf,
         code: this.code
       }
     }
   },
+  watch: {
+    phone(newval) {
+      this.phoneSelf = newval
+    }
+  },
   data() {
     return {
-      phone: '', // 手机号
+      phoneSelf: this.phone, // 手机号
       code: '', // 验证码
       lock: false, // 发送锁
       clock: this.seconds,

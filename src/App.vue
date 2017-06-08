@@ -99,6 +99,10 @@ export default {
         ],
         form: [
           {
+            alias: 'bo-input',
+            title: '输入框'
+          },
+          {
             alias: 'form-group',
             title: '表 单'
           }, {

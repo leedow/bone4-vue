@@ -13,7 +13,6 @@
   <section class="layout-bottom bor-top" style="background-color:#fff">
     <menus-horizon
       size="sm"
-
       :current="this.$route.path"
       :surface="[{
           icon: 'like',
@@ -32,7 +31,6 @@
           currentIcon: 'shopfill',
           alias: '/about',
           title: '关 于'
-
         }]"
     ></menus-horizon>
   </section>

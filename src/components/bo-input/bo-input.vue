@@ -16,6 +16,7 @@
               ]"
               v-model="valueSelf"
               :placeholder="holder"
+              :disabled="!enable"
             />
       <input v-if="type=='password'" ref="input"  class="input form-control"
               type="password"
@@ -26,6 +27,7 @@
               ]"
               v-model="valueSelf"
               :placeholder="holder"
+              :disabled="!enable"
             />
         <i v-if="icon!=''" class="icon iconfont" :class="['icon-'+icon]"></i>
     </div>
@@ -44,6 +46,7 @@
             ]"
             v-model="valueSelf"
             :placeholder="holder"
+            :disabled="!enable"
           />
     <input v-if="type=='password'" ref="input" class="input form-control"
             type="password"
@@ -54,6 +57,7 @@
             ]"
             v-model="valueSelf"
             :placeholder="holder"
+            :disabled="!enable"
           />
         <i v-if="icon!=''" class="icon iconfont" :class="['icon-'+icon]"></i>
   </div>
@@ -76,7 +80,6 @@ export default {
       default: ''
     },
     value: {
-      type: String,
       default: ''
     },
     theme: {
@@ -178,6 +181,9 @@ export default {
   watch: {
     value(newval) {
       this.valueSelf = newval
+    },
+    valueSelf(newval) {
+      this.$emit('input', newval)
     }
   },
   data() {

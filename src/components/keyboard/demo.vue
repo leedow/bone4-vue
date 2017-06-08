@@ -3,7 +3,7 @@
     <div class="p2222 card card-square">
       {{data}}
     </div>
-    <keyboard @on-click="handle" />
+    <keyboard v-model="data" />
   </div>
 </template>
 

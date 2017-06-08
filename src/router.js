@@ -29,6 +29,7 @@ const form = (resolve) => {
     resolve(require('./components/form-group/demo'));
   });
 };
+
 const tabs = (resolve) => {
   require.ensure(['./components/tabs/demo'], () => {
     resolve(require('./components/tabs/demo'));
@@ -200,6 +201,9 @@ export default [{
 }, {
   path: 'form-group',
   component: form
+}, {
+  path: 'bo-input',
+  component: inputs
 }, {
   path: 'tabs',
   component: tabs

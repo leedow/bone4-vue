@@ -24,6 +24,7 @@ import Calendar from './components/calendar/calendar'
 import Toast_ from './components/toast'
 import Touch from './components/helper/touchit'
 import Selector from './components/selector/selector'
+import SelectorItem from './components/selector/selector-item'
 import SelectorTime from './components/selector-time/selector-time'
 import Back from './components/back/back'
 import Keyboard from './components/keyboard/keyboard'
@@ -55,6 +56,7 @@ export {
   Calendar,
   Touch,
   Selector,
+  SelectorItem,
   SelectorTime,
   Back,
   PayPassword,

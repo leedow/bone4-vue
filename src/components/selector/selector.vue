@@ -10,7 +10,7 @@
     >
       {{item.text}}
     </li>
-    <slot ref="options">
+    <slot ref="options" />
   </ul>
 </div>
 </template>
