@@ -121,7 +121,7 @@ export default {
             alias: 'selector',
             title: '选择列表'
           }, {
-            alias: 'selectorTime',
+            alias: 'selector-time',
             title: '时间选择'
           }, {
             alias: 'keyboard',

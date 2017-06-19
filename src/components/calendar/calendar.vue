@@ -6,7 +6,7 @@
         <th class="prev" style="visibility: visible;" @click="pre">
           <i class="icon iconfont icon-back"></i>
         </th>
-        <th colspan="5">{{currentMonth}}月</th>
+        <th colspan="5">{{currentYear}}年{{currentMonth}}月</th>
         <th class="next" style="visibility: visible;" @click="next">
           <i class="icon iconfont icon-xiangyou1"></i>
         </th>

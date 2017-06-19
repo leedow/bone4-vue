@@ -4,6 +4,7 @@
     <selector
         v-model="val1"
         max-height="70px"
+
         :options="[
           {
             value: 1,
@@ -19,6 +20,8 @@
         @on-change="handleclick"
     />
   </div>
+
+ 
   <div class="card card-square m2000 p2222">
     <div class="tl">
         选择的值：{{val}}

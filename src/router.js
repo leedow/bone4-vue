@@ -256,7 +256,7 @@ export default [{
   path: 'selector',
   component: selector
 }, {
-  path: 'selectorTime',
+  path: 'selector-time',
   component: selectorTime
 }, {
   path: 'map',

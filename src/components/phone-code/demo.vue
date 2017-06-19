@@ -1,10 +1,13 @@
 <template>
-  <div class="form-blank m2000">
-    <phone-code ref="code"  @on-send="sendCode"/>
+  <div class="">
+    <div class="form-blank m2000">
+      <phone-code ref="code"  @on-send="sendCode"/>
+    </div>
     <div class="p2222">
       <btn @on-click="submit" name="获取输入" theme="primary" :block=true size="lg"/>
     </div>
   </div>
+
 </template>
 
 <script>

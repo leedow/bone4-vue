@@ -1,7 +1,9 @@
 <template>
   <div v-if="label!=''"  class="form-item" :class="[
     'form-item-' + this.theme
-  ]">
+  ]"
+      @click="handleClick"
+  >
     <label :for="name" :class="['label-' + this.size]">{{label}}</label>
     <div :class="[
         'be-' + stateSelf,
@@ -36,7 +38,9 @@
   <div v-else class="form-item" :class="[
       'be-' + stateSelf,
       icon!=''?'has-icon':''
-  ]">
+  ]"
+    @click="handleClick"
+  >
     <input v-if="type=='text'" ref="input" class="input form-control"
             type="text"
             :name="name"
@@ -165,6 +169,9 @@ export default {
           }
         })
       }
+    },
+    handleClick() {
+      this.$emit('on-click', '')
     }
   },
   created() {

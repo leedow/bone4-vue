@@ -142,7 +142,8 @@ export default {
     getValue() {
       return {
         hour: this.hourSelf,
-        minutes: this.minutesSelf
+        minutes: this.minutesSelf,
+        text: this.text
       }
     },
     open() {

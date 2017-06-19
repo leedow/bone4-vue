@@ -53,6 +53,7 @@ export default {
     },
     cancel() {
       this.$emit('on-cancel', this.name)
+      this.show = false
     }
   },
   data() {

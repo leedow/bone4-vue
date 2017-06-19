@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Modal from './modaldemo'
+import Modal from './modal'
 import Dmenu from '../demohelper/demoswitch'
 
 export default {

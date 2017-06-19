@@ -30,6 +30,8 @@
             name="float"
           />
 
+
+
           <form-input
             label="整 数"
             holder="输入整数"
@@ -40,27 +42,52 @@
           />
 
 
+          <form-input
+            @on-click="openDrawer"
+            label="模拟下拉"
+            holder=""
+            format="int"
+            :required="true"
+            name="boselect"
+            icon="people"
+            :enable="false"
+          />
+
+
           <bo-select
-            label="选 择"
+            label="原生下拉"
             for="testform"
             name="select"
+            value="1"
             :required=true
             :options="[{
-              text: 'One',
+              text: 'Item 1',
               value: 1
             },{
-              text: 'Two',
+              text: 'Item 2',
               value: 2
             }]"
           />
 
-          <div class="p2222">
-              <btn theme="primary" :block=true size="lg" submit="testform" name="确 认"/>
-          </div>
-          <div class="p0222">
-              <btn theme="" :block=true size="lg" @on-click="changeTheme" name="切换风格"/>
-          </div>
         </form-group>
+
+        <div class="p2222">
+            <btn theme="primary" :block=true size="lg" submit="testform" name="确 认"/>
+        </div>
+        <div class="p2222">
+            <btn theme="" :block=true size="lg" @on-click="changeTheme" name="切换风格"/>
+        </div>
+
+        <drawer :show="showDrawer" position="center">
+          <selector
+            v-model="sval"
+            size="lg"
+            underline=true
+          >
+             <selector-item text="Item 1" value="1" />
+             <selector-item text="Item 2" value="2" />
+          </selector>
+        </drawer>
 
   </div>
 </template>
@@ -70,6 +97,9 @@ import FormGroup from './form-group'
 import FormInput from '../bo-input/bo-input'
 import BoSelect from '../bo-select/bo-select'
 import Btn from '../btn/btn'
+import Drawer from '../drawer/drawer'
+import Selector from '../selector/selector'
+import SelectorItem from '../selector/selector-item'
 
 export default {
   name: 'test1',
@@ -77,7 +107,10 @@ export default {
     FormGroup,
     FormInput,
     BoSelect,
-    Btn
+    Btn,
+    Drawer,
+    Selector,
+    SelectorItem
   },
   methods: {
     submit(data) {
@@ -89,11 +122,16 @@ export default {
       } else {
         this.theme = 'blank'
       }
+    },
+    openDrawer() {
+      this.showDrawer = true
     }
   },
   data() {
     return {
-      theme: 'blank'
+      theme: 'blank',
+      showDrawer: false,
+      sval: ''
     }
   }
 }

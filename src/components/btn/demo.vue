@@ -1,54 +1,22 @@
 <template>
-  <div style="background:#fff" class="p2222">
-    <div class="row p000 tl">
-
-      <btn theme="primary" name="Primary"/>
-      <btn theme="warm" name="Warm"/>
-      <btn theme="comfort" name="Comfort"/>
+  <div class="p2222">
+    <div class="p1111">
+      <btn size="lg" theme="primary-blank" block=true  name="普通操作" />
     </div>
-
-    <div class="divi">  </div>
-
-    <div class="row p000 tl">
-
-      <btn theme="primary-blank" name="Primary"/>
-      <btn theme="warm-blank" name="Warm"/>
-      <btn theme="comfort-blank" name="Comfort"/>
+    <div class="p1111">
+      <btn size="lg" theme="primary" block=true  name="普通操作2"/>
     </div>
-
-    <div class="divi">  </div>
-
-    <div class="row p000 tl">
-
-      <btn theme="primary" loading icon="scan" name="Primary"/>
-      <btn theme="warm" icon="favor" name="Warm"/>
-      <btn theme="comfort" icon="warn" name="Comfort"/>
+    <div class="p1111">
+      <btn size="lg" theme="warm" block=true  name="警告操作" icon="safe"/>
     </div>
-
-    <div class="divi">  </div>
-
-    <div class="row p000 tl">
-
-      <btn theme="primary-blank" loading icon="scan" name="Primary"/>
-      <btn theme="warm-blank" icon="favor" name="Warm"/>
-      <btn theme="comfort-blank" icon="warn" name="Comfort"/>
+    <div class="p1111">
+      <btn size="lg" theme="warm-blank" block=true  name="警告操作2" icon="safe"/>
     </div>
-
-    <div class="divi">  </div>
-
-    <div class="row p000 tl">
-      <btn size="lg" theme="primary" name="Large"/>
-      <btn size=""  theme="primary" name="Default"/>
-      <btn size="sm" theme="primary" name="Small"/>
-      <btn size="tiny" theme="primary" name="Tiny"/>
+    <div class="p1111">
+      <btn  theme="primary"   name="按 钮"/>
     </div>
-
-    <div class="divi">  </div>
-
-    <div class="row p000 tl">
-      <btn size="lg" theme="primary-blank" @on-click="alert('You click me')" name="Click Me"/>
-      <btn size="lg" theme="primary-blank" name="Submit" submit="form"/>
-
+    <div class="p1111">
+      <btn size="sm"  theme="primary"   name="按 钮"/>
     </div>
 
   </div>
