@@ -35,12 +35,20 @@ export default {
     width: {
       type: String,
       default: '100%'
+    },
+    auto: {
+      type: Boolean,
+      default: true
+    },
+    timeStep:{
+      type: Number,
+      default: 4000
     }
   },
   mounted() {
     this.itemWidth = this.$refs.slide.clientWidth
     this.itemHeight = this.$refs.slide.clientHeight
-    // this.fullWidth = this.itemWidth * this.surface.length
+    //this.fullWidth = this.itemWidth * this.surface.length
 
     this.touchit = new Touchit({
       dom: this.$refs.slide,
@@ -48,14 +56,30 @@ export default {
       done: this.goTo,
       doing: this.sliding
     })
+
+    if(this.auto){
+      this.autorun()
+    }
   },
   computed: {
-    fullWidth() {
-      // this.itemWidth = this.$refs.slide.clientWidth
+    fullWidth (){
+      //this.itemWidth = this.$refs.slide.clientWidth
       return this.itemWidth * this.surface.length
     }
   },
   methods: {
+    autorun(){
+      clearInterval(this.interval)
+      this.interval = setInterval(() => {
+        if (this.currentIndex + 1 < this.surface.length) {
+          this.currentIndex += 1
+        } else {
+          this.currentIndex = 0
+        }
+        this.move(-this.currentIndex * this.itemWidth, false)
+        this.preDistance = this.distance
+      }, this.timeStep)
+    },
     handleClick(item) {
       this.$emit('on-click', item)
     },
@@ -75,6 +99,7 @@ export default {
       }
     },
     goTo(data) {
+      this.autorun()
       /* eslint-disable */
       if (data.distance.x > 0 && this.currentIndex > 0) {
         this.currentIndex -= 1
@@ -85,7 +110,7 @@ export default {
       }
 
       this.move(-this.currentIndex * this.itemWidth, false)
-      console.log(this.currentIndex)
+
       this.preDistance = this.distance
       /* eslint-enable */
     },
@@ -114,6 +139,7 @@ export default {
   },
   data() {
     return {
+      interval: null,
       height: 0,
       itemWidth: 0,
       itemHeight: 0,

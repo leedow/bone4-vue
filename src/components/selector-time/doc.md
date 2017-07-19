@@ -25,22 +25,28 @@
 ## DEMO
 ```
 <template lang="html">
-  <div class="card card-square p2222">
-    <button type="button" class="btn btn-primary" @click="open">时间选择</button>
+  <div class="card card-square p0202">
+    <div class="menu-vertical-item" @click="open">
+      <div class="menu-body">
+        {{time}}
+      </div>
+      <div class="menu-dock">
+        <i class="icon iconfont icon-unfold"></i>
+      </div>
+    </div>
     <selector-time
+      position="bottom"
       ref="time"
-      time="15:00"
+      :time="time"
       minTime="14:25"
       maxTime="18:30"
       minStep="5"
       @on-submit="submit"
     />
   </div>
-
 </template>
-
 <script>
-import SelectorTime from 'bone4'
+import SelectorTime from './selector-time'
 
 export default {
   name: 'SelectorTimeDemo',
@@ -48,11 +54,8 @@ export default {
     SelectorTime
   },
   methods: {
-    handleclick(data) {
-      console.log(data)
-    },
     submit(data) {
-      console.log(data)
+      this.time = data.text
     },
     open() {
       this.$refs.time.open()
@@ -60,10 +63,9 @@ export default {
   },
   data() {
     return {
-      content: 'like'
+      time: '00:00'
     }
   }
 }
 </script>
-
 ```
