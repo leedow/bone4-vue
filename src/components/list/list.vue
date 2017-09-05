@@ -61,8 +61,8 @@ export default {
     move(distance) {
       this.$refs.list.style.transform = `translate(0px, ${distance}px)`
     },
-    loading(e) {
-      console.log(`loading${e.distance.y}`) // eslint-disable-line
+    loading() {
+      // console.log(`loading${e.distance.y}`) // eslint-disable-line
 
       this.isloading = true
       this.pullState = 4 // loading
@@ -96,10 +96,10 @@ export default {
               //= == document.body.scrollHeight
 
               /* eslint-disable */
-              console.log('------')
-              console.log(document.body.scrollTop)
-              console.log(document.body.clientHeight)
-              console.log(document.body.scrollHeight)
+              //console.log('------')
+              //console.log(document.body.scrollTop)
+              //console.log(document.body.clientHeight)
+              //console.log(document.body.scrollHeight)
               /* eslint-enable */
 
               if (data.distance.y < 0) {
@@ -138,7 +138,7 @@ export default {
           setTimeout(() => {
             this.pullState = 0
           }, 300)
-          console.log(`pulldown touchend${data.distance.y}`)
+          // console.log(`pulldown touchend${data.distance.y}`)
           this.move(0)
           break
         }

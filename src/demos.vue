@@ -39,6 +39,7 @@
 
   <div class="list-title">其 他</div>
   <ul class="list list-box p0002">
+    <dmenu path="/mobile/demo/animate-number" name="动画数字" />
     <dmenu path="/mobile/demo/slide" name="幻灯片" />
     <dmenu path="/mobile/demo/stars" name="评分" />
     <dmenu path="/mobile/demo/login" name="APP登录" />

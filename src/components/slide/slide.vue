@@ -40,7 +40,7 @@ export default {
       type: Boolean,
       default: true
     },
-    timeStep:{
+    timeStep: {
       type: Number,
       default: 4000
     }
@@ -48,7 +48,7 @@ export default {
   mounted() {
     this.itemWidth = this.$refs.slide.clientWidth
     this.itemHeight = this.$refs.slide.clientHeight
-    //this.fullWidth = this.itemWidth * this.surface.length
+    // this.fullWidth = this.itemWidth * this.surface.length
 
     this.touchit = new Touchit({
       dom: this.$refs.slide,
@@ -57,18 +57,18 @@ export default {
       doing: this.sliding
     })
 
-    if(this.auto){
+    if (this.auto) {
       this.autorun()
     }
   },
   computed: {
-    fullWidth (){
-      //this.itemWidth = this.$refs.slide.clientWidth
+    fullWidth() {
+      // this.itemWidth = this.$refs.slide.clientWidth
       return this.itemWidth * this.surface.length
     }
   },
   methods: {
-    autorun(){
+    autorun() {
       clearInterval(this.interval)
       this.interval = setInterval(() => {
         if (this.currentIndex + 1 < this.surface.length) {
@@ -151,6 +151,7 @@ export default {
   },
   beforeDestroy() {
     this.touchit.destory()
+    clearInterval(this.interval)
   }
 }
 </script>

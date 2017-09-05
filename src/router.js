@@ -174,6 +174,12 @@ const PayPassword =  (resolve) => {
   });
 };
 
+const AnimateNumber =  (resolve) => {
+  require.ensure(['./components/animate-number/demo'], () => {
+    resolve(require('./components/animate-number/demo'));
+  });
+};
+
 
 /*eslint-enable */
 
@@ -267,4 +273,7 @@ export default [{
 }, {
   path: 'paypassword',
   component: PayPassword
+}, {
+  path: 'animate-number',
+  component: AnimateNumber
 }]
