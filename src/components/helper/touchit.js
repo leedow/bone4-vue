@@ -41,7 +41,7 @@ module.exports = function (config) {
     t.state = 'START'
     const touch = e.targetTouches[0]
     t.startPos = [touch.pageX, touch.pageY]
-    console.log(`startpost${t.startPos}`)
+    //console.log(`startpost${t.startPos}`)
     t.callback('touchstart', {
       distance: { x: t.distanceX, y: t.distanceY },
       position: t.startPos,

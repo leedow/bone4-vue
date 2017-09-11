@@ -22,29 +22,19 @@ export default {
   name: 'boNumber',
   props: {
     value: {
+      type: Number,
       default: 0
     },
     max: {
+      type: Number,
       default: 9999
     },
     min: {
+      type: Number,
       default: 0
     }
   },
   methods: {
-    init() {
-      if (this.valueSelf < this.min) {
-        this.valueSelf = this.min
-      }
-      if (this.valueSelf > this.max) {
-        this.valueSelf = this.max
-      }
-      if (this.valueSelf === 0) {
-        this.setBtn({
-          left: 'hidden'
-        })
-      }
-    },
     /**
      * 获取输入值
      */
@@ -95,14 +85,22 @@ export default {
      */
     rollback() {
       this.valueSelf = this.valueOld
-    }
-  },
-  mounted() {
-    this.init()
-  },
-  watch: {
-    valueSelf(newVal, oldVal) {
-      this.valueOld = oldVal
+    },
+    fresh(val) {
+      let newVal = val||this.valueSelf
+
+      if (this.valueSelf < this.min) {
+        this.valueSelf = this.min
+      }
+      if (this.valueSelf > this.max) {
+        this.valueSelf = this.max
+      }
+      if (this.valueSelf === 0) {
+        this.setBtn({
+          left: 'hidden'
+        })
+      }
+
       if (newVal >= this.max) {
         this.setBtn({
           right: 'disable'
@@ -125,6 +123,23 @@ export default {
           left: 'active'
         })
       }
+    }
+  },
+  mounted() {
+    this.fresh()
+  },
+  watch: {
+    max() {
+      setTimeout(() => {
+          this.fresh()
+      }, 1)
+    },
+    min() {
+      this.fresh()
+    },
+    valueSelf(newVal, oldVal) {
+      this.valueOld = oldVal
+      this.fresh(newVal)
     },
     value(newval) {
       this.valueSelf = newval

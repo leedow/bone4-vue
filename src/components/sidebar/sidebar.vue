@@ -8,7 +8,7 @@
                 curl&&size==='default'?'sidebar-menu-curl':''
                 ]">
       <li v-for="(item, index) in surface" class="menu-item"
-        :class="[item.alias===currentItem?'menu-item-current':'' ,
+        :class="[item.alias==currentItem?'menu-item-current':'' ,
         item.icon?'menu-item-icon':'']"
         @click="handleClick(item, index)"
       >

@@ -29,6 +29,7 @@ import SelectorTime from './components/selector-time/selector-time'
 import Back from './components/back/back'
 import Keyboard from './components/keyboard/keyboard'
 import PayPassword from './components/pay-password/pay-password'
+import AnimateNumber from './components/animate-number/animate-number'
 
 Vue.prototype.$toast = Toast_
 Vue.prototype.$modal = Modal_
@@ -60,5 +61,6 @@ export {
   SelectorTime,
   Back,
   PayPassword,
-  Keyboard
+  Keyboard,
+  AnimateNumber
 }
