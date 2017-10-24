@@ -2,7 +2,8 @@
 
 | 属性名      | 说 明         | 类 型 |默认值  |
 | ------------- |-----------|------| -----|
-| state | 选中初始状态 | Boolean | false |
+| state | 移除 | Boolean | false |
+| value | 选中初始状态 | Boolean | false |
 | showTag | 是否显示文字 | Boolean | false |
 | tag | 显示的文字内容 | Array | ['开','关'] |
 
@@ -11,13 +12,13 @@
 
 | 方法名 | 说 明 | 参数 |
 |-------|-------| --|
-| setState(state) | 设置组件开关状态 | `true` `false` |
+| setState(value) | 设置组件开关状态 | `true` `false` |
 
 ## 组件事件
 
 | 事件名 | 说 明 | 传入参数 |
 |-------|----------|----|
-| on-click(state) | 点击事件 |  `true` or `false` |
+| on-click(value) | 点击事件 |  `true` or `false` |
 
 
 
@@ -25,7 +26,7 @@
 ## DEMO
 ```
 <template>
-  <div class="">
+  <div>
     <ul class="list list-box p0002">
       <li class="list-item">
         <menu-vertical>
@@ -39,7 +40,7 @@
         <menu-vertical>
           <span slot="body">默认(关闭)</span>
           <span slot="dock" style="padding-right: 20px;">
-            <bo-switch :state="false"/>
+            <bo-switch :value="false"/>
           </span>
         </menu-vertical>
       </li>
@@ -47,7 +48,7 @@
         <menu-vertical>
           <span slot="body">带文字</span>
           <span slot="dock" style="padding-right: 20px;">
-            <bo-switch :state="false" show-tag=true/>
+            <bo-switch :value="false" :show-tag="true" />
           </span>
         </menu-vertical>
       </li>
@@ -55,7 +56,15 @@
         <menu-vertical>
           <span slot="body">自定义文字</span>
           <span slot="dock" style="padding-right: 20px;">
-            <bo-switch show-tag=true :tag="['ON', 'OFF']"/>
+            <bo-switch :show-tag="true" :tag="['ON', 'OFF']"/>
+          </span>
+        </menu-vertical>
+      </li>
+      <li class="list-item">
+        <menu-vertical>
+          <span slot="body">异步修改状态</span>
+          <span slot="dock" style="padding-right: 20px;">
+            <bo-switch v-model="state"/>
           </span>
         </menu-vertical>
       </li>
@@ -64,9 +73,8 @@
 </template>
 
 <script>
-import BoSwitch from './bo-switch.vue'
-import Dmenu from '../demohelper/demoswitch.vue'
-import menuVertical from '../menu-vertical/menu-vertical.vue'
+import BoSwitch from './bo-switch'
+import menuVertical from '../menu-vertical/menu-vertical'
 
 export default {
   name: 'switchdemo',
@@ -74,9 +82,14 @@ export default {
     BoSwitch,
     menuVertical
   },
-  data () {
+  mounted() {
+    setTimeout(() => {
+      this.state = true
+    }, 1000)
+  },
+  data() {
     return {
-
+      state: false
     }
   }
 }

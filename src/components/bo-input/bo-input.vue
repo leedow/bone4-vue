@@ -186,6 +186,7 @@ export default {
     }
   },
   watch: {
+    // 向前兼容
     value(newval) {
       this.valueSelf = newval
     },

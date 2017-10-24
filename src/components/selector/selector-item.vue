@@ -30,7 +30,6 @@ export default {
         value: this.value,
         text: this.text
       })
-      // console.log(this.$parent)
     }
   },
   components: {}

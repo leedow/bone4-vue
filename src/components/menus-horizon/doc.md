@@ -5,6 +5,7 @@
 | surface    | 菜单列表数据，格式为 ``[{alias, title, icon, link}]`` ,  `alias` 为 `title` 的别名, `icon` `path` 可以省略 | Array | `[ ]` |
 | type | 图标种类 iconfont 或 image | String  | 'iconfont' |
 
+
 ## 组件方法
 
 | 方法名 | 说 明 |
@@ -18,8 +19,6 @@
 | 事件名 | 说 明 | 传入参数 |
 |-------|----------|----|
 | on-click | 点击选项卡事件 | alias  |
-
-
 
 
 ## 初始化

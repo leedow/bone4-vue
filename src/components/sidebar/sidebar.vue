@@ -13,7 +13,9 @@
         @click="handleClick(item, index)"
       >
       <i v-if="item.icon" class="icon iconfont" :class="[item.icon?'icon-'+item.icon:'']"></i>
-        <span>{{item.title}}</span></li>
+        <span>{{item.title}}</span>
+        <span class="tip" v-if="item.tip">{{item.tip}}</span>
+      </li>
     </ul>
   </div>
 </template>

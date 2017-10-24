@@ -1,10 +1,15 @@
+// import 'bone4-ui/build/bone-mobile-red.css'
+// import 'bone4-ui/build/bone-page-mobile.css'
+// import 'bone4-ui/build/r.css'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import App from './App'
-import MobileApp from './mobileApp'
-import Demos from './demos'
-import Demo from './demo'
-import RouterConfig from './router'
+import '../static/css/demo.css'
+import App from './home/app'
+import MobileApp from './home/app-mobile'
+import Demos from './home/demos-list'
+import DemoPage from './home/demo-page'
+import RouterConfig from './home/router'
+import OtherRouterConfig from './home/router-other'
 import Toast from './components/toast'
 import Modal from './components/modal'
 
@@ -33,8 +38,13 @@ const router = new VueRouter({
     },
     {
       path: '/mobile/demo',
-      component: Demo,
+      component: DemoPage,
       children: RouterConfig
+    },
+    {
+      path: '/mobile/other',
+      component: DemoPage,
+      children: OtherRouterConfig
     }
   ]
 })

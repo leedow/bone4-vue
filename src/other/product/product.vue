@@ -1,0 +1,53 @@
+<template lang="html">
+  <div
+      class="card card-square product"
+      style="border:0;">
+    <div
+      ref="img"
+      class="product-img"
+      @click="handleClick"
+      :style="{
+        backgroundImage: `url(${image})`,
+        height: `${imgHeight}px`
+      }"
+    >
+      <span class="product-flag" v-if="flag!==''">{{flag}}</span>
+    </div>
+
+    <h3 class="tl product-title p1000" @click="handleClick">
+      {{name}}
+      <span class="product-tip" v-if="tip!==''">
+        {{tip}}
+      </span>
+    </h3>
+
+    <p class="product-content tl p0010">{{content}}</p>
+
+    <div class="flex-box tl p0000" style="align-self:flex-end;">
+      <div class="flex-item-1 color-highlight font-md">
+        {{price}}
+        <span v-if="priceUnit!==''" class="price-unit"> {{priceUnit}}</span>
+      </div>
+      <div class="flex-item" style="padding-top:2px;">
+        <div class="flex-box number" style="width: 80px;">
+          <bo-number v-if="stock>0" ref="number" :max="max" @on-change="buy"  :value="amountSelf" />
+        </div>
+        <span v-if="stock<=0" class="font-light font-sm p1000" style="float:right">库存不足</span>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<script>
+// 2列布局的商品
+import BoNumber from '../../components/bo-number/bo-number'
+import core from './core'
+
+export default {
+  extends: core,
+  components: {
+    BoNumber
+  }
+}
+</script>

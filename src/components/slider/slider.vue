@@ -119,7 +119,6 @@ export default {
           this.moveY(length)
         }
 
-
         step -= everystep
 
         if (step <= everystep) {

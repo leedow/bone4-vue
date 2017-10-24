@@ -1,17 +1,21 @@
 <template>
-<div class="slide" ref="slide" :style="{height:itemHeight + 'px',width:width}">
-  <div class="slide-content animate-hack" ref="slidecontent" :style="{width:fullWidth+'px'}">
-    <slide-item
-      v-for="item in surface"
+<div  class="slide"
+      ref="slide"
+      :style="{height:itemHeight + 'px',width:width}">
+  <div
+      class="slide-content animate-hack"
+      ref="slidecontent"
+      :style="{width:fullWidth+'px'}">
+    <carousel-item
+      v-for="item in items"
       :imgUrl="item.imgUrl"
-      :width="`${itemWidth}px`"
-      :height="`${itemHeight}px`"
+      :style="{width: itemWidth+'px', height: itemHeight+'px'}"
     />
     <slot/>
   </div>
   <div class="slide-btns">
     <button class="slide-btn"
-      v-for="(item ,key, index ) in surface"
+      v-for="(item ,key, index ) in items"
       :class="[key===currentIndex?'slide-btn-current':'']">
     </button>
   </div>
@@ -19,14 +23,14 @@
 </template>
 <script>
 import Touchit from '../helper/touchit'
-import slideItem from './slide-item'
+import carouselItem from './carousel-item'
 
 export default {
-  name: 'slide',
+  name: 'carousel',
   components: {
-    slideItem
+    carouselItem
   },
-  item: slideItem,
+  item: carouselItem,
   props: {
     /**
      *  [{alias, path, imgUrl}]
@@ -60,6 +64,8 @@ export default {
   },
   mounted() {
     this.itemWidth = this.$refs.slide.clientWidth
+    this.initItems()
+
 
     this.touchit = new Touchit({
       dom: this.$refs.slide,
@@ -67,6 +73,7 @@ export default {
       done: this.goTo,
       doing: this.sliding
     })
+
 
     if (this.auto) {
       this.autorun()
@@ -82,6 +89,10 @@ export default {
     }
   },
   methods: {
+    initItems() {
+      this.items = this.$children.filter(children => children.name === 'carousel-item')
+      console.log(this.$children) // eslint-disable-line
+    },
     autorun() {
       clearInterval(this.interval)
       this.interval = setInterval(() => {
@@ -149,9 +160,14 @@ export default {
       this.itemHeight = this.height
     }
   },
+  watch: {
+    surface(newval) {
+      this.items = newval
+    }
+  },
   data() {
     return {
-      items: [],
+      items: this.surface,
       interval: null,
       itemWidth: 0, // width of each img
       currentIndex: 0,
@@ -159,6 +175,9 @@ export default {
       distance: 0,
       touchit: null
     }
+  },
+  updated() {
+    // this.initItems()
   },
   beforeDestroy() {
     this.touchit.destory()

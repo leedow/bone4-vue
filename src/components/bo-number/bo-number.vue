@@ -87,7 +87,7 @@ export default {
       this.valueSelf = this.valueOld
     },
     fresh(val) {
-      let newVal = val||this.valueSelf
+      const newVal = val || this.valueSelf
 
       if (this.valueSelf < this.min) {
         this.valueSelf = this.min
@@ -131,7 +131,7 @@ export default {
   watch: {
     max() {
       setTimeout(() => {
-          this.fresh()
+        this.fresh()
       }, 1)
     },
     min() {

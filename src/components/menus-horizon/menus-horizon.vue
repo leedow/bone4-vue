@@ -1,42 +1,40 @@
 <template>
-<nav class="menu-horizon" :class="[
-  'menu-horizon-' + size,
-  border?'menu-horizon-border':''
-]">
-
-  <button v-for="(item, index) in surface" class="menu-horizon-item" :class="[
-    item.alias==currentSelf?'menu-current':''
-  ]"
-    @click="_handleClick(item, index)"
+  <div
+    class="menu-horizon"
+    :class="[
+        'menu-horizon-' + size,
+        border?'menu-horizon-border':''
+    ]"
   >
-    <span class="menu-pic" v-if="type=='iconfont'">
-      <i class="icon iconfont" :class="[
-        item.alias==currentSelf&&item.currentIcon?'icon-'+item.currentIcon:'icon-' + item.icon
-      ]"></i>
-    </span>
-
-    <span class="menu-pic" v-if="type=='image'">
-      <img v-if="item.alias==currentSelf&&item.currentIcon" :src="item.currentIcon" alt="">
-      <img v-else :src="item.icon" alt="">
-    </span>
-
-    <span class="tip" v-if="item.tip && item.tip>0">{{item.tip}}</span>
-
-    <span class="menu-title">{{item.title}}</span>
-  </button>
-</nav>
+  <menus-horizon-item
+    v-for="(item, index) in surface"
+    :type="item.type||type"
+    :alias="item.alias||''"
+    :icon="item.icon"
+    :current-icon="item.currentIcon"
+    :title="item.title"
+    :path="item.path"
+    :tip="item.tip"
+    :current="currentSelf==item.alias"
+    @on-click="_handleClick"
+  />
+  <slot />
+</div>
 </template>
 
 <script>
+import MenusHorizonItem from './menus-horizon-item'
+
 export default {
   name: 'menuhorizon',
   components: {
-
+    MenusHorizonItem
   },
+  item: MenusHorizonItem,
   props: {
     type: {
       type: String,
-      default: 'iconfont' // iconfont | pic
+      default: 'iconfont' // iconfont | image
     },
     surface: {
       type: Array,
@@ -57,17 +55,15 @@ export default {
       default: ''
     }
   },
-  created() {
+  mounted() {
     // alert(this.pathSelf)
+    console.log(this.$children) // eslint-disable-line
   },
   methods: {
     setCurrent(alias) {
       this.currentSelf = alias
     },
     _handleClick(item) {
-      if (item.path) {
-        this.$router.push(item.path)
-      }
       this.$emit('on-click', item)
       this.setCurrent(item.alias)
     }
@@ -79,8 +75,6 @@ export default {
   },
   data() {
     return {
-
-      pathSelf: this.$route.path
     }
   }
 }

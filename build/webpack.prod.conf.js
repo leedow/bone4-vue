@@ -17,8 +17,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js'+new Date().getTime()+'/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js'+new Date().getTime()+'/[id].[chunkhash].js')
+    filename: utils.assetsPath('/js/[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('/js/[id].[chunkhash].js')
   },
   vue: {
     loaders: utils.cssLoaders({

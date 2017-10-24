@@ -12,10 +12,11 @@
 export default {
   name: 'switch',
   props: {
+    /*
     state: {
       type: Boolean,
       default: true
-    },
+    },*/
     showTag: {
       type: Boolean,
       default: false
@@ -25,13 +26,19 @@ export default {
       default() {
         return ['开', '关']
       }
+    },
+    value: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
     _handleClick() {
       this.stateSelf = !this.stateSelf
       this.$emit('on-click', this.stateSelf)
+      this.$emit('input', this.stateSelf)
     },
+    // 向前兼容保留方法
     setState(state) {
       this.stateSelf = state
     }
@@ -49,9 +56,15 @@ export default {
       return state
     }
   },
+  watch: {
+    // 向前兼容
+    value(newval) {
+      this.stateSelf = newval
+    }
+  },
   data() {
     return {
-      stateSelf: this.state
+      stateSelf: this.value
     }
   }
 }

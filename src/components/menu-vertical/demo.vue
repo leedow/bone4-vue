@@ -17,7 +17,7 @@
     <li class="list-item">
       <menu-vertical>
         <p slot="body">右侧停靠</p>
-        <btn slot="dock" theme="blank" blank="true" name="Anything">
+        <btn slot="dock" theme="blank" blank="true" name="Anything" />
       </menu-vertical>
     </li>
     <li class="list-item">
