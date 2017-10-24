@@ -16,16 +16,22 @@
         <span>{{item.title}}</span>
         <span class="tip" v-if="item.tip">{{item.tip}}</span>
       </li>
+      <slot ref="items" />
     </ul>
   </div>
 </template>
 <script>
+import sidebarItem from './sidebar-item'
+
 export default {
   name: 'sidebar',
+  item: sidebarItem,
   props: {
     surface: {
       type: Array,
-      default: []
+      default() {
+        return []
+      }
     },
     current: {
       default: ''
@@ -49,6 +55,9 @@ export default {
       }
     }
   },
+  mounted() {
+    this.updateSlot()
+  },
   methods: {
     setCurrent(alias) {
       this.currentItem = alias
@@ -71,11 +80,30 @@ export default {
       }
       this.$emit('on-click', item)
       this.setCurrent(item.alias)
+    },
+    /**
+     * 更新slot选项选中状态
+     */
+    updateSlot() {
+      if (this.$children && this.$children.length > 0) {
+        this.$children.forEach((item) => {
+          /* eslint-disable */
+          if (item.alias === this.currentItem) {
+            item.selected = true
+          } else {
+            item.selected = false
+          }
+        })
+      }
     }
   },
   watch: {
     current(newVal) {
       this.currentItem = newVal
+      this.updateSlot()
+    },
+    currentItem() {
+      this.updateSlot()
     }
   },
   data() {

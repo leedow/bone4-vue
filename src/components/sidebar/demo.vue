@@ -2,98 +2,28 @@
   <div>
     <div class="row ">
       <div  style="width: 30%;float:left">
-        <sidebar ref="side" current="a" :surface="[{
-          alias: 'a',
-          title: '选 中'
-        }, {
-          alias: 'b',
-          title: '菜 单'
-        }, {
-          alias: 'c',
-          title: '菜 单'
-        }]"></sidebar>
+        <sidebar ref="side" current="a" :surface="surface1"></sidebar>
       </div>
       <div  style="width: 48%;float:left" class="p0002">
-        <sidebar current="b" :surface="[{
-          alias: 'a',
-          title: '选中菜单',
-          icon: 'scan'
-        }, {
-          alias: 'b',
-          title: '菜 单',
-          icon: 'refresh'
-        }, {
-          alias: 'c',
-          title: '菜 单',
-          icon: 'add'
-        }]"></sidebar>
+        <sidebar current="b" :surface="surface"></sidebar>
       </div>
       <div  style="width: 20%;float:left" class="p0002">
-        <sidebar :curl=true current="b" :surface="[{
-          alias: 'a',
-          title: '选中菜单',
-          icon: 'scan'
-        }, {
-          alias: 'b',
-          title: '菜 单',
-          icon: 'refresh'
-        }, {
-          alias: 'c',
-          title: '菜 单',
-          icon: 'add'
-        }]"></sidebar>
+        <sidebar :curl=true current="b" :surface="surface"></sidebar>
       </div>
     </div>
-    <!--第二行-->
-    <div class="row m2000">
-      <div  style="width: 30%;float:left">
-        <sidebar size="sm" current="a" :surface="[{
-          alias: 'a',
-          title: '选 中'
-        }, {
-          alias: 'b',
-          title: '菜 单'
-        }, {
-          alias: 'c',
-          title: '菜 单'
-        }]"></sidebar>
-      </div>
-      <div  style="width: 48%;float:left" class="p0002">
-        <sidebar size="sm"  current="b" :surface="[{
-          alias: 'a',
-          title: '选中菜单',
-          icon: 'scan'
-        }, {
-          alias: 'b',
-          title: '菜 单',
-          icon: 'refresh'
-        }, {
-          alias: 'c',
-          title: '菜 单',
-          icon: 'add'
-        }]"></sidebar>
-      </div>
-      <div  style="width: 20%;float:left" class="p0002">
-        <sidebar :curl=true size="sm"  current="b" :surface="[{
-          alias: 'a',
-          title: '选中菜单',
-          icon: 'scan'
-        }, {
-          alias: 'b',
-          title: '菜 单',
-          icon: 'refresh'
-        }, {
-          alias: 'c',
-          title: '菜 单',
-          icon: 'add'
-        }]"></sidebar>
-      </div>
-    </div>
+
 
     <!--white theme-->
     <div class="row m2000">
       <div  style="width: 30%;float:left">
-        <sidebar theme="white" size="sm" current="a" :surface="surface"></sidebar>
+        <sidebar theme="white" size="sm" current="a" >
+          <sidebar-item
+            v-for="item in surface"
+            :alias="item.alias"
+            :title="item.title"
+            :icon="item.icon"
+          />
+        </sidebar>
       </div>
       <div  style="width: 48%;float:left" class="p0002">
         <sidebar  theme="white" size="sm"  current="a" :surface="surface"></sidebar>
@@ -132,12 +62,14 @@
 
 <script>
 import Sidebar from './sidebar'
+import sidebarItem from './sidebar-item'
 
 
 export default {
   name: 'sidebarDemo',
   components: {
-    Sidebar
+    Sidebar,
+    sidebarItem
   },
   created() {
     setTimeout(() => {
@@ -157,6 +89,16 @@ export default {
     return {
       current: 'a',
       curl: false,
+      surface1: [{
+        alias: 'a',
+        title: '选 中'
+      }, {
+        alias: 'b',
+        title: '菜 单'
+      }, {
+        alias: 'c',
+        title: '菜 单'
+      }],
       surface: [{
         alias: 'a',
         title: '选 中',
