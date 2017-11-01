@@ -1,23 +1,23 @@
 <template>
-<ul class="list-hack" ref="list">
- <li class="down-fresh" v-show="pullState>0&&mode==='swipeDown'">
+<div class="list-hack" ref="list">
+ <div class="down-fresh" v-show="pullState>0&&mode==='swipeDown'">
     <p>
       <i class="icon iconfont icon-loading" :class="[
        isloading?'loading':''
       ]"></i>
       <span>{{notice[pullState]}}</span>
     </p>
- </li>
- <li class="up-fresh" v-show="pullState>0&&mode==='swipeUp'">
+ </div>
+ <div class="up-fresh" v-show="pullState>0&&mode==='swipeUp'">
    <p>
      <i class="icon iconfont icon-loading" :class="[
       isloading?'loading':''
      ]"></i>
      <span>{{notice[pullState]}}</span>
    </p>
- </li>
+ </div>
   <slot></slot>
-</ul>
+</div>
 </template>
 
 <script>

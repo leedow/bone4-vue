@@ -2,7 +2,7 @@
   "name": "bone4",
   "description": "UI Framework based on Bone4 and Vue2.0",
   "author": "leedow",
-  "version": "1.3.0",
+  "version": "1.3.2",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",

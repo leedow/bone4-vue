@@ -11,6 +11,7 @@
         :stock="item.stock"
         :amount="item.amount"
         :flag="item.flag"
+        :oldprice="10"
         ratio=0.9
         price-unit="元"
         @on-click="toast('点击详情')"
@@ -32,6 +33,8 @@
         :stock="item.stock"
         :amount="item.amount"
         :flag="item.flag"
+        :price="1111"
+        :oldprice="10"
         ratio=0.9
         price-unit="元"
         @on-click="toast('点击详情')"

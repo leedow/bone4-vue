@@ -33,6 +33,10 @@ export default {
       type: Number,
       default: 0
     },
+    oldprice: {
+      type: Number,
+      default: 0
+    },
     priceUnit: {
       default: ''
     },
@@ -80,10 +84,12 @@ export default {
      * 购买商品
      */
     buy(amount) {
+      this.amountSelf = amount
       if (amount === 0) {
         this.$emit('on-delete', this)
       } else if (amount === this.max) {
         this.$emit('on-limit', this)
+        this.$emit('on-buy', this)
       } else {
         this.$emit('on-buy', this)
       }

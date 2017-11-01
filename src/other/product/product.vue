@@ -23,10 +23,14 @@
 
     <p class="product-content tl p0010">{{content}}</p>
 
+    <p class="product-content tl" style="margin-top:-10px;margin-bottom:-5px;text-decoration:line-through" v-if="oldprice>0">
+      原价 {{oldprice}} {{priceUnit}}
+    </p>
+
     <div class="flex-box tl p0000" style="align-self:flex-end;">
       <div class="flex-item-1 color-highlight font-md">
         {{price}}
-        <span v-if="priceUnit!==''" class="price-unit"> {{priceUnit}}</span>
+        <span v-if="priceUnit!==''" class="price-unit">{{priceUnit}}</span>
       </div>
       <div class="flex-item" style="padding-top:2px;">
         <div class="flex-box number" style="width: 80px;">

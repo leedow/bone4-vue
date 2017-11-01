@@ -14,7 +14,7 @@
           <span class="product-flag" v-if="flag!==''">{{flag}}</span>
         </div>
       </div>
-      <div class="flex-item-1  tl p0002">
+      <div class="flex-item-1  tl p0001">
         <h3 class="font-md tl product-title" @click="handleClick">
           {{name}}
           <span class="product-tip" v-if="tip!==''">
@@ -23,6 +23,10 @@
         </h3>
         <p class="f-light font-sm">
           {{content}}
+        </p>
+
+        <p class="f-light font-sm" style="text-decoration:line-through" v-if="oldprice>0">
+          原价 {{oldprice}} {{priceUnit}}
         </p>
 
         <div class="flex-box tl p0000" style="align-self:flex-end;">
