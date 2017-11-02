@@ -14,24 +14,25 @@
           <span class="product-flag" v-if="flag!==''">{{flag}}</span>
         </div>
       </div>
-      <div class="flex-item-1  tl p0001">
+      <div class="flex-box flex-item-1 flex-direction-colunm  tl p0001 product-info">
         <h3 class="font-md tl product-title" @click="handleClick">
           {{name}}
           <span class="product-tip" v-if="tip!==''">
             {{tip}}
           </span>
         </h3>
+        <div class="product-info">
         <p class="f-light font-sm">
           {{content}}
         </p>
-
         <p class="f-light font-sm" style="text-decoration:line-through" v-if="oldprice>0">
-          原价 {{oldprice}} {{priceUnit}}
+          原价 {{pricePreUnit}} {{oldprice}} {{priceUnit}}
         </p>
+        </div>
 
-        <div class="flex-box tl p0000" style="align-self:flex-end;">
+        <div class="flex-box tl p0000">
           <div class="flex-item-1 color-highlight" style="font-size:18px;">
-            {{price}}<span class="price-unit"> 元</span>
+            <span class="font-sm">{{pricePreUnit}}</span> {{price}}<span class="price-unit"> {{priceUnit}}</span>
           </div>
           <div class="flex-item" style="padding-top:2px;">
             <div class="flex-box number" style="width: 80px;">

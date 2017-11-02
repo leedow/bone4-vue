@@ -14,26 +14,28 @@
       <span class="product-flag" v-if="flag!==''">{{flag}}</span>
     </div>
 
-    <h3 class="tl product-title p1000" @click="handleClick">
+    <h3 class="tl product-title m1000" @click="handleClick">
       {{name}}
       <span class="product-tip" v-if="tip!==''">
         {{tip}}
       </span>
     </h3>
 
+    <div class="product-info">
     <p class="product-content tl p0010">{{content}}</p>
 
     <p class="product-content tl" style="margin-top:-10px;margin-bottom:-5px;text-decoration:line-through" v-if="oldprice>0">
       原价 {{oldprice}} {{priceUnit}}
     </p>
+  </div>
 
     <div class="flex-box tl p0000" style="align-self:flex-end;">
       <div class="flex-item-1 color-highlight font-md">
-        {{price}}
+        <span class="font-sm">{{pricePreUnit}}</span> {{price}}
         <span v-if="priceUnit!==''" class="price-unit">{{priceUnit}}</span>
       </div>
       <div class="flex-item" style="padding-top:2px;">
-        <div class="flex-box number" style="width: 80px;">
+        <div class="flex-box number" style="width:80px;">
           <bo-number v-if="stock>0" ref="number" :max="max" @on-change="buy"  :value="amountSelf" />
         </div>
         <span v-if="stock<=0" class="font-light font-sm p1000" style="float:right">库存不足</span>

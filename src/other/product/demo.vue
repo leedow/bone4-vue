@@ -13,7 +13,6 @@
         :flag="item.flag"
         :oldprice="10"
         ratio=0.9
-        price-unit="元"
         @on-click="toast('点击详情')"
         @on-delete="toast('商品归零')"
         @on-limit="toast('达到上限')"
@@ -34,9 +33,9 @@
         :amount="item.amount"
         :flag="item.flag"
         :price="1111"
-        :oldprice="10"
+
         ratio=0.9
-        price-unit="元"
+
         @on-click="toast('点击详情')"
         @on-delete="toast('商品归零')"
         @on-limit="toast('达到上限')"
@@ -78,7 +77,7 @@ export default {
         amount: 1
       }, {
         name: '美味蛋糕',
-        content: '美味美味',
+        content: '非常好吃的饼干哦~~',
         image: 'http://pic02.keyinong.com/product/pic/20171018151330_64818.jpg?imageView2/1/w/200/h/200',
         limit: 10,
         stock: 10,

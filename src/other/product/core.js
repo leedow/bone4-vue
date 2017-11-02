@@ -40,6 +40,9 @@ export default {
     priceUnit: {
       default: ''
     },
+    pricePreUnit: {
+      default: '¥'
+    },
     unit: {
       default: ''
     },

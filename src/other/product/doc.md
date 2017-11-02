@@ -10,6 +10,8 @@
 | image | 商品图片 | `String` | `''` |
 | ratio | 商品图片长宽(高/宽)比例 | `Number` | `''` |
 | price | 商品价格 | `Number` | `''` |
+| priceUnit | 商品价格单位（显示在价格后面） | `String` | `''` |
+| pricePreUnit | 商品价格单位（显示在价格前面） | `String` | `'¥'` |
 | oldprice | 商品原格 | `Number` | `''` |
 | tip | 商品标题后小标内容 | `String` | `''` |
 | flag | 商品图片小标 | `String` | `''` |
