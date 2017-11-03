@@ -4,7 +4,7 @@
       <menu-vertical>
         <span slot="body">值 {{val}}</span>
         <span slot="dock" style="padding-right: 20px;">
-          <bo-number max="5" value="6" @on-change="change"/>
+          <bo-number max="5" value="0" @on-change="change"/>
         </span>
       </menu-vertical>
     </li>
@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       val: 1,
-      val2: 3,
+      val2: 2,
       val3: 1
     }
   }

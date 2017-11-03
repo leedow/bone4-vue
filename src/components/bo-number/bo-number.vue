@@ -87,6 +87,8 @@ export default {
       this.valueSelf = this.valueOld
     },
     fresh(val) {
+      console.log('fresh') // eslint-disable-line
+
       const newVal = val || this.valueSelf
 
       if (this.valueSelf < this.min) {
@@ -125,7 +127,7 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
     this.fresh()
   },
   watch: {

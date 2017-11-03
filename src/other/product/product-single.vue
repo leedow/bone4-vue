@@ -14,27 +14,27 @@
           <span class="product-flag" v-if="flag!==''">{{flag}}</span>
         </div>
       </div>
-      <div class="flex-box flex-item-1 flex-direction-colunm  tl p0001 product-info">
+      <div class="flex-item-1 tl p0001 product-info">
         <h3 class="font-md tl product-title" @click="handleClick">
           {{name}}
           <span class="product-tip" v-if="tip!==''">
             {{tip}}
           </span>
         </h3>
-        <div class="product-info">
+        <div class="product-intro">
         <p class="f-light font-sm">
           {{content}}
         </p>
-        <p class="f-light font-sm" style="text-decoration:line-through" v-if="oldprice>0">
+        <p class="f-light font-sm" style="text-decoration:line-through" v-if="oldprice>0 && oldprice!=price">
           原价 {{pricePreUnit}} {{oldprice}} {{priceUnit}}
         </p>
         </div>
 
-        <div class="flex-box tl p0000">
-          <div class="flex-item-1 color-highlight" style="font-size:18px;">
+        <div class="flex-box tl product-dock p0001">
+          <div class="flex-item-1 color-highlight" style="font-size:16px;white-space:nowrap">
             <span class="font-sm">{{pricePreUnit}}</span> {{price}}<span class="price-unit"> {{priceUnit}}</span>
           </div>
-          <div class="flex-item" style="padding-top:2px;">
+          <div class="flex-item" >
             <div class="flex-box number" style="width: 80px;">
               <bo-number v-if="stock>0" ref="number" :max="max" @on-change="buy"  :value="amount" />
             </div>

@@ -21,16 +21,15 @@
       </span>
     </h3>
 
-    <div class="product-info">
+    <div class="product-intro">
     <p class="product-content tl p0010">{{content}}</p>
-
-    <p class="product-content tl" style="margin-top:-10px;margin-bottom:-5px;text-decoration:line-through" v-if="oldprice>0">
+    <p class="product-content tl" style="margin-top:-10px;margin-bottom:-5px;text-decoration:line-through" v-if="oldprice>0 && oldprice!=price">
       原价 {{oldprice}} {{priceUnit}}
     </p>
   </div>
 
-    <div class="flex-box tl p0000" style="align-self:flex-end;">
-      <div class="flex-item-1 color-highlight font-md">
+    <div class="flex-box tl product-dock" style="align-self:flex-end;">
+      <div class="flex-item-1 color-highlight font-md" style="white-space:nowrap">
         <span class="font-sm">{{pricePreUnit}}</span> {{price}}
         <span v-if="priceUnit!==''" class="price-unit">{{priceUnit}}</span>
       </div>

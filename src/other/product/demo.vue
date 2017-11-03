@@ -11,7 +11,7 @@
         :stock="item.stock"
         :amount="item.amount"
         :flag="item.flag"
-        :oldprice="10"
+
         ratio=0.9
         @on-click="toast('点击详情')"
         @on-delete="toast('商品归零')"
@@ -32,7 +32,7 @@
         :stock="item.stock"
         :amount="item.amount"
         :flag="item.flag"
-        :price="1111"
+        :price="item.price"
 
         ratio=0.9
 
@@ -69,18 +69,19 @@ export default {
     return {
       data: [{
         name: '绝味饼干',
-        content: '非常好吃的饼干哦~~',
         tip: '限购',
         image: 'http://pic02.keyinong.com/product/pic/20171018150835_29785.jpg?imageView2/1/w/200/h/200',
         limit: 10,
         stock: 10,
-        amount: 1
+        price: 10,
+        amount: 0
       }, {
         name: '美味蛋糕',
         content: '非常好吃的饼干哦~~',
         image: 'http://pic02.keyinong.com/product/pic/20171018151330_64818.jpg?imageView2/1/w/200/h/200',
         limit: 10,
         stock: 10,
+        price: 10,
         amount: 1,
         flag: '剩余10件'
       }, {
@@ -89,13 +90,15 @@ export default {
         image: 'http://pic02.keyinong.com/product/pic/20171018145531_77564.jpg?imageView2/1/w/200/h/200',
         limit: 10,
         stock: 0,
+        price: 10,
         amount: 1
       }, {
-        name: '美味的栗子',
+        name: '美味的栗子美味的栗子美味的栗子美味的栗子美味的栗子美味的栗子',
         content: '激发活力无限',
         image: 'http://pic02.keyinong.com/product/pic/20171018145224_68398.jpg?imageView2/1/w/200/h/200',
         limit: 5,
         stock: 10,
+        price: 1000000000000,
         amount: 5
       }]
     }
