@@ -187,6 +187,12 @@ const Carousel =  (resolve) => {
   });
 };
 
+const ImgUploader =  (resolve) => {
+  require.ensure(['../components/img-uploader/demo'], () => {
+    resolve(require('../components/img-uploader/demo'));
+  });
+};
+
 
 /*eslint-enable */
 export default [{
@@ -285,4 +291,7 @@ export default [{
 }, {
   path: 'carousel',
   component: Carousel
+}, {
+  path: 'imgUploader',
+  component: ImgUploader
 }]

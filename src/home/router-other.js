@@ -12,6 +12,12 @@ const Shoppingbar = (resolve) => {
   });
 };
 
+const Playground = (resolve) => {
+  require.ensure(['../other/playground/demo'], () => {
+    resolve(require('../other/playground/demo'));
+  });
+};
+
 /*eslint-enable */
 export default [{
   path: 'product',
@@ -19,4 +25,7 @@ export default [{
 }, {
   path: 'shoppingBar',
   component: Shoppingbar
+}, {
+  path: 'playground',
+  component: Playground
 }]

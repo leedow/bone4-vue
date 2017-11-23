@@ -46,6 +46,7 @@
     <dmenu path="/mobile/demo/car" name="商品列表" />
     <dmenu path="/mobile/demo/seller" name="电商首页" />
     <dmenu path="/mobile/demo/map" name="地图收货地址" />
+    <dmenu path="/mobile/demo/imgUploader" name="上传图片" />
     <dmenu path="/mobile/other/product" name="商 品" />
     <dmenu path="/mobile/other/shoppingBar" name="购物车栏" />
   </ul>

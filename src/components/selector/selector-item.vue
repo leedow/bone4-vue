@@ -3,6 +3,7 @@
     :class="[selected?'selected':'']"
   >
     {{text}}
+    <slot />
   </li>
 </template>
 
@@ -14,6 +15,10 @@ export default {
     },
     text: {
       default: ''
+    },
+    // 额外数据
+    addon: {
+      default: null
     }
   },
   data() {
@@ -28,7 +33,8 @@ export default {
     handleClick() {
       this.$parent.handleClick({
         value: this.value,
-        text: this.text
+        text: this.text,
+        addon: this.addon
       })
     }
   },

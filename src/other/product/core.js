@@ -56,6 +56,10 @@ export default {
       default() {
         return {}
       }
+    },
+    // 是否显示购买按钮
+    canbuy: {
+      default: true
     }
   },
   data() {

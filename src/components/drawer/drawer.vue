@@ -28,7 +28,8 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$emit('on-layoutclick', this.show)
+      this.$emit('on-layoutclick', this.show) // 向前兼容保留方法
+      this.$emit('on-click', this.show)
     }
   },
   data() {

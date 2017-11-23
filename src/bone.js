@@ -30,6 +30,7 @@ import Back from './components/back/back'
 import Keyboard from './components/keyboard/keyboard'
 import PayPassword from './components/pay-password/pay-password'
 import AnimateNumber from './components/animate-number/animate-number'
+import ImgUploader from './components/img-uploader/img-uploader'
 
 Vue.prototype.$toast = Toast_
 Vue.prototype.$modal = Modal_
@@ -62,5 +63,6 @@ export {
   Back,
   PayPassword,
   Keyboard,
-  AnimateNumber
+  AnimateNumber,
+  ImgUploader
 }

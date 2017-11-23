@@ -34,7 +34,7 @@
           <div class="flex-item-1 color-highlight" style="font-size:16px;white-space:nowrap">
             <span class="font-sm">{{pricePreUnit}}</span> {{price}}<span class="price-unit"> {{priceUnit}}</span>
           </div>
-          <div class="flex-item" >
+          <div class="flex-item" v-if="canbuy">
             <div class="flex-box number" style="width: 80px;">
               <bo-number v-if="stock>0" ref="number" :max="max" @on-change="buy"  :value="amount" />
             </div>

@@ -16,7 +16,10 @@
 </template>
 
 <script>
+import selectorItem from './selector-item'
+
 export default {
+  item: selectorItem,
   props: {
     title: {
       type: String,
@@ -27,7 +30,7 @@ export default {
     },
     theme: {
       type: String,
-      default: 'default' // check |
+      default: 'default' // check | check-right
     },
     underline: { // 选项是否有下划线
       default: false

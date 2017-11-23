@@ -8,6 +8,9 @@ export default {
     price: {
       default: 0
     },
+    unit: {
+      default: '¥'
+    },
     icon: {
       default: 'gouwuche'
     },

@@ -33,7 +33,7 @@
         <span class="font-sm">{{pricePreUnit}}</span> {{price}}
         <span v-if="priceUnit!==''" class="price-unit">{{priceUnit}}</span>
       </div>
-      <div class="flex-item" style="padding-top:2px;">
+      <div class="flex-item" style="padding-top:2px;" v-if="canbuy">
         <div class="flex-box number" style="width:80px;">
           <bo-number v-if="stock>0" ref="number" :max="max" @on-change="buy"  :value="amountSelf" />
         </div>
