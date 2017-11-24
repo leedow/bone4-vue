@@ -18,7 +18,7 @@
    <dmenu path="/mobile/demo/calendar" name="日 历" />
    <dmenu path="/mobile/demo/bo-select" name="下拉菜单" />
    <dmenu path="/mobile/demo/selector" name="选择列表" />
-   <dmenu path="/mobile/demo/selectorTime" name="时间选择" />
+   <dmenu path="/mobile/demo/selector-time" name="时间选择" />
    <dmenu path="/mobile/demo/keyboard" name="数字键盘" />
   </ul>
 

@@ -71,6 +71,7 @@ export default {
     }
   },
   computed: {
+    // caculate hours can be selected
     h() {
       const h = []
       const hourMax = parseInt(this.maxTime.split(':')[0]) // eslint-disable-line
@@ -85,6 +86,7 @@ export default {
       }
       return h
     },
+    // caculate minutes can be selected
     m() {
       const count = Math.ceil(60 / this.minStep)
       const m = []
@@ -94,8 +96,21 @@ export default {
       const minMin = parseInt(this.minTime.split(':')[1]) // eslint-disable-line
 
       for (let i = 0; i < count; i += 1) {
-        if (this.hourSelf === hourMin) {
-          const min = i * this.minStep
+        const min = i * this.minStep
+        if (this.hourSelf == hourMin && this.hourSelf == hourMax) { // eslint-disable-line
+          if (min >= minMin && min <= minMax) {
+            m.push({
+              value: min,
+              text: this.trans(min)
+            })
+          }
+          if (this.minutesSelf > minMax) {
+            this.minutesSelf = minMax
+          }
+          if (this.minutesSelf < minMin) {
+            this.minutesSelf = minMin
+          }
+        } else if (this.hourSelf === hourMin) {
           if (min >= minMin) {
             m.push({
               value: min,
@@ -106,7 +121,6 @@ export default {
             this.minutesSelf = minMin
           }
         } else if (this.hourSelf === hourMax) {
-          const min = i * this.minStep
           if (min <= minMax) {
             m.push({
               value: min,

@@ -14,7 +14,7 @@
       ref="time"
       :time="time"
       minTime="14:25"
-      maxTime="18:30"
+      maxTime="14:25"
       minStep="5"
       @on-submit="submit"
     />
@@ -40,7 +40,7 @@ export default {
   },
   data() {
     return {
-      time: '00:00'
+      time: '14:25'
     }
   }
 }
