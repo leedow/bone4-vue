@@ -2,7 +2,7 @@
   <div class="">
     <tabs
       current="like"
-
+      theme="dark"
       @on-click="handleclick"
      :surface="[{
         alias: 'like',

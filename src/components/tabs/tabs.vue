@@ -43,7 +43,7 @@ export default {
   },
   data() {
     return {
-      current: this.current
+      //current: this.current
     }
   }
 }

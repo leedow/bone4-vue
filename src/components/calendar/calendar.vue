@@ -144,7 +144,7 @@ export default {
       this.currentMonth = month
       const days = this.getDaysOfMonth(month)
       const startDay = this.getStartDayOfMonth(month)
-      console.log('startDay'+startDay)
+      //console.log('startDay'+startDay)
       const todayDate = new Date().getDate()
 
 
@@ -173,7 +173,7 @@ export default {
             case 'todayafter': {
 
               if(this.currentMonth == new Date().getMonth()+1 && (this.currentYear == this.nowYear)){
-                if(todayDate > i){
+                if(todayDate > ii){
                   status = 'disable'
                 }
               }
@@ -190,7 +190,7 @@ export default {
             }
             case 'after': {
               if(this.currentMonth == new Date().getMonth()+1 && this.currentYear == this.nowYear){
-                if(todayDate >= i){
+                if(todayDate >= ii){
                   status = 'disable'
                 }
               }
