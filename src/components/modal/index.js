@@ -21,10 +21,13 @@ const Modal = {
       this.com.show = true
     }
 
+    this.com.$off()
+
     document.body.appendChild(this.com.$el) // eslint-disable-line
     return this.com
   },
   close() {
+    this.com.$off()
     this.com.show = false
   }
 }

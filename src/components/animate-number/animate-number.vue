@@ -1,6 +1,6 @@
 <template lang="html">
 <span>
-  {{valueSelf}}
+  {{valueStr}}
 </span>
 </template>
 
@@ -13,6 +13,10 @@ export default {
     // animate time (ms)
     animateTime: {
       default: 4000
+    },
+    //
+    length: {
+      default: 0
     }
   },
   data() {
@@ -46,10 +50,20 @@ export default {
       }, 1000 / 24)
     }
   },
-  computed: {},
+  computed: {
+    valueStr() {
+      if(this.length > 0){
+        return (Array(this.length).join(0) + this.valueSelf).slice(-this.length)
+      } else {
+        return this.valueSelf
+      }
+    }
+  },
   ready() {},
   attached() {},
-  methods: {},
+  methods: {
+
+  },
   components: {}
 }
 </script>
