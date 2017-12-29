@@ -133,7 +133,7 @@ export default {
       const d = new Date()
       d.setDate(1)
       d.setMonth(month - 1)
-
+      d.setFullYear(this.currentYear)
       return d.getDay() === 0 ? 7 : d.getDay()
     },
     /**
