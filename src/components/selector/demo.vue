@@ -21,7 +21,6 @@
     />
   </div>
 
-
   <div class="card card-square m2000 p2222">
     <div class="tl">
         选择的值：{{val}}
@@ -47,7 +46,6 @@
     />
   </div>
 
-
   <div class="card card-square m2000 p2222">
     <div class="tl">
         选择的值：{{val3}}
@@ -61,11 +59,14 @@
     </selector>
   </div>
 
-
-  <div class="card card-square m2000 p0101">
+  <div class="card card-square m2000 p1101">
+    <div class="tl p1111">
+        支持取消选中
+    </div>
     <selector
       underline=true
       theme="check-right"
+      unselected=true
       v-model="val4"
       @on-change="handleclick"
     >
@@ -83,14 +84,12 @@
         <div class="menu-vertical-item">
           <div class="menu-icon color-comfort" >
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAMAAAC5zwKfAAAAA3NCSVQICAjb4U/gAAABAlBMVEX///8KcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaQKcrEHaaT////6/P33+vzw9vnr8vfn8Pbh7fTe6/Lb6fHU5e/R4+7Q4u3I4O7G3OnC2ei81ua21ui00eOz0eKqzuSrzN+jxtyex+CZwNiRwNySvNaNutWLuNOEtNF7tc57s9R6rcxxrtJwp8lqpMdgncNenMJPmsdXmL9Tlb5Ij7pCi7c3jcA6hrQ0grIohLstfq8ne60Ye7YieKsgdqsSd7QZc60YcacLc7IKcrEQbKQGbasHaaT+trOsAAAAVnRSTlMAEREiIkREVVVmZnd3iIiZmaqqu7vMzN3d7u7//////////////////////////////////////////////////////////////////////////////2nqzDkAAAAJcEhZcwAACvAAAArwAUKsNJgAAAAYdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3Jrc0+zH04AAAQRdEVYdFhNTDpjb20uYWRvYmUueG1wADw/eHBhY2tldCBiZWdpbj0iICAgIiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgICAgICAgICAgIHhtbG5zOnhtcE1N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" alt="">
-        
+
           </div>
           <div class="menu-body font-normal">
             用户信息
           </div>
         </div>
-
-
         </selector-item>
     </selector>
   </div>

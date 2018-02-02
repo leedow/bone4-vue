@@ -30,7 +30,7 @@ export default {
     },
     theme: {
       type: String,
-      default: 'default' // check | check-right
+      default: 'default' // check | check-right | box
     },
     underline: { // 选项是否有下划线
       default: false
@@ -50,6 +50,9 @@ export default {
     },
     maxHeight: {
       default: ''
+    },
+    unselected: { // 再次点击是否可以取消选中
+      default: false
     }
   },
   computed: {
@@ -79,8 +82,13 @@ export default {
      * 选择事件
      */
     handleClick(value) {
-      this.$emit('on-change', value)
-      this.$emit('input', value.value)
+      if (this.unselected && (value.value === this.value)) {
+        this.$emit('on-change', {})
+        this.$emit('input', null)
+      } else {
+        this.$emit('on-change', value)
+        this.$emit('input', value.value)
+      }
     },
     /**
      * 获取输入值
@@ -92,7 +100,7 @@ export default {
      * 获取输入值
      */
     setValue(val) {
-      console.log('警告：selector:setValue()是一个向前兼容的方法，不推荐使用')
+      console.log('警告：selector:setValue()是一个向前兼容的方法，不推荐使用') // eslint-disable-line
       this.$emit('input', val)
       // this.valueSelf = val
     },
