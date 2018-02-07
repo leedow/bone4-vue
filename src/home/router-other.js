@@ -18,6 +18,13 @@ const Playground = (resolve) => {
   });
 };
 
+const Content = (resolve) => {
+  require.ensure(['../other/content/demo'], () => {
+    resolve(require('../other/content/demo'));
+  });
+};
+
+
 /*eslint-enable */
 export default [{
   path: 'product',
@@ -28,4 +35,7 @@ export default [{
 }, {
   path: 'playground',
   component: Playground
+}, {
+  path: 'content',
+  component: Content
 }]

@@ -49,6 +49,7 @@
     <dmenu path="/mobile/demo/imgUploader" name="上传图片" />
     <dmenu path="/mobile/other/product" name="商 品" />
     <dmenu path="/mobile/other/shoppingBar" name="购物车栏" />
+    <dmenu path="/mobile/other/content" name="收缩文本框" />
   </ul>
 </div>
 </template>

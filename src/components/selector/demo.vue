@@ -4,7 +4,6 @@
     <selector
         v-model="val1"
         max-height="70px"
-
         :options="[
           {
             value: 1,
