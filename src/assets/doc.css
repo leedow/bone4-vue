@@ -1,18 +1,17 @@
 
 body, html{
-
-
-
+ height: 100%;
+ overflow-y: auto;
+ background: #f2f2f2;
 }
 
 #left, #mid, #right,#child-left, #child-mid, #child-right{
-
   position: absolute;;
   height: 100%;
   overflow-y: auto;
 }
 
-#frame222{
+#frame{
   position: absolute;
   top:0;
   left: 120px;
@@ -20,7 +19,7 @@ body, html{
   bottom:0;
   border:0;
   height: 100%;
-  display: none;
+
   overflow-y: auto;
 
 }
@@ -50,7 +49,6 @@ body, html{
   left:0;
   top:0;
   background: #3492e6;
-
 }
 
 #child-left{
@@ -64,66 +62,58 @@ body, html{
   padding: 20px;
   top:0;
   left:120px;
-  width: 500px;
+  width: 400px;
   padding: 30px;
-  background: #fff;
-
+  background: #f9f9f9;
+  box-shadow: 0px 2px 8px rgba(44,44,44,0.1) inset;
 
 }
-
-.sub-menu{
-  padding-top: 71px;
-  position: absolute;
-  left:120px;
-  top: 0;
-  height: 100%;
-  z-index: 999;
-  width: 120px;
-  background: #fff;
-  border-right: 1px #eee solid;
-}
-
-.mid-sub{padding-left: 140px !important;}
 
 #right, #child-right{
   top:0;
   right:0;
-  left: 620px;
+  left: 520px;
   bottom:0;
   text-align: left;
-  background: #f9f9f9;
-  border-left:1px #eee solid;
-
+  background: #f2f2f2;
 }
-
-#right table{
-  background: #fff;
-}
-
-#right table th{
-  font-weight: bold;
-  background: #fff;
-}
-
 
 #content, #child-content{
-
-  padding:20px;
-  padding-top:10px;
+  background: #fff;
+  padding:10px 20px;
 
 }
 
+.code{
+  position: relative;
+}
 .code-current{
   display: block !important;
   position: relative !important;
 }
 
 .code-current:before{
-  content: '\e608';
+  content: '\e656';
   font-family: 'iconfont';
   position: absolute;
   right:-7px;
   top:-7px;
+  color:#FF6633;
+  font-size: 14px;
+  line-height: 14px;
+  height: 14px;
+  width: 14px;
+  border-radius: 7px;
+  background: #fff;
+  z-index: 999;
+}
+
+.code-current-mobile:before{
+  content: '\e656';
+  font-family: 'iconfont';
+  position: absolute;
+  right:2px;
+  top:2px;
   color:#FF6633;
   font-size: 14px;
   line-height: 14px;
@@ -148,19 +138,6 @@ body, html{
   width: 100%;
   clear: both;
   margin: 20px 0;
-  position: relative;
-}
-.divi:before{
-  content:' ';
-  background: #fff;
-  position: absolute;
-  left: 50%;
-  top: -5px;
-  margin-left: -4px;
-  width: 9px;
-  height: 9px;
-  border-radius: 5px;
-  border:1px #eee solid;
 }
 
 .left-scroll::-webkit-scrollbar {
@@ -174,8 +151,6 @@ body, html{
   background-color: #fff;
   border-left: 2px solid transparent;
 }
-
-
 
 .check{
   float:left;
@@ -213,10 +188,12 @@ body, html{
     height: 0;
   }
 
-
 .flex-center{
   display: flex;
   align-items: center;
+}
 
-
+.mobile{
+  margin: 0 auto;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
 }

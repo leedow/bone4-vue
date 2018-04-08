@@ -22,11 +22,11 @@
     </h3>
 
     <div class="product-intro">
-    <p class="product-content tl p0010">{{content}}</p>
-    <p class="product-content tl" style="margin-top:-10px;margin-bottom:-5px;text-decoration:line-through" v-if="oldprice>0 && oldprice!=price">
-      原价 {{oldprice}} {{priceUnit}}
-    </p>
-  </div>
+      <p class="product-content tl p0010">{{content}}</p>
+      <p class="product-content tl" style="text-decoration:line-through" v-if="oldprice>0 && oldprice!=price">
+        原价 {{oldprice}} {{priceUnit}}
+      </p>
+    </div>
 
     <div class="flex-box tl product-dock" style="align-self:flex-end;">
       <div class="flex-item-1 color-highlight font-md" style="white-space:nowrap">

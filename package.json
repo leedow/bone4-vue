@@ -2,7 +2,7 @@
   "name": "bone4",
   "description": "UI Framework based on Bone4 and Vue2.0",
   "author": "leedow",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
@@ -19,11 +19,13 @@
   "main": "./src/bone.js",
   "dependencies": {
     "bone4-ui": "0.0.2",
+    "jquery": "^3.3.1",
     "lrz": "^4.9.40",
     "marked": "^0.3.6",
     "vue": "^2.1.0",
     "vue-amap": "^0.2.4",
-    "vue-router": "^2.0.3"
+    "vue-router": "^2.0.3",
+    "zepto": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

@@ -3,7 +3,11 @@
 // import 'bone4-ui/build/r.css'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import '../static/css/demo.css'
+import 'bone4-ui/build/bone-all.css'
+import 'bone4-ui/build/bone-page-mobile.css'
+import 'bone4-ui/build/r.css'
+import './assets/doc.css'
+import './assets/prism.css'
 import App from './home/app'
 import MobileApp from './home/app-mobile'
 import Demos from './home/demos-list'
@@ -24,11 +28,11 @@ const router = new VueRouter({
       path: '/',
       component: App
     },
-    {
+    { // PC pages
       path: '/category/:category/component/:com',
       component: App
     },
-    {
+    { // mobile pages
       path: '/mobile',
       component: MobileApp,
       children: [{

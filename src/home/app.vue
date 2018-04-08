@@ -29,24 +29,41 @@
 
     </div>
 
-    <div class="sub-menu" v-show="showSub">
-      <sidebar-menu ref="sub" :surface="subSurface" size="sm" theme="white" :current="currentComponent" @on-click="handleSubbar"></sidebar-menu>
-    </div>
+    <div id="frame">
+      <div id="child-left" class="left-scroll">
+        <div v-show="showSub">
+          <sidebar-menu ref="sub" :surface="subSurface" size="sm" theme="white" :current="currentComponent" @on-click="handleSubbar"></sidebar-menu>
+        </div>
+      </div>
+      <div id="child-mid" class="thin-scroll">
+        <div class="mobile" style="width: 330px;height: 560px;margin:0 auto;">
+          <div class="screen" style="background:#f2f2f2;overflow:hidden;height:470px;">
+              <iframe :src="'#/mobile/demo/' +currentComponent" width="320" height="470" style="border:0;" class="thin-scroll"></iframe>
+          </div>
+        </div>
+      </div>
+      <div id="child-right">
+        <div id="content" class="markdown">
 
-    <div id="mid" class="thin-scroll" :class="[showSub?'mid-sub':'']" >
-      <div class="mobile" style="width: 330px;height: 560px;margin:0 auto;">
-        <div class="screen" style="background:#f2f2f2;overflow:hidden;height:470px;">
-            <iframe :src="'#/mobile/demo/' +currentComponent" width="320" height="470" style="border:0;" class="thin-scroll"></iframe>
         </div>
       </div>
     </div>
 
-    <div id="right" class="thin-scroll">
-      <div id="content" class="markdown">
-
+    <!--
+      <div id="mid" class="thin-scroll" :class="[showSub?'mid-sub':'']" >
+        <div class="mobile" style="width: 330px;height: 560px;margin:0 auto;">
+          <div class="screen" style="background:#f2f2f2;overflow:hidden;height:470px;">
+              <iframe :src="'#/mobile/demo/' +currentComponent" width="320" height="470" style="border:0;" class="thin-scroll"></iframe>
+          </div>
+        </div>
       </div>
-    </div>
 
+      <div id="right" class="thin-scroll">
+        <div id="content" class="markdown">
+
+        </div>
+      </div>
+    -->
   </div>
 </template>
 <style lang="less">
@@ -64,6 +81,8 @@
 <script>
 // PC端文档&DEMO
 import marked from 'marked'
+import $ from 'jquery'
+import Prism from '../assets/prism'
 import SidebarMenu from '../components/sidebar/sidebar'
 import Sidebar from '../components/sidebar/demo'
 
